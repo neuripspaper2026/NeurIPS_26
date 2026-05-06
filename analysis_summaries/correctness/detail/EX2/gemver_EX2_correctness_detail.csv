@@ -1,0 +1,151 @@
+timestamp,stage,dataset,model,version,file_name,status,message,checker
+2026-01-24 17:15:56,check,extra-large,claude,1,output_claude_v1_extra-large_output.txt,fail,"Float mismatch at row=3, col=1: 8346.5 vs 8113.09, diff=233.40999999999985 > tol=0.002",polybench
+2026-01-24 17:15:56,check,large,claude,1,output_claude_v1_large_output.txt,fail,"Float mismatch at row=3, col=1: 2089.91 vs 657.79, diff=1432.12 > tol=0.002",polybench
+2026-01-24 17:15:56,check,medium,claude,1,output_claude_v1_medium_output.txt,fail,"Float mismatch at row=3, col=1: 84.64 vs 53.96, diff=30.68 > tol=0.002",polybench
+2026-01-24 17:15:56,check,mini,claude,1,output_claude_v1_mini_output.txt,fail,"Float mismatch at row=3, col=3: 621.14 vs 510.04, diff=111.09999999999997 > tol=0.002",polybench
+2026-01-24 17:15:56,check,small,claude,1,output_claude_v1_small_output.txt,fail,"Float mismatch at row=3, col=1: 7.89 vs 5.14, diff=2.75 > tol=0.002",polybench
+2026-01-24 17:15:56,check,extra-large,claude,2,output_claude_v2_extra-large_output.txt,fail,"Float mismatch at row=13, col=2: 20434177713.78 vs 20434177713.79, diff=0.01000213623046875 > tol=0.002",polybench
+2026-01-24 17:15:56,check,large,claude,2,output_claude_v2_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,claude,2,output_claude_v2_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,claude,2,output_claude_v2_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,claude,2,output_claude_v2_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,claude,3,output_claude_v3_extra-large_output.txt,fail,"Float mismatch at row=3, col=1: 8346.5 vs 3161.59, diff=5184.91 > tol=0.002",polybench
+2026-01-24 17:15:56,check,large,claude,3,output_claude_v3_large_output.txt,fail,"Float mismatch at row=3, col=1: 2089.91 vs 479.02, diff=1610.8899999999999 > tol=0.002",polybench
+2026-01-24 17:15:56,check,medium,claude,3,output_claude_v3_medium_output.txt,fail,"Float mismatch at row=3, col=1: 84.64 vs 29.67, diff=54.97 > tol=0.002",polybench
+2026-01-24 17:15:56,check,mini,claude,3,output_claude_v3_mini_output.txt,fail,"Float mismatch at row=3, col=1: 0.97 vs 0.76, diff=0.20999999999999996 > tol=0.002",polybench
+2026-01-24 17:15:56,check,small,claude,3,output_claude_v3_small_output.txt,fail,"Float mismatch at row=3, col=1: 7.89 vs 3.25, diff=4.64 > tol=0.002",polybench
+2026-01-24 17:15:56,check,extra-large,claude,4,output_claude_v4_extra-large_output.txt,fail,"Float mismatch at row=13, col=2: 20434177713.78 vs 20434177713.79, diff=0.01000213623046875 > tol=0.002",polybench
+2026-01-24 17:15:56,check,large,claude,4,output_claude_v4_large_output.txt,fail,"Float mismatch at row=42, col=7: 9895315077.07 vs 9895315077.06, diff=0.010000228881835938 > tol=0.002",polybench
+2026-01-24 17:15:56,check,medium,claude,4,output_claude_v4_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,claude,4,output_claude_v4_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,claude,4,output_claude_v4_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,claude,5,output_claude_v5_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,claude,5,output_claude_v5_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,claude,5,output_claude_v5_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,claude,5,output_claude_v5_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,claude,5,output_claude_v5_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,claude,6,output_claude_v6_extra-large_output.txt,fail,"Float mismatch at row=46, col=19: 88245432312.12 vs 88245432312.11, diff=0.0099945068359375 > tol=0.002",polybench
+2026-01-24 17:15:56,check,large,claude,6,output_claude_v6_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,claude,6,output_claude_v6_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,claude,6,output_claude_v6_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,claude,6,output_claude_v6_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,claude,7,output_claude_v7_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,claude,7,output_claude_v7_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,claude,7,output_claude_v7_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,claude,7,output_claude_v7_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,claude,7,output_claude_v7_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,claude,8,output_claude_v8_extra-large_output.txt,fail,"Float mismatch at row=13, col=2: 20434177713.78 vs 20434177713.79, diff=0.01000213623046875 > tol=0.002",polybench
+2026-01-24 17:15:56,check,large,claude,8,output_claude_v8_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,claude,8,output_claude_v8_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,claude,8,output_claude_v8_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,claude,8,output_claude_v8_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,claude,9,output_claude_v9_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,claude,9,output_claude_v9_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,claude,9,output_claude_v9_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,claude,9,output_claude_v9_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,claude,9,output_claude_v9_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,claude,10,output_claude_v10_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,claude,10,output_claude_v10_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,claude,10,output_claude_v10_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,claude,10,output_claude_v10_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,claude,10,output_claude_v10_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,gpt5.1,1,output_gpt5.1_v1_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,gpt5.1,1,output_gpt5.1_v1_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,gpt5.1,1,output_gpt5.1_v1_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,gpt5.1,1,output_gpt5.1_v1_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,gpt5.1,1,output_gpt5.1_v1_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,gpt5.1,2,output_gpt5.1_v2_extra-large_output.txt,fail,"Float mismatch at row=13, col=2: 20434177713.78 vs 20434177713.79, diff=0.01000213623046875 > tol=0.002",polybench
+2026-01-24 17:15:56,check,large,gpt5.1,2,output_gpt5.1_v2_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,gpt5.1,2,output_gpt5.1_v2_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,gpt5.1,2,output_gpt5.1_v2_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,gpt5.1,2,output_gpt5.1_v2_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,gpt5.1,3,output_gpt5.1_v3_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,gpt5.1,3,output_gpt5.1_v3_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,gpt5.1,3,output_gpt5.1_v3_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,gpt5.1,3,output_gpt5.1_v3_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,gpt5.1,3,output_gpt5.1_v3_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,gpt5.1,4,output_gpt5.1_v4_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,gpt5.1,4,output_gpt5.1_v4_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,gpt5.1,4,output_gpt5.1_v4_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,gpt5.1,4,output_gpt5.1_v4_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,gpt5.1,4,output_gpt5.1_v4_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,gpt5.1,5,output_gpt5.1_v5_extra-large_output.txt,fail,"Float mismatch at row=13, col=2: 20434177713.78 vs 20434177713.79, diff=0.01000213623046875 > tol=0.002",polybench
+2026-01-24 17:15:56,check,large,gpt5.1,5,output_gpt5.1_v5_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,gpt5.1,5,output_gpt5.1_v5_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,gpt5.1,5,output_gpt5.1_v5_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,gpt5.1,5,output_gpt5.1_v5_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,gpt5.1,6,output_gpt5.1_v6_extra-large_output.txt,fail,"Float mismatch at row=13, col=2: 20434177713.78 vs 20434177713.79, diff=0.01000213623046875 > tol=0.002",polybench
+2026-01-24 17:15:56,check,large,gpt5.1,6,output_gpt5.1_v6_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,gpt5.1,6,output_gpt5.1_v6_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,gpt5.1,6,output_gpt5.1_v6_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,gpt5.1,6,output_gpt5.1_v6_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,gpt5.1,7,output_gpt5.1_v7_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,gpt5.1,7,output_gpt5.1_v7_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,gpt5.1,7,output_gpt5.1_v7_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,gpt5.1,7,output_gpt5.1_v7_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,gpt5.1,7,output_gpt5.1_v7_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,gpt5.1,8,output_gpt5.1_v8_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,gpt5.1,8,output_gpt5.1_v8_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,gpt5.1,8,output_gpt5.1_v8_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,gpt5.1,8,output_gpt5.1_v8_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,gpt5.1,8,output_gpt5.1_v8_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,gpt5.1,9,output_gpt5.1_v9_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,gpt5.1,9,output_gpt5.1_v9_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,gpt5.1,9,output_gpt5.1_v9_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,gpt5.1,9,output_gpt5.1_v9_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,gpt5.1,9,output_gpt5.1_v9_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,gpt5.1,10,output_gpt5.1_v10_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,gpt5.1,10,output_gpt5.1_v10_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,gpt5.1,10,output_gpt5.1_v10_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,gpt5.1,10,output_gpt5.1_v10_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,gpt5.1,10,output_gpt5.1_v10_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,qwen,1,output_qwen_v1_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,qwen,1,output_qwen_v1_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,qwen,1,output_qwen_v1_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,qwen,1,output_qwen_v1_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,qwen,1,output_qwen_v1_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,qwen,2,output_qwen_v2_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,qwen,2,output_qwen_v2_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,qwen,2,output_qwen_v2_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,qwen,2,output_qwen_v2_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,qwen,2,output_qwen_v2_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,qwen,3,output_qwen_v3_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,qwen,3,output_qwen_v3_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,qwen,3,output_qwen_v3_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,qwen,3,output_qwen_v3_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,qwen,3,output_qwen_v3_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,qwen,4,output_qwen_v4_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,qwen,4,output_qwen_v4_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,qwen,4,output_qwen_v4_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,qwen,4,output_qwen_v4_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,qwen,4,output_qwen_v4_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,qwen,5,output_qwen_v5_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,qwen,5,output_qwen_v5_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,qwen,5,output_qwen_v5_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,qwen,5,output_qwen_v5_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,qwen,5,output_qwen_v5_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,qwen,6,output_qwen_v6_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,qwen,6,output_qwen_v6_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,qwen,6,output_qwen_v6_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,qwen,6,output_qwen_v6_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,qwen,6,output_qwen_v6_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,qwen,7,output_qwen_v7_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,qwen,7,output_qwen_v7_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,qwen,7,output_qwen_v7_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,qwen,7,output_qwen_v7_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,qwen,7,output_qwen_v7_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,qwen,8,output_qwen_v8_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,qwen,8,output_qwen_v8_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,qwen,8,output_qwen_v8_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,qwen,8,output_qwen_v8_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,qwen,8,output_qwen_v8_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,qwen,9,output_qwen_v9_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,qwen,9,output_qwen_v9_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,qwen,9,output_qwen_v9_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,qwen,9,output_qwen_v9_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,qwen,9,output_qwen_v9_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,extra-large,qwen,10,output_qwen_v10_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,large,qwen,10,output_qwen_v10_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,medium,qwen,10,output_qwen_v10_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,mini,qwen,10,output_qwen_v10_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 17:15:56,check,small,qwen,10,output_qwen_v10_small_output.txt,pass,All numeric tokens match within tolerance.,polybench

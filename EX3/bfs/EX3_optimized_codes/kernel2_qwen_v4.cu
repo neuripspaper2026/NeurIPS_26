@@ -1,0 +1,18 @@
+#ifndef _KERNEL2_H_
+#define _KERNEL2_H_
+
+__global__ void Kernel2(bool *g_graph_mask, bool *g_updating_graph_mask,
+                        bool *g_graph_visited, bool *g_over, int no_of_nodes) {
+    int tid = blockIdx.x * blockDim.x + threadIdx.x;
+    if (tid < no_of_nodes) {
+        bool mask = g_updating_graph_mask[tid];
+        g_graph_mask[tid] = mask ? true : g_graph_mask[tid];
+        g_graph_visited[tid] = mask ? true : g_graph_visited[tid];
+        if (mask) {
+            *g_over = true;
+            g_updating_graph_mask[tid] = false;
+        }
+    }
+}
+
+#endif

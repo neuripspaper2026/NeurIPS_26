@@ -1,0 +1,37 @@
+{
+  "benchmark": "pi",
+  "source": "${REPO_ROOT}/configs/runtime_hints.json",
+  "generated_at": "2025-11-28T15:00:04",
+  "strategies": {
+    "mini": {
+      "warmup": 2,
+      "runs": 10,
+      "reason": "Medium kernel; light warm-up advised.",
+      "runtime": 0.728
+    },
+    "small": {
+      "warmup": 2,
+      "runs": 8,
+      "reason": "Long-running kernel; minimal warm-up.",
+      "runtime": 1.456
+    },
+    "medium": {
+      "warmup": 2,
+      "runs": 8,
+      "reason": "Long-running kernel; minimal warm-up.",
+      "runtime": 2.912
+    },
+    "large": {
+      "warmup": 1,
+      "runs": 5,
+      "reason": "Very long kernel; small warm-up is sufficient.",
+      "runtime": 4.368
+    },
+    "extra-large": {
+      "warmup": 1,
+      "runs": 5,
+      "reason": "Very long kernel; small warm-up is sufficient.",
+      "runtime": 7.284
+    }
+  }
+}

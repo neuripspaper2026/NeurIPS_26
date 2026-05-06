@@ -1,0 +1,438 @@
+#include <time.h>
+#include "../fft.h"
+
+static double fft_transpose_kernel_time_acc = 0.0;
+
+void reset_fft_transpose_kernel_time(void) { fft_transpose_kernel_time_acc = 0.0; }
+double get_fft_transpose_kernel_time(void) { return fft_transpose_kernel_time_acc; }
+
+//////BEGIN TWIDDLES ////////
+#define THREADS 64
+#define cmplx_M_x(a_x, a_y, b_x, b_y) (a_x*b_x - a_y *b_y)
+#define cmplx_M_y(a_x, a_y, b_x, b_y) (a_x*b_y + a_y *b_x)
+#define cmplx_MUL_x(a_x, a_y, b_x, b_y ) (a_x*b_x - a_y*b_y)
+#define cmplx_MUL_y(a_x, a_y, b_x, b_y ) (a_x*b_y + a_y*b_x)
+#define cmplx_mul_x(a_x, a_y, b_x, b_y) (a_x*b_x - a_y*b_y)
+#define cmplx_mul_y(a_x, a_y, b_x, b_y) (a_x*b_y + a_y*b_x)
+#define cmplx_add_x(a_x, b_x) (a_x + b_x)
+#define cmplx_add_y(a_y, b_y) (a_y + b_y)
+#define cmplx_sub_x(a_x, b_x) (a_x - b_x)
+#define cmplx_sub_y(a_y, b_y) (a_y - b_y)
+#define cm_fl_mul_x(a_x, b) (b*a_x)
+#define cm_fl_mul_y(a_y, b) (b*a_y)
+
+void twiddles8(TYPE a_x[8], TYPE a_y[8], int i, int n){
+    int reversed8[8] = {0,4,2,6,1,5,3,7};
+    int j;
+    TYPE phi, tmp, phi_x, phi_y;
+
+    twiddles:for(j=1; j < 8; j++){
+        phi = ((-2*PI*reversed8[j]/n)*i);
+        phi_x = cos(phi);
+        phi_y = sin(phi);
+        tmp = a_x[j];
+        a_x[j] = cmplx_M_x(a_x[j], a_y[j], phi_x, phi_y);
+        a_y[j] = cmplx_M_y(tmp, a_y[j], phi_x, phi_y);
+    }
+}
+////END TWIDDLES ////
+
+#define FF2(a0_x, a0_y, a1_x, a1_y){			\
+    TYPE c0_x = *a0_x;		\
+    TYPE c0_y = *a0_y;		\
+    *a0_x = cmplx_add_x(c0_x, *a1_x);	\
+    *a0_y = cmplx_add_y(c0_y, *a1_y);	\
+    *a1_x = cmplx_sub_x(c0_x, *a1_x);	\
+    *a1_y = cmplx_sub_y(c0_y, *a1_y);	\
+}
+
+#define FFT4(a0_x, a0_y, a1_x, a1_y, a2_x, a2_y, a3_x, a3_y){           \
+    TYPE exp_1_44_x;		\
+    TYPE exp_1_44_y;		\
+    TYPE tmp;			\
+    exp_1_44_x =  0.0;		\
+    exp_1_44_y =  -1.0;		\
+    FF2( a0_x, a0_y, a2_x, a2_y);   \
+    FF2( a1_x, a1_y, a3_x, a3_y);   \
+    tmp = *a3_x;			\
+    *a3_x = *a3_x*exp_1_44_x-*a3_y*exp_1_44_y;     	\
+    *a3_y = tmp*exp_1_44_y - *a3_y*exp_1_44_x;    	\
+    FF2( a0_x, a0_y, a1_x, a1_y );                  \
+    FF2( a2_x, a2_y, a3_x, a3_y );                  \
+}
+
+#define FFT8(a_x, a_y)			\
+{                                               \
+    TYPE exp_1_8_x, exp_1_4_x, exp_3_8_x;	\
+    TYPE exp_1_8_y, exp_1_4_y, exp_3_8_y;	\
+    TYPE tmp_1;			\
+    exp_1_8_x =  1;				\
+    exp_1_8_y = -1;				\
+    exp_1_4_x =  0;				\
+    exp_1_4_y = -1;				\
+    exp_3_8_x = -1;				\
+    exp_3_8_y = -1;				\
+    FF2( &a_x[0], &a_y[0], &a_x[4], &a_y[4]);			\
+    FF2( &a_x[1], &a_y[1], &a_x[5], &a_y[5]);			\
+    FF2( &a_x[2], &a_y[2], &a_x[6], &a_y[6]);			\
+    FF2( &a_x[3], &a_y[3], &a_x[7], &a_y[7]);			\
+    tmp_1 = a_x[5];							\
+    a_x[5] = cm_fl_mul_x( cmplx_mul_x(a_x[5], a_y[5], exp_1_8_x, exp_1_8_y),  M_SQRT1_2 );	\
+    a_y[5] = cm_fl_mul_y( cmplx_mul_y(tmp_1, a_y[5], exp_1_8_x, exp_1_8_y) , M_SQRT1_2 );	\
+    tmp_1 = a_x[6];							\
+    a_x[6] = cmplx_mul_x( a_x[6], a_y[6], exp_1_4_x , exp_1_4_y);	\
+    a_y[6] = cmplx_mul_y( tmp_1, a_y[6], exp_1_4_x , exp_1_4_y);	\
+    tmp_1 = a_x[7];							\
+    a_x[7] = cm_fl_mul_x( cmplx_mul_x(a_x[7], a_y[7], exp_3_8_x, exp_3_8_y), M_SQRT1_2 );	\
+    a_y[7] = cm_fl_mul_y( cmplx_mul_y(tmp_1, a_y[7], exp_3_8_x, exp_3_8_y) , M_SQRT1_2 );	\
+    FFT4( &a_x[0], &a_y[0], &a_x[1], &a_y[1], &a_x[2], &a_y[2], &a_x[3], &a_y[3] );	\
+    FFT4( &a_x[4], &a_y[4], &a_x[5], &a_y[5], &a_x[6], &a_y[6], &a_x[7], &a_y[7] );	\
+}
+
+void loadx8(TYPE a_x[], TYPE x[], int offset, int sx){
+    a_x[0] = x[0*sx+offset];
+    a_x[1] = x[1*sx+offset];
+    a_x[2] = x[2*sx+offset];
+    a_x[3] = x[3*sx+offset];
+    a_x[4] = x[4*sx+offset];
+    a_x[5] = x[5*sx+offset];
+    a_x[6] = x[6*sx+offset];
+    a_x[7] = x[7*sx+offset];
+}
+
+void loady8(TYPE a_y[], TYPE x[], int offset, int sx){
+    a_y[0] = x[0*sx+offset];
+    a_y[1] = x[1*sx+offset];
+    a_y[2] = x[2*sx+offset];
+    a_y[3] = x[3*sx+offset];
+    a_y[4] = x[4*sx+offset];
+    a_y[5] = x[5*sx+offset];
+    a_y[6] = x[6*sx+offset];
+    a_y[7] = x[7*sx+offset];
+}
+
+void fft1D_512(TYPE work_x[512], TYPE work_y[512]){
+    int tid, hi, lo, stride;
+    const int reversed[8] = {0,4,2,6,1,5,3,7};
+    TYPE DATA_x[THREADS*8];
+    TYPE DATA_y[THREADS*8];
+
+    TYPE data_x[8];
+    TYPE data_y[8];
+
+    TYPE smem[8*8*9];
+
+    stride = THREADS;
+    struct timespec kernel_start, kernel_end;
+
+    clock_gettime(CLOCK_MONOTONIC, &kernel_start);
+
+    /* First stage: initial 8-point FFT and first twiddle */
+    for(tid = 0; tid < THREADS; tid++){
+        int base = tid;
+        int base8 = tid * 8;
+
+        /* GLOBAL_LOAD */
+        data_x[0] = work_x[0*stride + base];
+        data_x[1] = work_x[1*stride + base];
+        data_x[2] = work_x[2*stride + base];
+        data_x[3] = work_x[3*stride + base];
+        data_x[4] = work_x[4*stride + base];
+        data_x[5] = work_x[5*stride + base];
+        data_x[6] = work_x[6*stride + base];
+        data_x[7] = work_x[7*stride + base];
+
+        data_y[0] = work_y[0*stride + base];
+        data_y[1] = work_y[1*stride + base];
+        data_y[2] = work_y[2*stride + base];
+        data_y[3] = work_y[3*stride + base];
+        data_y[4] = work_y[4*stride + base];
+        data_y[5] = work_y[5*stride + base];
+        data_y[6] = work_y[6*stride + base];
+        data_y[7] = work_y[7*stride + base];
+
+        /* First 8 point FFT */
+        FFT8(data_x, data_y);
+
+        /* First Twiddle */
+        twiddles8(data_x, data_y, tid, 512);
+
+        /* save for fence */
+        DATA_x[base8 + 0] = data_x[0];
+        DATA_x[base8 + 1] = data_x[1];
+        DATA_x[base8 + 2] = data_x[2];
+        DATA_x[base8 + 3] = data_x[3];
+        DATA_x[base8 + 4] = data_x[4];
+        DATA_x[base8 + 5] = data_x[5];
+        DATA_x[base8 + 6] = data_x[6];
+        DATA_x[base8 + 7] = data_x[7];
+
+        DATA_y[base8 + 0] = data_y[0];
+        DATA_y[base8 + 1] = data_y[1];
+        DATA_y[base8 + 2] = data_y[2];
+        DATA_y[base8 + 3] = data_y[3];
+        DATA_y[base8 + 4] = data_y[4];
+        DATA_y[base8 + 5] = data_y[5];
+        DATA_y[base8 + 6] = data_y[6];
+        DATA_y[base8 + 7] = data_y[7];
+    }
+
+    /* First transpose for DATA_x */
+    {
+        int sx = 66;
+        for(tid = 0; tid < 64; tid++){
+            hi = tid >> 3;
+            lo = tid & 7;
+            int offset = hi * 8 + lo;
+            int base8 = tid * 8;
+            smem[0*sx + offset] = DATA_x[base8 + 0];
+            smem[4*sx + offset] = DATA_x[base8 + 1];
+            smem[1*sx + offset] = DATA_x[base8 + 4];
+            smem[5*sx + offset] = DATA_x[base8 + 5];
+            smem[2*sx + offset] = DATA_x[base8 + 2];
+            smem[6*sx + offset] = DATA_x[base8 + 3];
+            smem[3*sx + offset] = DATA_x[base8 + 6];
+            smem[7*sx + offset] = DATA_x[base8 + 7];
+        }
+
+        sx = 8;
+        for(tid = 0; tid < 64; tid++){
+            hi = tid >> 3;
+            lo = tid & 7;
+            int offset = lo * 66 + hi;
+            int base8 = tid * 8;
+
+            DATA_x[base8 + 0] = smem[0*sx + offset];
+            DATA_x[base8 + 4] = smem[4*sx + offset];
+            DATA_x[base8 + 1] = smem[1*sx + offset];
+            DATA_x[base8 + 5] = smem[5*sx + offset];
+            DATA_x[base8 + 2] = smem[2*sx + offset];
+            DATA_x[base8 + 6] = smem[6*sx + offset];
+            DATA_x[base8 + 3] = smem[3*sx + offset];
+            DATA_x[base8 + 7] = smem[7*sx + offset];
+        }
+    }
+
+    /* First transpose for DATA_y */
+    {
+        int sx = 66;
+        for(tid = 0; tid < 64; tid++){
+            hi = tid >> 3;
+            lo = tid & 7;
+            int offset = hi * 8 + lo;
+            int base8 = tid * 8;
+
+            smem[0*sx + offset] = DATA_y[base8 + 0];
+            smem[4*sx + offset] = DATA_y[base8 + 1];
+            smem[1*sx + offset] = DATA_y[base8 + 4];
+            smem[5*sx + offset] = DATA_y[base8 + 5];
+            smem[2*sx + offset] = DATA_y[base8 + 2];
+            smem[6*sx + offset] = DATA_y[base8 + 3];
+            smem[3*sx + offset] = DATA_y[base8 + 6];
+            smem[7*sx + offset] = DATA_y[base8 + 7];
+        }
+
+        for(tid = 0; tid < 64; tid++){
+            int base8 = tid * 8;
+            hi = tid >> 3;
+            lo = tid & 7;
+            int offset = lo * 66 + hi;
+
+            loady8(data_y, smem, offset, 8);
+
+            DATA_y[base8 + 0] = data_y[0];
+            DATA_y[base8 + 1] = data_y[1];
+            DATA_y[base8 + 2] = data_y[2];
+            DATA_y[base8 + 3] = data_y[3];
+            DATA_y[base8 + 4] = data_y[4];
+            DATA_y[base8 + 5] = data_y[5];
+            DATA_y[base8 + 6] = data_y[6];
+            DATA_y[base8 + 7] = data_y[7];
+        }
+    }
+
+    /* Second FFT8 and second twiddle */
+    for(tid = 0; tid < 64; tid++){
+        int base8 = tid * 8;
+
+        data_x[0] = DATA_x[base8 + 0];
+        data_x[1] = DATA_x[base8 + 1];
+        data_x[2] = DATA_x[base8 + 2];
+        data_x[3] = DATA_x[base8 + 3];
+        data_x[4] = DATA_x[base8 + 4];
+        data_x[5] = DATA_x[base8 + 5];
+        data_x[6] = DATA_x[base8 + 6];
+        data_x[7] = DATA_x[base8 + 7];
+
+        data_y[0] = DATA_y[base8 + 0];
+        data_y[1] = DATA_y[base8 + 1];
+        data_y[2] = DATA_y[base8 + 2];
+        data_y[3] = DATA_y[base8 + 3];
+        data_y[4] = DATA_y[base8 + 4];
+        data_y[5] = DATA_y[base8 + 5];
+        data_y[6] = DATA_y[base8 + 6];
+        data_y[7] = DATA_y[base8 + 7];
+
+        /* Second FFT8 */
+        FFT8(data_x, data_y);
+
+        /* Calculate hi for second twiddle calculation */
+        hi = tid >> 3;
+
+        /* Second twiddles calc */
+        twiddles8(data_x, data_y, hi, 64);
+
+        /* Save for final transpose */
+        DATA_x[base8 + 0] = data_x[0];
+        DATA_x[base8 + 1] = data_x[1];
+        DATA_x[base8 + 2] = data_x[2];
+        DATA_x[base8 + 3] = data_x[3];
+        DATA_x[base8 + 4] = data_x[4];
+        DATA_x[base8 + 5] = data_x[5];
+        DATA_x[base8 + 6] = data_x[6];
+        DATA_x[base8 + 7] = data_x[7];
+
+        DATA_y[base8 + 0] = data_y[0];
+        DATA_y[base8 + 1] = data_y[1];
+        DATA_y[base8 + 2] = data_y[2];
+        DATA_y[base8 + 3] = data_y[3];
+        DATA_y[base8 + 4] = data_y[4];
+        DATA_y[base8 + 5] = data_y[5];
+        DATA_y[base8 + 6] = data_y[6];
+        DATA_y[base8 + 7] = data_y[7];
+    }
+
+    /* Second transpose for DATA_x */
+    {
+        int sx = 72;
+        for(tid = 0; tid < 64; tid++){
+            hi = tid >> 3;
+            lo = tid & 7;
+            int offset = hi * 8 + lo;
+            int base8 = tid * 8;
+
+            smem[0*sx + offset] = DATA_x[base8 + 0];
+            smem[4*sx + offset] = DATA_x[base8 + 1];
+            smem[1*sx + offset] = DATA_x[base8 + 4];
+            smem[5*sx + offset] = DATA_x[base8 + 5];
+            smem[2*sx + offset] = DATA_x[base8 + 2];
+            smem[6*sx + offset] = DATA_x[base8 + 3];
+            smem[3*sx + offset] = DATA_x[base8 + 6];
+            smem[7*sx + offset] = DATA_x[base8 + 7];
+        }
+
+        sx = 8;
+        for(tid = 0; tid < 64; tid++){
+            hi = tid >> 3;
+            lo = tid & 7;
+            int offset = hi * 72 + lo;
+            int base8 = tid * 8;
+
+            DATA_x[base8 + 0] = smem[0*sx + offset];
+            DATA_x[base8 + 4] = smem[4*sx + offset];
+            DATA_x[base8 + 1] = smem[1*sx + offset];
+            DATA_x[base8 + 5] = smem[5*sx + offset];
+            DATA_x[base8 + 2] = smem[2*sx + offset];
+            DATA_x[base8 + 6] = smem[6*sx + offset];
+            DATA_x[base8 + 3] = smem[3*sx + offset];
+            DATA_x[base8 + 7] = smem[7*sx + offset];
+        }
+    }
+
+    /* Second transpose for DATA_y */
+    {
+        int sx = 72;
+        for(tid = 0; tid < 64; tid++){
+            hi = tid >> 3;
+            lo = tid & 7;
+            int offset = hi * 8 + lo;
+            int base8 = tid * 8;
+
+            smem[0*sx + offset] = DATA_y[base8 + 0];
+            smem[4*sx + offset] = DATA_y[base8 + 1];
+            smem[1*sx + offset] = DATA_y[base8 + 4];
+            smem[5*sx + offset] = DATA_y[base8 + 5];
+            smem[2*sx + offset] = DATA_y[base8 + 2];
+            smem[6*sx + offset] = DATA_y[base8 + 3];
+            smem[3*sx + offset] = DATA_y[base8 + 6];
+            smem[7*sx + offset] = DATA_y[base8 + 7];
+        }
+
+        for(tid = 0; tid < 64; tid++){
+            int base8 = tid * 8;
+            hi = tid >> 3;
+            lo = tid & 7;
+            int offset = hi * 72 + lo;
+
+            loady8(data_y, smem, offset, 8);
+
+            DATA_y[base8 + 0] = data_y[0];
+            DATA_y[base8 + 1] = data_y[1];
+            DATA_y[base8 + 2] = data_y[2];
+            DATA_y[base8 + 3] = data_y[3];
+            DATA_y[base8 + 4] = data_y[4];
+            DATA_y[base8 + 5] = data_y[5];
+            DATA_y[base8 + 6] = data_y[6];
+            DATA_y[base8 + 7] = data_y[7];
+        }
+    }
+
+    /* Final 8-point FFT and store with bit-reversal */
+    for(tid = 0; tid < 64; tid++){
+        int base8 = tid * 8;
+
+        /* Load post-trans */
+        data_y[0] = DATA_y[base8 + 0];
+        data_y[1] = DATA_y[base8 + 1];
+        data_y[2] = DATA_y[base8 + 2];
+        data_y[3] = DATA_y[base8 + 3];
+        data_y[4] = DATA_y[base8 + 4];
+        data_y[5] = DATA_y[base8 + 5];
+        data_y[6] = DATA_y[base8 + 6];
+        data_y[7] = DATA_y[base8 + 7];
+
+        data_x[0] = DATA_x[base8 + 0];
+        data_x[1] = DATA_x[base8 + 1];
+        data_x[2] = DATA_x[base8 + 2];
+        data_x[3] = DATA_x[base8 + 3];
+        data_x[4] = DATA_x[base8 + 4];
+        data_x[5] = DATA_x[base8 + 5];
+        data_x[6] = DATA_x[base8 + 6];
+        data_x[7] = DATA_x[base8 + 7];
+
+        /* Final 8pt FFT */
+        FFT8(data_x, data_y);
+
+        /* Global store with 8-point bit-reversal */
+        int r0 = reversed[0];
+        int r1 = reversed[1];
+        int r2 = reversed[2];
+        int r3 = reversed[3];
+        int r4 = reversed[4];
+        int r5 = reversed[5];
+        int r6 = reversed[6];
+        int r7 = reversed[7];
+
+        work_x[0*stride + tid] = data_x[r0];
+        work_x[1*stride + tid] = data_x[r1];
+        work_x[2*stride + tid] = data_x[r2];
+        work_x[3*stride + tid] = data_x[r3];
+        work_x[4*stride + tid] = data_x[r4];
+        work_x[5*stride + tid] = data_x[r5];
+        work_x[6*stride + tid] = data_x[r6];
+        work_x[7*stride + tid] = data_x[r7];
+
+        work_y[0*stride + tid] = data_y[r0];
+        work_y[1*stride + tid] = data_y[r1];
+        work_y[2*stride + tid] = data_y[r2];
+        work_y[3*stride + tid] = data_y[r3];
+        work_y[4*stride + tid] = data_y[r4];
+        work_y[5*stride + tid] = data_y[r5];
+        work_y[6*stride + tid] = data_y[r6];
+        work_y[7*stride + tid] = data_y[r7];
+    }
+
+    clock_gettime(CLOCK_MONOTONIC, &kernel_end);
+    fft_transpose_kernel_time_acc += (kernel_end.tv_sec - kernel_start.tv_sec) +
+                                     (kernel_end.tv_nsec - kernel_start.tv_nsec) / 1e9;
+}

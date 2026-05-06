@@ -1,0 +1,45 @@
+CXX      ?= g++
+CXXFLAGS ?= -O3 -fopenmp
+LDFLAGS  ?= -lm
+INCLUDES := -I. -IEX1_optimized_codes
+
+SRC_BASENAME := srad
+BENCH_NAME := srad_v2
+KERNEL_DIR := EX1_optimized_codes
+
+# 发现变体：EX1_optimized_codes/srad_*.cpp
+VARIANT_SRC := $(wildcard $(KERNEL_DIR)/$(SRC_BASENAME)_*.cpp)
+VARIANTS    := $(patsubst $(KERNEL_DIR)/$(SRC_BASENAME)_%.cpp,%, $(VARIANT_SRC))
+
+# 编译器标签（gcc/clang）
+COMPILER_TAG := gcc
+ifneq (,$(findstring clang,$(CXX)))
+COMPILER_TAG := clang
+endif
+
+# 基线源码：优先使用 EX1_optimized_codes/srad.cpp，否则回退仓库根目录的 srad.cpp
+BASE_SRC := $(SRC_BASENAME).cpp
+ifneq (,$(wildcard $(KERNEL_DIR)/$(SRC_BASENAME).cpp))
+BASE_SRC := $(KERNEL_DIR)/$(SRC_BASENAME).cpp
+endif
+
+# 产物全部输出到 EX1_optimized_codes/
+# Baseline 使用带编译器标签的名字，如 srad_v2_gcc
+BASE_EXE     := $(KERNEL_DIR)/$(BENCH_NAME)_$(COMPILER_TAG)
+VARIANT_EXES := $(foreach v,$(VARIANTS),$(KERNEL_DIR)/$(BENCH_NAME)_$(COMPILER_TAG)_$(v))
+
+.PHONY: all clean
+
+all: $(BASE_EXE) $(VARIANT_EXES)
+
+# 基线构建（直接从 .cpp 编译到可执行文件，不生成 .o 文件）
+$(BASE_EXE): $(BASE_SRC)
+	-$(CXX) $(CXXFLAGS) $(INCLUDES) $< -o $@ $(LDFLAGS)
+
+# 变体构建：EX1_optimized_codes/srad_%.cpp -> EX1_optimized_codes/srad_<cc>_%（直接编译，不生成 .o 文件）
+$(KERNEL_DIR)/$(BENCH_NAME)_$(COMPILER_TAG)_%: $(KERNEL_DIR)/$(SRC_BASENAME)_%.cpp
+	-$(CXX) $(CXXFLAGS) $(INCLUDES) $< -o $@ $(LDFLAGS)
+
+clean:
+	rm -f $(KERNEL_DIR)/$(BENCH_NAME)_gcc $(KERNEL_DIR)/$(BENCH_NAME)_gcc_* $(KERNEL_DIR)/$(BENCH_NAME)_clang $(KERNEL_DIR)/$(BENCH_NAME)_clang_*
+	rm -f $(KERNEL_DIR)/$(SRC_BASENAME)_gcc $(KERNEL_DIR)/$(SRC_BASENAME)_gcc_* $(KERNEL_DIR)/$(SRC_BASENAME)_clang $(KERNEL_DIR)/$(SRC_BASENAME)_clang_* 2>/dev/null || true

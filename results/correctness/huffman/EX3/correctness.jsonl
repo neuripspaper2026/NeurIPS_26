@@ -1,0 +1,1 @@
+{"timestamp": "2026-03-30 08:33:33", "benchmark": "huffman", "ex_version": "EX3", "checker": "placeholder", "stage": "check", "status": "skip", "message": "No correctness checker registered for huffman; placeholder checker in use."}

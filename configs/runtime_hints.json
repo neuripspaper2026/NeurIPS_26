@@ -1,0 +1,646 @@
+{
+  "2mm": {
+    "mini": 0.093,
+    "small": 0.059,
+    "medium": 0.136,
+    "large": 2.984,
+    "extra-large": 19.811
+  },
+  "3mm": {
+    "mini": 0.090,
+    "small": 0.069,
+    "medium": 0.125,
+    "large": 3.687,
+    "extra-large": 26.922
+  },
+  "adi": {
+    "mini": 0.045,
+    "small": 0.067,
+    "medium": 0.183,
+    "large": 10.956,
+    "extra-large": 83.087
+  },
+  "atax": {
+    "mini": 0.102,
+    "small": 0.018,
+    "medium": 0.120,
+    "large": 0.122,
+    "extra-large": 0.084
+  },
+  "bicg": {
+    "mini": 0.073,
+    "small": 0.101,
+    "medium": 0.036,
+    "large": 0.077,
+    "extra-large": 0.125
+  },
+  "cholesky": {
+    "mini": 0.051,
+    "small": 0.133,
+    "medium": 0.246,
+    "large": 9.210,
+    "extra-large": 106.145
+  },
+  "correlation": {
+    "mini": 0.061,
+    "small": 0.063,
+    "medium": 0.135,
+    "large": 3.288,
+    "extra-large": 24.096
+  },
+  "covariance": {
+    "mini": 0.046,
+    "small": 0.095,
+    "medium": 0.156,
+    "large": 3.558,
+    "extra-large": 24.057
+  },
+  "deriche": {
+    "mini": 0.035,
+    "small": 0.093,
+    "medium": 0.624,
+    "large": 13.451,
+    "extra-large": 50.227
+  },
+  "doitgen": {
+    "mini": 0.028,
+    "small": 0.077,
+    "medium": 0.253,
+    "large": 5.654,
+    "extra-large": 25.863
+  },
+  "floyd-warshall": {
+    "mini": 0.099,
+    "small": 0.049,
+    "medium": 0.119,
+    "large": 13.205,
+    "extra-large": 106.156
+  },
+  "durbin": {
+    "mini": 0.076,
+    "small": 0.013,
+    "medium": 0.059,
+    "large": 0.038,
+    "extra-large": 0.061
+  },
+  "fdtd-2d": {
+    "mini": 0.062,
+    "small": 0.090,
+    "medium": 0.281,
+    "large": 6.455,
+    "extra-large": 34.144
+  },
+  "gemm": {
+    "mini": 0.042,
+    "small": 0.022,
+    "medium": 0.094,
+    "large": 2.128,
+    "extra-large": 11.140
+  },
+  "gemver": {
+    "mini": 0.007,
+    "small": 0.005,
+    "medium": 0.006,
+    "large": 0.035,
+    "extra-large": 0.090
+  },
+  "gesummv": {
+    "mini": 0.048,
+    "small": 0.021,
+    "medium": 0.081,
+    "large": 0.078,
+    "extra-large": 0.119
+  },
+  "gramschmidt": {
+    "mini": 0.043,
+    "small": 0.076,
+    "medium": 0.222,
+    "large": 5.629,
+    "extra-large": 34.386
+  },
+  "head-3d": {
+    "mini": 0.037,
+    "small": 0.077,
+    "medium": 0.193,
+    "large": 4.127,
+    "extra-large": 26.981
+  },
+  "jacobi-1d": {
+    "mini": 0.056,
+    "small": 0.041,
+    "medium": 0.041,
+    "large": 0.035,
+    "extra-large": 0.065
+  },
+  "jacobi-2d": {
+    "mini": 0.028,
+    "small": 0.065,
+    "medium": 0.168,
+    "large": 3.507,
+    "extra-large": 22.101
+  },
+  "lu": {
+    "mini": 0.059,
+    "small": 0.054,
+    "medium": 0.376,
+    "large": 13.299,
+    "extra-large": 163.332
+  },
+  "ludcmp": {
+    "mini": 0.072,
+    "small": 0.045,
+    "medium": 0.155,
+    "large": 7.520,
+    "extra-large": 95.543
+  },
+  "mvt": {
+    "mini": 0.058,
+    "small": 0.108,
+    "medium": 0.055,
+    "large": 0.051,
+    "extra-large": 0.127
+  },
+  "nussinov": {
+    "mini": 0.059,
+    "small": 0.063,
+    "medium": 0.207,
+    "large": 6.132,
+    "extra-large": 49.870
+  },
+  "seidel-2d": {
+    "mini": 0.085,
+    "small": 0.052,
+    "medium": 0.407,
+    "large": 23.193,
+    "extra-large": 139.001
+  },
+  "symm": {
+    "mini": 0.053,
+    "small": 0.102,
+    "medium": 0.129,
+    "large": 2.689,
+    "extra-large": 16.722
+  },
+  "syr2k": {
+    "mini": 0.011,
+    "small": 0.038,
+    "medium": 0.130,
+    "large": 3.099,
+    "extra-large": 23.964
+  },
+  "syrk": {
+    "mini": 0.027,
+    "small": 0.061,
+    "medium": 0.175,
+    "large": 2.701,
+    "extra-large": 15.065
+  },
+  "trisolv": {
+    "mini": 0.062,
+    "small": 0.095,
+    "medium": 0.027,
+    "large": 0.064,
+    "extra-large": 0.080
+  },
+  "trmm": {
+    "mini": 0.047,
+    "small": 0.027,
+    "medium": 0.120,
+    "large": 2.585,
+    "extra-large": 14.569
+  },
+  "backprop": {
+    "mini": 0.083,
+    "small": 0.606,
+    "medium": 1.388,
+    "large": 4.523,
+    "extra-large": 15.283
+  },
+  "sad": {
+    "mini": 0.083,
+    "small": 0.730,
+    "medium": 1.705,
+    "large": 2.162,
+    "extra-large": 9.277
+  },
+  "cutcp": {
+    "mini": 0.268,
+    "small": 0.794,
+    "medium": 6.157,
+    "large": 15.545,
+    "extra-large": 17.437
+  },
+  "histo": {
+    "mini": 0.065,
+    "small": 0.069,
+    "medium": 0.071,
+    "large": 3.467,
+    "extra-large": 54.758
+  },
+  "lbm": {
+    "mini": 3.090,
+    "small": 8.618,
+    "medium": 9.500,
+    "large": 9.513,
+    "extra-large": 9.519
+  },
+  "mri-gridding": {
+    "mini": 0.075,
+    "small": 1.267,
+    "medium": 2.300,
+    "large": 4.309,
+    "extra-large": 9.277
+  },
+  "mri-q": {
+    "mini": 0.128,
+    "small": 0.928,
+    "medium": 11.917,
+    "large": 14.988,
+    "extra-large": 95.117
+  },
+  "sgemm": {
+    "mini": 0.013,
+    "small": 0.046,
+    "medium": 5.849,
+    "large": 11.530,
+    "extra-large": 12.741
+  },
+  "spmv": {
+    "mini": 0.018,
+    "small": 0.118,
+    "medium": 0.176,
+    "large": 1.192,
+    "extra-large": 2.677
+  },
+  "stencil": {
+    "mini": 0.378,
+    "small": 0.643,
+    "medium": 4.522,
+    "large": 24.462,
+    "extra-large": 87.461
+  },
+  "tpacf": {
+    "mini": 0.178,
+    "small": 0.427,
+    "medium": 25.903,
+    "large": 181.469,
+    "extra-large": 312.086
+  },
+  "streamcluster": {
+    "mini": 0.086,
+    "small": 0.159,
+    "medium": 1.112,
+    "large": 22.086,
+    "extra-large": 107.925
+  },
+  "srad_v1": {
+    "mini": 0.329,
+    "small": 1.149,
+    "medium": 6.574,
+    "large": 32.446,
+    "extra-large": 107.353
+  }, 
+  "srad_v2": {
+    "mini": 0.120,
+    "small": 0.277,
+    "medium": 1.449,
+    "large": 6.328,
+    "extra-large": 58.902
+  },
+  "pathfinder": {
+    "mini": 0.180,
+    "small": 0.366,
+    "medium": 0.714,
+    "large": 1.182,
+    "extra-large": 1.773
+  },
+  "particlefilter": {
+    "mini": 0.886,
+    "small": 3.450,
+    "medium": 6.025,
+    "large": 9.546,
+    "extra-large": 32.847
+  },
+  "nw": {
+    "mini": 0.355,
+    "small": 1.974,
+    "medium": 2.744,
+    "large": 33.631,
+    "extra-large": 60.508
+  },
+  "myocyte": {
+    "mini": 0.492,
+    "small": 1.875,
+    "medium": 11.467,
+    "large": 37.358,
+    "extra-large": 74.586
+  },
+  "lud": {
+    "mini": 0.034,
+    "small": 1.439,
+    "medium": 17.822,
+    "large": 55.120,
+    "extra-large": 369.823
+  },
+  "leukocyte": {
+    "mini": 0.898,
+    "small": 1.829,
+    "medium": 4.775,
+    "large": 9.620,
+    "extra-large": 13.363
+  },
+  "kmeans": {
+    "mini": 0.125,
+    "small": 1.042,
+    "medium": 6.777,
+    "large": 16.777,
+    "extra-large": 37.326
+  },
+  "lavaMD": {
+    "mini": 0.265,
+    "small": 0.824,
+    "medium": 2.636,
+    "large": 9.543,
+    "extra-large": 23.452
+  },
+  "hotspot3D": {
+    "mini": 0.046,
+    "small": 0.722,
+    "medium": 1.442,
+    "large": 2.877,
+    "extra-large": 5.947
+  },
+  "hotspot": {
+    "mini": 0.041,
+    "small": 0.367,
+    "medium": 1.330,
+    "large": 22.043,
+    "extra-large": 93.109
+  },
+  "heartwall": {
+    "mini": 6.773,
+    "small": 14.355,
+    "medium": 21.755,
+    "large": 29.279,
+    "extra-large": 36.761
+  },
+  "cfd": {
+    "mini": "None",
+    "small": "None",
+    "medium": 56.407,
+    "large": 114.729,
+    "extra-large": 136.124
+  },
+  "bfs": {
+    "mini": 0.837,
+    "small": 2.196,
+    "medium": 3.587,
+    "large": 7.094,
+    "extra-large": 14.762
+  },
+  "b+tree": {
+    "mini": 0.712,
+    "small": 3.896,
+    "medium": 10.771,
+    "large": 45.854,
+    "extra-large": 62.809
+  },
+  "bilateral": {
+    "mini": 0.221,
+    "small": 2.358,
+    "medium": 8.979,
+    "large": 24.482,
+    "extra-large": 47.771
+  },
+  "matmul": {
+    "mini": 0.246,
+    "small": 1.161,
+    "medium": 3.391,
+    "large": 8.889,
+    "extra-large": 35.335
+  },
+  "coulomb": {
+    "mini": 0.654,
+    "small": 1.587,
+    "medium": 3.111,
+    "large": 5.745,
+    "extra-large": 9.803
+  },
+  "pi": {
+    "mini": 0.728,
+    "small": 1.456,
+    "medium": 2.912,
+    "large": 4.368,
+    "extra-large": 7.284
+  },
+  "atmux": {
+    "mini": 0.773,
+    "small": 2.982,
+    "medium": 11.728,
+    "large": 26.413,
+    "extra-large": 59.447
+  },
+  "haccmk": {
+    "mini": "None",
+    "small": "None",
+    "medium": 28.782,
+    "large": "None",
+    "extra-large": "None"
+  },
+  "aes": {
+    "mini": 0.028,
+    "small": 0.016,
+    "medium": 0.027,
+    "large": 0.045,
+    "extra-large": 0.031
+  },
+  "bfs-bulk-mach": {
+    "mini": 0.030,
+    "small": 0.062,
+    "medium": 0.050,
+    "large": 0.092,
+    "extra-large": 0.056
+  },
+  "bfs-queue-mach": {
+    "mini": 0.019,
+    "small": 0.039,
+    "medium": 0.027,
+    "large": 0.015,
+    "extra-large": 0.023
+  },
+  "fft-strided-mach": {
+    "mini": 0.030,
+    "small": 0.016,
+    "medium": 0.014,
+    "large": 0.025,
+    "extra-large": 0.014
+  },
+  "fft-transpose-mach": {
+    "mini": 0.023,
+    "small": 0.046,
+    "medium": 0.022,
+    "large": 0.035,
+    "extra-large": 0.031
+  },
+  "gemm-blocked-mach": {
+    "mini": 0.034,
+    "small": 0.076,
+    "medium": 0.062,
+    "large": 0.047,
+    "extra-large": 0.082
+  },
+  "gemm-ncubed-mach": {
+    "mini": 0.088,
+    "small": 0.076,
+    "medium": 0.031,
+    "large": 0.088,
+    "extra-large": 0.068
+  },
+  "kmp-mach": {
+    "mini": 0.033,
+    "small": 0.040,
+    "medium": 0.038,
+    "large": 0.062,
+    "extra-large": 0.109
+  },
+  "md-grid-mach": {
+    "mini": 0.102,
+    "small": 0.070,
+    "medium": 0.041,
+    "large": 0.058,
+    "extra-large": 0.072
+  },
+  "md-knn-mach": {
+    "mini": 0.016,
+    "small": 0.012,
+    "medium": 0.080,
+    "large": 0.016,
+    "extra-large": 0.013
+  },
+  "nw-mach": {
+    "mini": 0.026,
+    "small": 0.034,
+    "medium": 0.066,
+    "large": 0.024,
+    "extra-large": 0.055
+  },
+  "sort-merge-mach": {
+    "mini": 0.046,
+    "small": 0.048,
+    "medium": 0.024,
+    "large": 0.074,
+    "extra-large": 0.027
+  },
+  "sort-radix-mach": {
+    "mini": 0.092,
+    "small": 0.055,
+    "medium": 0.043,
+    "large": 0.028,
+    "extra-large": 0.049
+  },
+  "spmv-crs-mach": {
+    "mini": 0.016,
+    "small": 0.065,
+    "medium": 0.035,
+    "large": 0.020,
+    "extra-large": 0.017
+  },
+  "spmv-ellpack-mach": {
+    "mini": 0.047,
+    "small": 0.057,
+    "medium": 0.057,
+    "large": 0.093,
+    "extra-large": 0.062
+  },
+  "stencil-2d-mach": {
+    "mini": 0.058,
+    "small": 0.027,
+    "medium": 0.059,
+    "large": 0.097,
+    "extra-large": 0.063
+  },
+  "stencil-3d-mach": {
+    "mini": 0.124,
+    "small": 0.087,
+    "medium": 0.087,
+    "large": 0.052,
+    "extra-large": 0.089
+  },
+  "viterbi-mach": {
+    "mini": 0.022,
+    "small": 0.031,
+    "medium": 0.046,
+    "large": 0.036,
+    "extra-large": 0.082
+  },
+  "basicmath-mibench": {
+    "mini": 0.168,
+    "small": 0.521,
+    "medium": 2.132,
+    "large": 12.778,
+    "extra-large": 48.808
+  },
+  "bitcount-mibench": {
+    "mini": 0.016,
+    "small": 0.425,
+    "medium": 3.913,
+    "large": 11.076,
+    "extra-large": 32.633
+  },
+  "qsort-mibench": {
+    "mini": 0.082,
+    "small": 0.220,
+    "medium": 1.355,
+    "large": 6.368,
+    "extra-large": 18.846
+  },
+  "susan-s-mibench": {
+    "mini": 0.060,
+    "small": 0.594,
+    "medium": 2.229,
+    "large": 8.664,
+    "extra-large": 34.242
+  },
+  "susan-e-mibench": {
+    "mini": 0.023,
+    "small": 1.308,
+    "medium": 9.034,
+    "large": 87.686,
+    "extra-large": 910.063
+  },
+  "susan-c-mibench": {
+    "mini": 0.016,
+    "small": 0.178,
+    "medium": 0.474,
+    "large": 2.010,
+    "extra-large": 8.016
+  },
+  "dijkstra-mibench": {
+    "mini": 0.066,
+    "small": 0.616,
+    "medium": 5.120,
+    "large": 23.450,
+    "extra-large": 134.061
+  },
+  "patricia-mibench": {
+    "mini": 0.143,
+    "small": 0.914,
+    "medium": 2.900,
+    "large": 11.311,
+    "extra-large": 29.488
+  },
+  "stringsearch-mibench": {
+    "mini": 0.006,
+    "small": 1.538,
+    "medium": 5.235,
+    "large": 19.136,
+    "extra-large": 74.180
+  },
+  "canneal-parsec": {
+    "mini": 0.033,
+    "small": 0.542,
+    "medium": 6.511,
+    "large": 33.591,
+    "extra-large": 96.310
+  }
+}

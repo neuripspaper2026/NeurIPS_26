@@ -1,0 +1,132 @@
+{
+  "benchmark": "mvt",
+  "ex_version": "EX2",
+  "generated_at": "2026-01-04T20:34:19",
+  "missing": [
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 4
+    },
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 7
+    },
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 8
+    },
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 9
+    },
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 10
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 4
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 7
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 8
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 9
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 10
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 4
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 7
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 8
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 9
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 10
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 4
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 7
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 8
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 9
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 10
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 4
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 7
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 8
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 9
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 10
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "benchmark": "bitcount-mibench",
+  "source": "${REPO_ROOT}/configs/runtime_hints.json",
+  "generated_at": "2025-11-28T19:59:29",
+  "strategies": {
+    "mini": {
+      "warmup": 4,
+      "runs": 20,
+      "reason": "Very short kernel; startup overhead is significant.",
+      "runtime": 0.016
+    },
+    "small": {
+      "warmup": 3,
+      "runs": 10,
+      "reason": "Mid-short kernel; warm-up recommended.",
+      "runtime": 0.425
+    },
+    "medium": {
+      "warmup": 1,
+      "runs": 5,
+      "reason": "Very long kernel; small warm-up is sufficient.",
+      "runtime": 3.913
+    },
+    "large": {
+      "warmup": 0,
+      "runs": 3,
+      "reason": "Extremely long kernel; warm-up not required.",
+      "runtime": 11.076
+    },
+    "extra-large": {
+      "warmup": 0,
+      "runs": 3,
+      "reason": "Extremely long kernel; warm-up not required.",
+      "runtime": 32.633
+    }
+  }
+}

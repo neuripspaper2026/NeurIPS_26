@@ -1,0 +1,26 @@
+#!/bin/bash
+# Run StreamCluster with specified dataset size
+# Usage: ./run <dataset_size>
+# dataset_size: mini, small, medium, large, extra-large
+
+case $1 in
+    mini)
+        ./streamcluster 10 20 256 1024 1024 1000 none input_data/mini/output_mini.txt 1
+        ;;
+    small)
+        ./streamcluster 10 20 256 4096 4096 1000 none input_data/small/output_small.txt 1
+        ;;
+    medium)
+        ./streamcluster 10 20 256 8192 8192 1000 none input_data/medium/output_medium.txt 1
+        ;;
+    large)
+        ./streamcluster 10 20 256 16384 16384 1000 none input_data/large/output_large.txt 1
+        ;;
+    extra-large)
+        ./streamcluster 10 20 256 65536 65536 1000 none input_data/extra-large/output_extra_large.txt 1
+        ;;
+    *)
+        echo "Usage: $0 {mini|small|medium|large|extra-large}"
+        exit 1
+        ;;
+esac

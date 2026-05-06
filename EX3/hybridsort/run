@@ -1,0 +1,26 @@
+#!/bin/bash
+# Run Hybridsort with specified dataset size
+# Usage: ./run <dataset_size>
+# dataset_size: mini, small, medium, large, extra-large
+
+case $1 in
+    mini)
+        ./hybridsort input_data/mini/input.txt -o input_data/mini/output_mini.txt
+        ;;
+    small)
+        ./hybridsort input_data/small/input.txt -o input_data/small/output_small.txt
+        ;;
+    medium)
+        ./hybridsort input_data/medium/input.txt -o input_data/medium/output_medium.txt
+        ;;
+    large)
+        ./hybridsort input_data/large/input.txt -o input_data/large/output_large.txt
+        ;;
+    extra-large)
+        ./hybridsort input_data/extra-large/input.txt -o input_data/extra-large/output_extra_large.txt
+        ;;
+    *)
+        echo "Usage: $0 {mini|small|medium|large|extra-large}"
+        exit 1
+        ;;
+esac

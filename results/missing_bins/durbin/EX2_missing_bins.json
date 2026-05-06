@@ -1,0 +1,32 @@
+{
+  "benchmark": "durbin",
+  "ex_version": "EX2",
+  "generated_at": "2026-01-05T13:09:07",
+  "missing": [
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 8
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 8
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 8
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 8
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 8
+    }
+  ]
+}

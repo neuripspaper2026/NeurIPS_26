@@ -1,0 +1,37 @@
+{
+  "benchmark": "basicmath-mibench",
+  "source": "${REPO_ROOT}/configs/runtime_hints.json",
+  "generated_at": "2025-11-28T18:55:46",
+  "strategies": {
+    "mini": {
+      "warmup": 3,
+      "runs": 10,
+      "reason": "Mid-short kernel; warm-up recommended.",
+      "runtime": 0.168
+    },
+    "small": {
+      "warmup": 2,
+      "runs": 10,
+      "reason": "Medium kernel; light warm-up advised.",
+      "runtime": 0.521
+    },
+    "medium": {
+      "warmup": 2,
+      "runs": 8,
+      "reason": "Long-running kernel; minimal warm-up.",
+      "runtime": 2.132
+    },
+    "large": {
+      "warmup": 0,
+      "runs": 3,
+      "reason": "Extremely long kernel; warm-up not required.",
+      "runtime": 12.778
+    },
+    "extra-large": {
+      "warmup": 0,
+      "runs": 3,
+      "reason": "Extremely long kernel; warm-up not required.",
+      "runtime": 48.808
+    }
+  }
+}

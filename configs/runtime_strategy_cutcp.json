@@ -1,0 +1,37 @@
+{
+  "benchmark": "cutcp",
+  "source": "${REPO_ROOT}/configs/runtime_hints.json",
+  "generated_at": "2025-11-25T20:25:28",
+  "strategies": {
+    "mini": {
+      "warmup": 3,
+      "runs": 10,
+      "reason": "Mid-short kernel; warm-up recommended.",
+      "runtime": 0.268
+    },
+    "small": {
+      "warmup": 2,
+      "runs": 10,
+      "reason": "Medium kernel; light warm-up advised.",
+      "runtime": 0.794
+    },
+    "medium": {
+      "warmup": 1,
+      "runs": 5,
+      "reason": "Very long kernel; small warm-up is sufficient.",
+      "runtime": 6.157
+    },
+    "large": {
+      "warmup": 0,
+      "runs": 3,
+      "reason": "Extremely long kernel; warm-up not required.",
+      "runtime": 15.545
+    },
+    "extra-large": {
+      "warmup": 0,
+      "runs": 3,
+      "reason": "Extremely long kernel; warm-up not required.",
+      "runtime": 17.437
+    }
+  }
+}

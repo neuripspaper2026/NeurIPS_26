@@ -1,0 +1,6 @@
+dataset,trail,model,threads,version,compiler,is_baseline,kernel_mean_s,total_mean_s,kernel_speedup,total_speedup,success_rate,warmup_runs,measure_runs,hint_key,executable
+mini,1,baseline,1,,gcc,True,0.0239722888,0.026188749266666665,1.0,1.0,1.0,3,15,mini,${REPO_ROOT}/EX2/dijkstra-mibench/EX2_optimized_codes/dijkstra-mibench_gcc
+small,1,baseline,1,,gcc,True,0.604019897,0.6279729922999999,1.0,1.0,1.0,2,10,small,${REPO_ROOT}/EX2/dijkstra-mibench/EX2_optimized_codes/dijkstra-mibench_gcc
+medium,1,baseline,1,,gcc,True,5.641214564,5.779070621600001,1.0,1.0,1.0,1,5,medium,${REPO_ROOT}/EX2/dijkstra-mibench/EX2_optimized_codes/dijkstra-mibench_gcc
+large,1,baseline,1,,gcc,True,26.120452848666663,26.673602020333334,1.0,1.0,1.0,0,3,large,${REPO_ROOT}/EX2/dijkstra-mibench/EX2_optimized_codes/dijkstra-mibench_gcc
+extra-large,1,baseline,1,,gcc,True,133.2405016936667,135.41979819733334,1.0,1.0,1.0,0,3,extra-large,${REPO_ROOT}/EX2/dijkstra-mibench/EX2_optimized_codes/dijkstra-mibench_gcc

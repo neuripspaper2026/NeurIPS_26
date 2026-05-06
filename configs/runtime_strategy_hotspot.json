@@ -1,0 +1,37 @@
+{
+  "benchmark": "hotspot",
+  "source": "${REPO_ROOT}/configs/EX3_configs/runtime_hints_ex3.json",
+  "generated_at": "2026-04-20T22:25:43",
+  "strategies": {
+    "mini": {
+      "warmup": 3,
+      "runs": 10,
+      "reason": "Mid-short kernel; warm-up recommended.",
+      "runtime": 0.373
+    },
+    "small": {
+      "warmup": 2,
+      "runs": 10,
+      "reason": "Medium kernel; light warm-up advised.",
+      "runtime": 0.57
+    },
+    "medium": {
+      "warmup": 2,
+      "runs": 10,
+      "reason": "Medium kernel; light warm-up advised.",
+      "runtime": 0.927
+    },
+    "large": {
+      "warmup": 1,
+      "runs": 5,
+      "reason": "Very long kernel; small warm-up is sufficient.",
+      "runtime": 8.715
+    },
+    "extra-large": {
+      "warmup": 0,
+      "runs": 3,
+      "reason": "Extremely long kernel; warm-up not required.",
+      "runtime": 31.439
+    }
+  }
+}

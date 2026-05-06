@@ -1,0 +1,11 @@
+dataset,trail,model,threads,version,compiler,sequence_id,is_baseline,kernel_mean_s,total_mean_s,kernel_speedup,total_speedup,success_rate,warmup_runs,measure_runs,hint_key,executable
+mini,1,baseline,,,unknown,0,True,,,,,0.0,0,1,mini,${REPO_ROOT}/EX3/nw/EX3_optimized_codes/nw
+mini,1,baseline,,,unknown,5,True,0.012835426,0.33163941,1.0,1.0,1.0,0,1,mini,${REPO_ROOT}/EX3/nw/EX3_optimized_codes/nw
+mini,1,gpt5.1,,1,nvcc,0,False,,,,,0.0,0,1,mini,${REPO_ROOT}/EX3/nw/EX3_optimized_codes/nw_gpt5.1_v1
+small,1,baseline,,,unknown,1,True,,,,,0.0,0,1,small,${REPO_ROOT}/EX3/nw/EX3_optimized_codes/nw
+small,1,baseline,,,unknown,6,True,0.016600701,0.593224088,1.0,1.0,1.0,0,1,small,${REPO_ROOT}/EX3/nw/EX3_optimized_codes/nw
+medium,1,baseline,,,unknown,2,True,,,,,0.0,0,1,medium,${REPO_ROOT}/EX3/nw/EX3_optimized_codes/nw
+medium,1,baseline,,,unknown,7,True,0.029122625,1.108047699,1.0,1.0,1.0,0,1,medium,${REPO_ROOT}/EX3/nw/EX3_optimized_codes/nw
+large,1,baseline,,,unknown,3,True,,,,,0.0,0,1,large,${REPO_ROOT}/EX3/nw/EX3_optimized_codes/nw
+large,1,baseline,,,unknown,8,True,0.047708791,1.837519043,1.0,1.0,1.0,0,1,large,${REPO_ROOT}/EX3/nw/EX3_optimized_codes/nw
+extra-large,1,baseline,,,unknown,4,True,,,,,0.0,0,1,extra-large,${REPO_ROOT}/EX3/nw/EX3_optimized_codes/nw

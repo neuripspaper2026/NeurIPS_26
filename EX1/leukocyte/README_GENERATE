@@ -1,0 +1,260 @@
+================================================================================
+                    LEUKOCYTE INPUT DATA GENERATOR
+================================================================================
+
+OVERVIEW
+--------
+A Python script to generate synthetic AVI video files for the leukocyte 
+tracking benchmark. Creates raw/uncompressed AVI videos with grayscale frames 
+simulating microscopy cell images.
+
+REQUIREMENTS
+------------
+- Python 3.6+
+- NumPy library
+
+Install: pip install numpy
+
+QUICK START
+-----------
+Generate mini dataset:
+    python3 generate.py synthetic --preset mini --out-dir input_data/mini --seed 42
+
+Generate all sizes:
+    for preset in mini small medium large extra-large; do
+        python3 generate.py synthetic --preset $preset --out-dir input_data/$preset --seed 42
+    done
+
+Or use batch script:
+    ./generate_all.sh
+
+FILE FORMAT
+-----------
+AVI (Audio Video Interleave) - Raw/Uncompressed
+- Video codec: Raw video (DIB/uncompressed)
+- Color format: 8-bit grayscale (paletted)
+- Palette: 256 grayscale entries (0-255)
+- Frame rate: 30 fps (configurable)
+
+PRESETS
+-------
+Preset        Width  Height  Frames  FPS  File Size  Description
+--------------------------------------------------------------------------
+mini          320    240     50      30   ~3.7 MB    Quick testing
+small         480    360     150     30   ~25 MB     Small-scale testing
+medium        640    480     600     30   ~185 MB    Reference dataset
+large         800    600     1000    30   ~480 MB    Large-scale testing
+extra-large   1024   768     1500    30   ~1.2 GB    Stress testing
+
+USAGE
+-----
+Basic syntax:
+    python3 generate.py <command> [options]
+
+Commands:
+    synthetic       Generate synthetic AVI video from scratch
+
+PARAMETERS
+----------
+Required:
+    --out-dir PATH          Output directory (created if needed)
+
+Optional:
+    --preset NAME           Preset configuration (default: medium)
+                            Choices: mini, small, medium, large, extra-large
+    --width INT             Override frame width in pixels
+    --height INT            Override frame height in pixels
+    --frames INT            Override total number of frames
+    --fps INT               Override frames per second (default: 30)
+    --seed INT              Random seed for reproducibility (default: 42)
+    --overwrite             Overwrite existing output files
+
+PARAMETER DETAILS
+-----------------
+--preset NAME
+    Selects predefined configuration:
+    - mini: Fast generation, small file, good for development
+    - small: Moderate size for quick experiments
+    - medium: Reference size matching original datasets
+    - large: Extended testing scenarios
+    - extra-large: Comprehensive testing and stress tests
+
+--width INT and --height INT
+    Frame dimensions in pixels. Must be positive integers.
+    Width is automatically padded to 4-byte alignment.
+
+--frames INT
+    Total number of frames in video. More frames = larger file.
+    Example: 600 frames at 30 fps = 20 seconds of video
+
+--fps INT
+    Frames per second (frame rate). Standard value is 30 fps.
+    Does not affect file size, only playback speed.
+
+--seed INT
+    Random seed for deterministic generation. Same seed = identical videos.
+    Use different seeds to create variations.
+
+--overwrite
+    Replace existing files. Without this, generator errors if file exists.
+
+EXAMPLES
+--------
+Example 1: Generate mini dataset
+    python3 generate.py synthetic \
+        --preset mini \
+        --out-dir input_data/mini \
+        --seed 42
+    
+    Output: input_data/mini/testfile.avi (320×240, 50 frames, ~3.7 MB)
+
+Example 2: Generate medium dataset (reference)
+    python3 generate.py synthetic \
+        --preset medium \
+        --out-dir input_data/medium \
+        --seed 42
+    
+    Output: input_data/medium/testfile.avi (640×480, 600 frames, ~185 MB)
+
+Example 3: Custom dimensions
+    python3 generate.py synthetic \
+        --preset small \
+        --width 512 \
+        --height 384 \
+        --frames 200 \
+        --out-dir input_data/custom \
+        --seed 100
+    
+    Output: input_data/custom/testfile.avi (512×384, 200 frames)
+
+Example 4: Generate all standard sizes
+    for preset in mini small medium large extra-large; do
+        echo "Generating $preset..."
+        python3 generate.py synthetic \
+            --preset $preset \
+            --out-dir input_data/$preset \
+            --seed 42
+    done
+
+Example 5: Overwrite existing file
+    python3 generate.py synthetic \
+        --preset mini \
+        --out-dir input_data/mini \
+        --seed 42 \
+        --overwrite
+
+Example 6: Different seed for variation
+    python3 generate.py synthetic --preset mini --out-dir input_data/mini_v1 --seed 42
+    python3 generate.py synthetic --preset mini --out-dir input_data/mini_v2 --seed 123
+
+OUTPUT STRUCTURE
+----------------
+After generation:
+
+leukocyte/
+├── generate.py                    Generator script
+├── generate_all.sh                Batch generation script
+├── README_GENERATE                This file
+└── input_data/
+    ├── mini/
+    │   └── testfile.avi          320×240, 50 frames (~3.7 MB)
+    ├── small/
+    │   └── testfile.avi          480×360, 150 frames (~25 MB)
+    ├── medium/
+    │   └── testfile.avi          640×480, 600 frames (~185 MB)
+    ├── large/
+    │   └── testfile.avi          800×600, 1000 frames (~480 MB)
+    └── extra-large/
+        └── testfile.avi          1024×768, 1500 frames (~1.2 GB)
+
+RUNNING THE BENCHMARK
+---------------------
+After generating input data, run the leukocyte tracking benchmark:
+
+Basic usage:
+    ./leukocyte <num_frames> <num_threads> <input_avi_file>
+
+With output file:
+    ./leukocyte <num_frames> <num_threads> <input_avi_file> -o <output_file>
+
+Examples:
+
+Mini dataset:
+    ./EX1_optimized_codes/leukocyte_gcc 5 4 input_data/mini/testfile.avi -o output_mini.txt
+
+Small dataset:
+    ./EX1_optimized_codes/leukocyte_gcc 15 4 input_data/small/testfile.avi -o output_small.txt
+
+Medium dataset:
+    ./EX1_optimized_codes/leukocyte_gcc 50 4 input_data/medium/testfile.avi -o output_medium.txt
+
+Large dataset:
+    ./EX1_optimized_codes/leukocyte_gcc 100 4 input_data/large/testfile.avi -o output_large.txt
+
+Extra-large dataset:
+    ./EX1_optimized_codes/leukocyte_gcc 150 4 input_data/extra-large/testfile.avi -o output_extra-large.txt
+
+Benchmark parameters:
+    num_frames      Number of frames to process (≤ total frames in video)
+    num_threads     Number of OpenMP threads to use
+    input_avi_file  Path to input AVI video file
+    -o output_file  (Optional) Path to save tracking results
+
+ADVANCED USAGE
+--------------
+Verifying generated files:
+    Check file properties:
+        ffprobe -v error -show_format -show_streams input_data/mini/testfile.avi
+    
+    Check file size:
+        ls -lh input_data/*/testfile.avi
+
+Synthetic frame generation:
+    The generator creates realistic microscopy cell images with:
+    1. Background Noise: Random grayscale values (intensity 20-60)
+    2. Cell Objects: 3-8 circular cells per frame
+       - Random radius: 15-40 pixels
+       - Random intensity: 80-200
+       - Positioned in central region
+    3. Texture: Gradient patterns within cells
+    4. Motion: Frame-to-frame displacement simulating cell movement
+
+Performance tips:
+    - Generation time proportional to frame count and resolution
+    - Memory usage scales with frame count
+    - Use --seed for reproducible results
+
+File size calculation:
+    Approximate formula:
+        size (bytes) ≈ width × height × frames + overhead
+        size (MB) ≈ (width × height × frames) / (1024 × 1024)
+    
+    Example for medium preset:
+        640 × 480 × 600 = 184,320,000 bytes ≈ 175.8 MB
+        + AVI headers ≈ 185 MB total
+
+TROUBLESHOOTING
+---------------
+Error: "File already exists"
+    Solution: Add --overwrite flag or delete existing file
+
+Error: "Invalid dimensions"
+    Solution: Ensure width and height are positive integers
+
+Error: "Invalid frame count"
+    Solution: Ensure frames is a positive integer
+
+Low performance:
+    - Reduce --frames or use smaller --width and --height
+    - Ensure sufficient RAM (especially for extra-large preset)
+
+NOTES
+-----
+- Generated videos use raw/uncompressed format matching original datasets
+- Frame width is automatically padded to 4-byte alignment per AVI spec
+- All frames stored in bottom-up bitmap format (standard for AVI)
+- 256-color grayscale palette ensures compatibility with benchmark
+- Generation is fully deterministic when using same seed value
+
+================================================================================
+

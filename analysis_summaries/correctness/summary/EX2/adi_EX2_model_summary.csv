@@ -1,0 +1,4 @@
+model,total,pass,fail,skip,error,unknown
+claude,50,25,25,0,0,0
+gpt5.1,30,30,0,0,0,0
+qwen,50,45,5,0,0,0

@@ -1,0 +1,17 @@
+{
+  "benchmark": "nw",
+  "ex_version": "EX2",
+  "generated_at": "2026-01-08T07:00:50",
+  "missing": [
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 4
+    },
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 8
+    }
+  ]
+}

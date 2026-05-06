@@ -1,0 +1,37 @@
+{
+  "benchmark": "tpacf",
+  "source": "${REPO_ROOT}/configs/runtime_hints.json",
+  "generated_at": "2025-11-25T22:00:17",
+  "strategies": {
+    "mini": {
+      "warmup": 3,
+      "runs": 10,
+      "reason": "Mid-short kernel; warm-up recommended.",
+      "runtime": 0.178
+    },
+    "small": {
+      "warmup": 3,
+      "runs": 10,
+      "reason": "Mid-short kernel; warm-up recommended.",
+      "runtime": 0.427
+    },
+    "medium": {
+      "warmup": 0,
+      "runs": 3,
+      "reason": "Extremely long kernel; warm-up not required.",
+      "runtime": 25.903
+    },
+    "large": {
+      "warmup": 0,
+      "runs": 3,
+      "reason": "Extremely long kernel; warm-up not required.",
+      "runtime": 181.469
+    },
+    "extra-large": {
+      "warmup": 0,
+      "runs": 3,
+      "reason": "Extremely long kernel; warm-up not required.",
+      "runtime": 312.086
+    }
+  }
+}

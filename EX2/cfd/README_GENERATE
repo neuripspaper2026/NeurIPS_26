@@ -1,0 +1,64 @@
+CFD (Euler3D) Data Generator
+============================
+
+This tool generates synthetic mesh data for the CFD Euler3D benchmark.
+
+INPUT FORMAT
+------------
+The CFD benchmark expects a text file with the following format:
+- Line 1: Number of elements (nel)
+- Lines 2 to nel+1: For each element:
+  area  neighbor1 nx1 ny1 nz1  neighbor2 nx2 ny2 nz2  neighbor3 nx3 ny3 nz3  neighbor4 nx4 ny4 nz4
+
+Where:
+- area: Element area (float)
+- neighbor: Adjacent element ID (1-based, -1 for boundary)
+- nx, ny, nz: 3D normal vector components for each neighbor
+
+PRESETS
+-------
+mini        - 12,000 elements (~0.2 MB)
+small       - 48,000 elements (~0.8 MB)
+medium      - 97,046 elements (~1.6 MB)
+large       - 193,474 elements (~3.2 MB)
+extra-large - 232,536 elements (~3.8 MB)
+
+USAGE
+-----
+Generate mini dataset:
+  python generate.py synthetic --out-dir mini/input --preset mini
+
+Generate small dataset:
+  python generate.py synthetic --out-dir small/input --preset small
+
+Generate custom size:
+  python generate.py synthetic --out-dir custom/input --nel 50000 --seed 123
+
+Generate with custom filename:
+  python generate.py synthetic --out-dir test/input --preset mini --output-name test.domn.012K
+
+Overwrite existing files:
+  python generate.py synthetic --out-dir mini/input --preset mini --overwrite
+
+PARAMETERS
+----------
+--out-dir PATH       Output directory (created if doesn't exist)
+--preset NAME        Use preset configuration (mini, small, medium, large, extra-large)
+--nel INT           Number of elements (overrides preset)
+--seed INT          Random seed for reproducibility (default: 42)
+--output-name STR   Custom output filename
+--overwrite         Allow overwriting existing files
+--write-meta        Write .meta sidecar file with generation info
+
+RUNNING THE BENCHMARK
+--------------------
+After generating data, run the benchmark:
+  ./euler3d-cpu_gcc input_data/mini/input/fvcorr.domn.012K
+
+OUTPUT
+------
+The program will output three files:
+- density
+- momentum
+- density_energy
+

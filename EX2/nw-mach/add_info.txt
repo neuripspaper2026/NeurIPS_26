@@ -1,0 +1,11 @@
+#include "nw.h"
+
+#define MATCH_SCORE 1
+#define MISMATCH_SCORE -1
+#define GAP_SCORE -1
+
+#define ALIGN '\\'
+#define SKIPA '^'
+#define SKIPB '<'
+
+#define MAX(A,B) ( ((A)>(B))?(A):(B) )

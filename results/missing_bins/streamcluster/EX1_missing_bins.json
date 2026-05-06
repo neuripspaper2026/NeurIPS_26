@@ -1,0 +1,42 @@
+{
+  "benchmark": "streamcluster",
+  "ex_version": "EX1",
+  "generated_at": "2025-12-16T10:09:09",
+  "missing": [
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 1
+    },
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 3
+    },
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 4
+    },
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 5
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 3
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 5
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 7
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "benchmark": "mri-q",
+  "source": "${REPO_ROOT}/configs/runtime_hints.json",
+  "generated_at": "2025-11-25T21:01:39",
+  "strategies": {
+    "mini": {
+      "warmup": 3,
+      "runs": 10,
+      "reason": "Mid-short kernel; warm-up recommended.",
+      "runtime": 0.128
+    },
+    "small": {
+      "warmup": 2,
+      "runs": 10,
+      "reason": "Medium kernel; light warm-up advised.",
+      "runtime": 0.928
+    },
+    "medium": {
+      "warmup": 0,
+      "runs": 3,
+      "reason": "Extremely long kernel; warm-up not required.",
+      "runtime": 11.917
+    },
+    "large": {
+      "warmup": 0,
+      "runs": 3,
+      "reason": "Extremely long kernel; warm-up not required.",
+      "runtime": 14.988
+    },
+    "extra-large": {
+      "warmup": 0,
+      "runs": 3,
+      "reason": "Extremely long kernel; warm-up not required.",
+      "runtime": 95.117
+    }
+  }
+}

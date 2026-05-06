@@ -1,0 +1,10 @@
+EX Version,Model,Dataset,NC,Runtime Error,Incorrect,Correct,Total
+EX1,claude,mini,0,0,0,0,0
+EX1,gpt5.1,mini,0,0,0,0,0
+EX1,qwen,mini,0,0,0,0,0
+EX2,claude,mini,0,0,0,0,0
+EX2,gpt5.1,mini,0,0,0,0,0
+EX2,qwen,mini,0,0,0,0,0
+EX3,claude,mini,0,0,0,0,0
+EX3,gpt5.1,mini,0,0,0,0,0
+EX3,qwen,mini,0,0,0,0,0

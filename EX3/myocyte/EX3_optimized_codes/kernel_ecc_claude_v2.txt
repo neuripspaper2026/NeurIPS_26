@@ -1,0 +1,238 @@
+<<<CODE>>>
+__device__ void kernel_ecc(fp timeinst, fp *d_initvalu, fp *d_finavalu,
+                           int valu_offset, fp *d_params) {
+
+    // Load cycleLength parameter
+    const fp cycleLength = d_params[15];
+
+    // Compute all offsets once
+    const int offset_1 = valu_offset;
+    const int offset_2 = valu_offset + 1;
+    const int offset_3 = valu_offset + 2;
+    const int offset_4 = valu_offset + 3;
+    const int offset_5 = valu_offset + 4;
+    const int offset_6 = valu_offset + 5;
+    const int offset_7 = valu_offset + 6;
+    const int offset_8 = valu_offset + 7;
+    const int offset_9 = valu_offset + 8;
+    const int offset_10 = valu_offset + 9;
+    const int offset_11 = valu_offset + 10;
+    const int offset_12 = valu_offset + 11;
+    const int offset_13 = valu_offset + 12;
+    const int offset_14 = valu_offset + 13;
+    const int offset_15 = valu_offset + 14;
+    const int offset_16 = valu_offset + 15;
+    const int offset_17 = valu_offset + 16;
+    const int offset_18 = valu_offset + 17;
+    const int offset_19 = valu_offset + 18;
+    const int offset_20 = valu_offset + 19;
+    const int offset_21 = valu_offset + 20;
+    const int offset_22 = valu_offset + 21;
+    const int offset_23 = valu_offset + 22;
+    const int offset_24 = valu_offset + 23;
+    const int offset_25 = valu_offset + 24;
+    const int offset_26 = valu_offset + 25;
+    const int offset_27 = valu_offset + 26;
+    const int offset_28 = valu_offset + 27;
+    const int offset_29 = valu_offset + 28;
+    const int offset_30 = valu_offset + 29;
+    const int offset_31 = valu_offset + 30;
+    const int offset_32 = valu_offset + 31;
+    const int offset_33 = valu_offset + 32;
+    const int offset_34 = valu_offset + 33;
+    const int offset_35 = valu_offset + 34;
+    const int offset_36 = valu_offset + 35;
+    const int offset_37 = valu_offset + 36;
+    const int offset_38 = valu_offset + 37;
+    const int offset_39 = valu_offset + 38;
+    const int offset_40 = valu_offset + 39;
+    const int offset_41 = valu_offset + 40;
+    const int offset_42 = valu_offset + 41;
+    const int offset_43 = valu_offset + 42;
+    const int offset_44 = valu_offset + 43;
+    const int offset_45 = valu_offset + 44;
+    const int offset_46 = valu_offset + 45;
+
+    // Load input values with coalesced access pattern
+    const fp d_initvalu_1 = d_initvalu[offset_1];
+    const fp d_initvalu_2 = d_initvalu[offset_2];
+    const fp d_initvalu_3 = d_initvalu[offset_3];
+    const fp d_initvalu_4 = d_initvalu[offset_4];
+    const fp d_initvalu_5 = d_initvalu[offset_5];
+    const fp d_initvalu_6 = d_initvalu[offset_6];
+    const fp d_initvalu_7 = d_initvalu[offset_7];
+    const fp d_initvalu_8 = d_initvalu[offset_8];
+    const fp d_initvalu_9 = d_initvalu[offset_9];
+    const fp d_initvalu_10 = d_initvalu[offset_10];
+    const fp d_initvalu_11 = d_initvalu[offset_11];
+    const fp d_initvalu_12 = d_initvalu[offset_12];
+    const fp d_initvalu_13 = d_initvalu[offset_13];
+    const fp d_initvalu_14 = d_initvalu[offset_14];
+    const fp d_initvalu_15 = d_initvalu[offset_15];
+    const fp d_initvalu_16 = d_initvalu[offset_16];
+    const fp d_initvalu_17 = d_initvalu[offset_17];
+    const fp d_initvalu_18 = d_initvalu[offset_18];
+    const fp d_initvalu_19 = d_initvalu[offset_19];
+    const fp d_initvalu_20 = d_initvalu[offset_20];
+    const fp d_initvalu_21 = d_initvalu[offset_21];
+    const fp d_initvalu_23 = d_initvalu[offset_23];
+    const fp d_initvalu_24 = d_initvalu[offset_24];
+    const fp d_initvalu_25 = d_initvalu[offset_25];
+    const fp d_initvalu_26 = d_initvalu[offset_26];
+    const fp d_initvalu_27 = d_initvalu[offset_27];
+    const fp d_initvalu_28 = d_initvalu[offset_28];
+    const fp d_initvalu_29 = d_initvalu[offset_29];
+    const fp d_initvalu_30 = d_initvalu[offset_30];
+    const fp d_initvalu_31 = d_initvalu[offset_31];
+    const fp d_initvalu_32 = d_initvalu[offset_32];
+    const fp d_initvalu_33 = d_initvalu[offset_33];
+    const fp d_initvalu_34 = d_initvalu[offset_34];
+    const fp d_initvalu_35 = d_initvalu[offset_35];
+    const fp d_initvalu_36 = d_initvalu[offset_36];
+    const fp d_initvalu_37 = d_initvalu[offset_37];
+    const fp d_initvalu_38 = d_initvalu[offset_38];
+    const fp d_initvalu_39 = d_initvalu[offset_39];
+    const fp d_initvalu_40 = d_initvalu[offset_40];
+
+    // Constants
+    const fp pi = 3.1416f;
+    const fp R = 8314.0f;
+    const fp Frdy = 96485.0f;
+    const fp Temp = 310.0f;
+    const fp FoRT = Frdy / R / Temp;
+    const fp Cmem = 1.3810e-10f;
+    const fp Qpow = (Temp - 310.0f) / 10.0f;
+
+    // Cell geometry
+    const fp cellLength = 100.0f;
+    const fp cellRadius = 10.25f;
+    const fp cellRadius2 = cellRadius * cellRadius;
+    const fp Vcell = pi * cellRadius2 * cellLength * 1e-15f;
+    const fp Vmyo = 0.65f * Vcell;
+    const fp Vsr = 0.035f * Vcell;
+    const fp Vsl = 0.02f * Vcell;
+    const fp Vjunc = 0.0539f * 0.01f * Vcell;
+    const fp J_ca_juncsl = 1.0f / 1.2134e12f;
+    const fp J_ca_slmyo = 1.0f / 2.68510e11f;
+    const fp J_na_juncsl = 1.0f / (1.6382e12f / 3.0f * 100.0f);
+    const fp J_na_slmyo = 1.0f / (1.8308e10f / 3.0f * 100.0f);
+
+    // Fractional currents
+    const fp Fjunc = 0.11f;
+    const fp Fsl = 1.0f - Fjunc;
+    const fp Fjunc_CaL = 0.9f;
+    const fp Fsl_CaL = 1.0f - Fjunc_CaL;
+
+    // Fixed ion concentrations
+    const fp Cli = 15.0f;
+    const fp Clo = 150.0f;
+    const fp Ko = 5.4f;
+    const fp Nao = 140.0f;
+    const fp Cao = 1.8f;
+    const fp Mgi = 1.0f;
+
+    // Precompute reciprocals and logarithms
+    const fp inv_FoRT = 1.0f / FoRT;
+    const fp inv_2FoRT = 0.5f / FoRT;
+    const fp ena_junc = inv_FoRT * log(Nao / d_initvalu_32);
+    const fp ena_sl = inv_FoRT * log(Nao / d_initvalu_33);
+    const fp ek = inv_FoRT * log(Ko / d_initvalu_35);
+    const fp eca_junc = inv_2FoRT * log(Cao / d_initvalu_36);
+    const fp eca_sl = inv_2FoRT * log(Cao / d_initvalu_37);
+    const fp ecl = inv_FoRT * log(Cli / Clo);
+
+    // Na transport parameters
+    const fp GNa = 16.0f;
+    const fp GNaB = 0.297e-3f;
+    const fp IbarNaK = 1.90719f;
+    const fp KmNaip = 11.0f;
+    const fp KmKo = 1.5f;
+
+    // K current parameters
+    const fp pNaK = 0.01833f;
+    const fp GtoSlow = 0.06f;
+    const fp GtoFast = 0.02f;
+    const fp gkp = 0.001f;
+
+    // Cl current parameters
+    const fp GClCa = 0.109625f;
+    const fp GClB = 9e-3f;
+    const fp KdClCa = 100e-3f;
+
+    // I_Ca parameters
+    const fp pNa = 1.5e-8f;
+    const fp pCa = 5.4e-4f;
+    const fp pK = 2.7e-7f;
+    const fp Q10CaL = 1.8f;
+
+    // Ca transport parameters
+    const fp IbarNCX = 9.0f;
+    const fp KmCai = 3.59e-3f;
+    const fp KmCao = 1.3f;
+    const fp KmNai = 12.29f;
+    const fp KmNao = 87.5f;
+    const fp ksat = 0.27f;
+    const fp nu = 0.35f;
+    const fp Kdact = 0.256e-3f;
+    const fp Q10NCX = 1.57f;
+    const fp IbarSLCaP = 0.0673f;
+    const fp KmPCa = 0.5e-3f;
+    const fp GCaB = 2.513e-4f;
+    const fp Q10SLCaP = 2.35f;
+
+    // SR flux parameters
+    const fp Q10SRCaP = 2.6f;
+    const fp Vmax_SRCaP = 2.86e-4f;
+    const fp Kmf = 0.246e-3f;
+    const fp Kmr = 1.7f;
+    const fp hillSRCaP = 1.787f;
+    const fp ks = 25.0f;
+    const fp koCa = 10.0f;
+    const fp kom = 0.06f;
+    const fp kiCa = 0.5f;
+    const fp kim = 0.005f;
+    const fp ec50SR = 0.45f;
+
+    // Buffering parameters
+    const fp Bmax_Naj = 7.561f;
+    const fp Bmax_Nasl = 1.65f;
+    const fp koff_na = 1e-3f;
+    const fp kon_na = 0.1e-3f;
+    const fp Bmax_TnClow = 70e-3f;
+    const fp koff_tncl = 19.6e-3f;
+    const fp kon_tncl = 32.7f;
+    const fp Bmax_TnChigh = 140e-3f;
+    const fp koff_tnchca = 0.032e-3f;
+    const fp kon_tnchca = 2.37f;
+    const fp koff_tnchmg = 3.33e-3f;
+    const fp kon_tnchmg = 3e-3f;
+    const fp Bmax_myosin = 140e-3f;
+    const fp koff_myoca = 0.46e-3f;
+    const fp kon_myoca = 13.8f;
+    const fp koff_myomg = 0.057e-3f;
+    const fp kon_myomg = 0.0157f;
+    const fp Bmax_SR = 19.0f * 0.9e-3f;
+    const fp koff_sr = 60e-3f;
+    const fp kon_sr = 100.0f;
+    const fp Bmax_SLlowsl = 37.38e-3f * Vmyo / Vsl;
+    const fp Bmax_SLlowj = 4.62e-3f * Vmyo / Vjunc * 0.1f;
+    const fp koff_sll = 1300e-3f;
+    const fp kon_sll = 100.0f;
+    const fp Bmax_SLhighsl = 13.35e-3f * Vmyo / Vsl;
+    const fp Bmax_SLhighj = 1.65e-3f * Vmyo / Vjunc * 0.1f;
+    const fp koff_slh = 30e-3f;
+    const fp kon_slh = 100.0f;
+    const fp Bmax_Csqn = 2.7f;
+    const fp koff_csqn = 65.0f;
+    const fp kon_csqn = 100.0f;
+
+    // Precompute powers and exponentials
+    const fp Q10CaL_Qpow = pow(Q10CaL, Qpow);
+    const fp Q10NCX_Qpow = pow(Q10NCX, Qpow);
+    const fp Q10SLCaP_Qpow = pow(Q10SLCaP, Qpow);
+    const fp Q10SRCaP_Qpow = pow(Q10SRCaP, Qpow);
+
+    // I_Na: Fast Na Current
+    const fp V_plus_47_13 = d_initvalu_39 + 47.13f;
+    const fp am = 0.32f * V_plus_47_13 / (1.0f - exp(-0.1f * V_plus_47_13));
+    const fp bm = 0.08f * exp(-d_initvalu_39 / 11.0f);

@@ -1,0 +1,37 @@
+{
+  "benchmark": "srad_v2",
+  "source": "${REPO_ROOT}/configs/EX3_configs/runtime_hints_ex3.json",
+  "generated_at": "2026-04-21T05:51:24",
+  "strategies": {
+    "mini": {
+      "warmup": 3,
+      "runs": 10,
+      "reason": "Mid-short kernel; warm-up recommended.",
+      "runtime": 0.451
+    },
+    "small": {
+      "warmup": 2,
+      "runs": 10,
+      "reason": "Medium kernel; light warm-up advised.",
+      "runtime": 0.999
+    },
+    "medium": {
+      "warmup": 2,
+      "runs": 8,
+      "reason": "Long-running kernel; minimal warm-up.",
+      "runtime": 2.814
+    },
+    "large": {
+      "warmup": 1,
+      "runs": 5,
+      "reason": "Very long kernel; small warm-up is sufficient.",
+      "runtime": 9.338
+    },
+    "extra-large": {
+      "warmup": 0,
+      "runs": 3,
+      "reason": "Extremely long kernel; warm-up not required.",
+      "runtime": 35.522
+    }
+  }
+}

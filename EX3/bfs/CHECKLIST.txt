@@ -1,0 +1,63 @@
+BFS EX3 Modifications - Verification Checklist
+==============================================
+
+TIME MEASUREMENT:
+✓ Added #include <time.h> to bfs.cu
+✓ Added global variable: double total_kernel_time = 0.0
+✓ Added main_start timer at beginning of main()
+✓ Added kernel timing in do-while loop
+  ✓ clock_gettime(CLOCK_MONOTONIC, &kernel_start) before kernels
+  ✓ Both Kernel() and Kernel2() included in timing
+  ✓ cudaDeviceSynchronize() after kernels
+  ✓ clock_gettime(CLOCK_MONOTONIC, &kernel_end) after sync
+  ✓ Accumulate to total_kernel_time
+✓ Added timing output at end of main()
+  ✓ KERNEL_TIME output
+  ✓ TOTAL_TIME output
+  ✓ Uses TIMING_LOG_FILE environment variable
+
+FILE STRUCTURE:
+✓ Moved kernel2.cu to EX3_optimized_codes/
+✓ Modified bfs.cu includes to "EX3_optimized_codes/kernel.cu"
+✓ Modified bfs.cu includes to "EX3_optimized_codes/kernel2.cu"
+✓ Original kernel.cu and kernel2.cu kept in root for reference
+
+MAKEFILE:
+✓ Includes ../common.mk
+✓ Defines OUTPUT_DIR = EX3_optimized_codes
+✓ Defines BUILD_DIR = .build
+✓ Detects KERNEL_1_VARIANTS (kernel_*.cu)
+✓ Detects KERNEL_2_VARIANTS (kernel2_*.cu)
+✓ Filters VALID_VARIANTS (both must exist)
+✓ Checks BASELINE_EXISTS (both kernel.cu and kernel2.cu)
+✓ Generates temporary bfs.cu files with modified includes
+✓ Compilation rules use -@ prefix (error tolerant)
+✓ Executables output to EX3_optimized_codes/
+✓ No intermediate .o files generated
+✓ Safe clean rule (filters .cu/.h/.c files)
+✓ Implements all, clean, list-variants, help targets
+
+SPECIAL CONSIDERATIONS:
+✓ Two-kernel architecture handled correctly
+✓ Both kernels timed together as a unit
+✓ Kernel pair detection (both must exist for valid build)
+✓ Include path rewriting for both kernel files
+
+DOCUMENTATION:
+✓ CHANGES_SUMMARY.txt created
+✓ BUILD_NOTES.md created (detailed technical docs)
+✓ CHECKLIST.txt created (this file)
+
+VERIFICATION STEPS (NOT PERFORMED - USER REQUESTED):
+□ Compile baseline: cd EX3/bfs && make
+□ Check executable exists: ls -la EX3_optimized_codes/bfs
+□ Run with timing: TIMING_LOG_FILE=time.log ./EX3_optimized_codes/bfs input_data/mini/input/graph1M.txt -o output.txt
+□ Verify output: cat time.log (should show KERNEL_TIME and TOTAL_TIME)
+□ Test variant build: create kernel_test_v1.cu and kernel2_test_v1.cu, then make
+□ Verify clean safety: make clean && ls EX3_optimized_codes/*.cu (should preserve .cu files)
+
+NOTES:
+- User requested NO COMPILATION TESTING
+- All file modifications completed
+- Ready for build testing when needed
+- BFS-specific two-kernel architecture properly handled

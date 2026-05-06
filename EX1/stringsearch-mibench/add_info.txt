@@ -1,0 +1,7 @@
+#include <stddef.h>
+#include <string.h>
+#include <limits.h>
+
+static size_t table[UCHAR_MAX + 1];
+static size_t len;
+static char *findme;

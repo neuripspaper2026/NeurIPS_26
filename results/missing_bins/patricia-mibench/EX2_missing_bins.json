@@ -1,0 +1,17 @@
+{
+  "benchmark": "patricia-mibench",
+  "ex_version": "EX2",
+  "generated_at": "2026-01-17T07:43:09",
+  "missing": [
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 1
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 9
+    }
+  ]
+}

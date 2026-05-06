@@ -1,0 +1,19 @@
+PARSEC Benchmark Suite
+Threadcount: 1
+500000 swaps per temperature step
+start temperature: 3500
+netlist filename: input_data/large/input/input_large.nets
+number of temperature steps: 700
+locs created
+locs assigned
+netlist created. 5000 elements.
+Initial routing cost: 1.00571e+06
+
+
+========================================
+Routing Optimization Results:
+========================================
+Initial cost: 1.00571e+06
+Final cost:   562972
+Improvement:  442737 (44.0224%)
+========================================

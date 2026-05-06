@@ -1,0 +1,22 @@
+{
+  "benchmark": "cutcp",
+  "ex_version": "EX1",
+  "generated_at": "2025-12-18T22:38:33",
+  "missing": [
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 5
+    },
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 8
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 3
+    }
+  ]
+}

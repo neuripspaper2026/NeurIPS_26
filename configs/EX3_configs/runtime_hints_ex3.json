@@ -1,0 +1,162 @@
+{
+    "b+tree": {
+      "mini": 0.995,
+      "small": 3.876,
+      "medium": 10.071,
+      "large": 43.618,
+      "extra-large": 59.976
+    },
+    "backprop": {
+      "mini": 0.433,
+      "small": 0.661,
+      "medium": 0.939,
+      "large": 2.873,
+      "extra-large": 12.810
+    },
+    "bilateral": {
+      "mini": 0.478,
+      "small": 0.917,
+      "medium": 2.311,
+      "large": 0.347,
+      "extra-large": 0.396
+    },
+    "bfs": {
+      "mini": 1.155,
+      "small": 2.176,
+      "medium": 3.785,
+      "large": 7.266,
+      "extra-large": 14.592
+    },
+    "cfd": {
+      "medium": 1.702,
+      "large": 2.995,
+      "extra-large": 3.497
+    },
+    "dwt2d": {
+      "mini": 0.318,
+      "small": 0.490,
+      "medium": 1.491,
+      "large": 2.991,
+      "extra-large": 9.994
+    },
+    "gaussian": {
+      "mini": 0.394,
+      "small": 0.589,
+      "medium": 1.632,
+      "large": 10.272,
+      "extra-large": 33.785
+    },
+    "heartwall": {
+      "mini": 0.438,
+      "small": 0.399,
+      "medium": 0.468,
+      "large": 0.505,
+      "extra-large": 0.539
+    },
+    "hotspot": {
+      "mini": 0.373,
+      "small": 0.570,
+      "medium": 0.927,
+      "large": 8.715,
+      "extra-large": 31.439
+    },
+    "hotspot3D": {
+      "mini": 0.463,
+      "small": 2.818,
+      "medium": 5.216,
+      "large": 10.066,
+      "extra-large": 20.158
+    },
+    "kmeans": {
+      "mini": 0.584,
+      "small": 1.692,
+      "medium": 1.646,
+      "large": 20.078,
+      "extra-large": 51.003
+    },
+    "lavaMD": {
+      "mini": 0.459,
+      "small": 0.434,
+      "medium": 0.458,
+      "large": 0.714,
+      "extra-large": 1.293
+    },
+    "leukocyte": {
+      "mini": 0.160,
+      "small": 0.251,
+      "medium": 0.528,
+      "large": 0.769,
+      "extra-large": 1.247
+    },
+    "lud": {
+      "mini": 0.531,
+      "small": 1.901,
+      "medium": 15.578,
+      "large": 55.564,
+      "extra-large": 275.225
+    },
+    "myocyte": {
+      "mini": 0.416,
+      "small": 1.261,
+      "medium": 2.363,
+      "large": 3.424,
+      "extra-large": 4.548
+    },
+    "nw": {
+      "mini": 0.478,
+      "small": 0.799,
+      "medium": 1.178,
+      "large": 1.858,
+      "extra-large": 3.787
+    },
+    "particlefilter": {
+      "mini": 0.928,
+      "small": 2.043,
+      "medium": 2.495,
+      "large": 2.884,
+      "extra-large": 6.262
+    },
+    "pathfinder": {
+      "mini": 0.605,
+      "small": 0.925,
+      "medium": 1.064,
+      "large": 1.441,
+      "extra-large": 1.662
+    },
+    "srad_v1": {
+      "mini": 0.349,
+      "small": 0.440,
+      "medium": 0.647,
+      "large": 1.482,
+      "extra-large": 2.907
+    },
+    "srad_v2": {
+      "mini": 0.451,
+      "small": 0.999,
+      "medium": 2.814,
+      "large": 9.338,
+      "extra-large": 35.522
+    },
+    "streamcluster": {
+      "mini": 0.438,
+      "small": 0.742,
+      "medium": 0.997,
+      "large": 1.586,
+      "extra-large": 4.527
+    },
+    "huffman": {
+      "mini": 0.357,
+      "small": 0.423,
+      "medium": 0.472,
+      "large": 0.724,
+      "extra-large": 1.537
+    },
+    "hybridsort": {
+      "mini": 0.530,
+      "small": 0.587,
+      "medium": 0.908,
+      "large": 1.182,
+      "extra-large": 1.544
+    }
+  }
+  

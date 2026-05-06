@@ -1,0 +1,15 @@
+ float gaussian[50];
+ 
+ struct float4
+ {
+     float x;
+     float y;
+     float z;
+     float w;
+ 
+     float4() {};
+     float4(float value)
+     {
+         x = y = z = w = value;
+     }
+ };

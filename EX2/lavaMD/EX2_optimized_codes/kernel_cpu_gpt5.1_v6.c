@@ -1,0 +1,155 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include <stdlib.h> // (in path known to compiler)			needed by malloc
+#include <stdio.h>  // (in path known to compiler)			needed by printf
+#include <math.h>   // (in path known to compiler)			needed by exp
+#ifdef _OPENMP
+#include <omp.h>
+#endif
+
+#include "../lavaMD.h" // (in the main program folder)	needed to recognized input variables
+
+#include "../util/timer/timer.h" // (in library path specified to compiler)	needed by timer
+
+#include "kernel_cpu.h" // (in the current directory)
+
+void kernel_cpu(par_str par, dim_str dim, box_str *box, FOUR_VECTOR *rv, fp *qv,
+                FOUR_VECTOR *fv) {
+
+    // timer
+    long long time0;
+
+    time0 = get_time();
+
+    // timer
+    long long time1;
+    long long time2;
+    long long time3;
+    long long time4;
+
+    // parameters
+    const fp alpha = par.alpha;
+    const fp a2 = (fp)2.0 * alpha * alpha;
+
+    time1 = get_time();
+
+    time2 = get_time();
+
+    time3 = get_time();
+
+    // parallel over boxes; each box's particles are independent
+#ifdef _OPENMP
+#pragma omp parallel for schedule(static)
+#endif
+    for (long l = 0; l < dim.number_boxes; l++) {
+
+        const long first_i = box[l].offset; // offset to common arrays
+
+        FOUR_VECTOR *const rA = &rv[first_i];
+        FOUR_VECTOR *const fA = &fv[first_i];
+
+        // cache number of neighbor boxes
+        const int nn = box[l].nn;
+
+        for (int k = 0; k < (1 + nn); k++) {
+
+            int pointer;
+            if (k == 0) {
+                // first box to be processed is home box
+                pointer = l;
+            } else {
+                // remaining boxes are neighbor boxes
+                pointer = box[l].nei[k - 1].number;
+            }
+
+            const long first_j = box[pointer].offset;
+
+            FOUR_VECTOR *const rB = &rv[first_j];
+            fp *const qB = &qv[first_j];
+
+            // do for the # of particles in current (home or neighbor) box
+            for (int i = 0; i < NUMBER_PAR_PER_BOX; i++) {
+
+                // local accumulators to reduce memory traffic on fA[i]
+                fp f_v = fA[i].v;
+                fp f_x = fA[i].x;
+                fp f_y = fA[i].y;
+                fp f_z = fA[i].z;
+
+                const fp rA_v = rA[i].v;
+                const fp rA_x = rA[i].x;
+                const fp rA_y = rA[i].y;
+                const fp rA_z = rA[i].z;
+
+#pragma omp simd reduction(+ : f_v, f_x, f_y, f_z)
+                for (int j = 0; j < NUMBER_PAR_PER_BOX; j++) {
+
+                    // // coefficients
+                    const fp rB_v = rB[j].v;
+                    const fp rB_x = rB[j].x;
+                    const fp rB_y = rB[j].y;
+                    const fp rB_z = rB[j].z;
+
+                    const fp dot = rA_x * rB_x + rA_y * rB_y + rA_z * rB_z;
+                    const fp r2 = rA_v + rB_v - dot;
+                    const fp u2 = a2 * r2;
+                    const fp vij = expf(-u2);
+                    const fp fs = (fp)2.0 * vij;
+
+                    const fp dx = rA_x - rB_x;
+                    const fp dy = rA_y - rB_y;
+                    const fp dz = rA_z - rB_z;
+
+                    const fp fxij = fs * dx;
+                    const fp fyij = fs * dy;
+                    const fp fzij = fs * dz;
+
+                    const fp qB_j = qB[j];
+
+                    // forces
+                    f_v += qB_j * vij;
+                    f_x += qB_j * fxij;
+                    f_y += qB_j * fyij;
+                    f_z += qB_j * fzij;
+
+                } // for j
+
+                // write back accumulated forces
+                fA[i].v = f_v;
+                fA[i].x = f_x;
+                fA[i].y = f_y;
+                fA[i].z = f_z;
+
+            } // for i
+
+        } // for k
+
+    } // for l
+
+    time4 = get_time();
+
+    printf("Time spent in different stages of CPU/MCPU KERNEL:\n");
+
+    printf("%15.12f s, %15.12f % : CPU/MCPU: VARIABLES\n",
+           (float)(time1 - time0) / 1000000,
+           (float)(time1 - time0) / (float)(time4 - time0) * 100);
+    printf("%15.12f s, %15.12f % : MCPU: SET DEVICE\n",
+           (float)(time2 - time1) / 1000000,
+           (float)(time2 - time1) / (float)(time4 - time0) * 100);
+    printf("%15.12f s, %15.12f % : CPU/MCPU: INPUTS\n",
+           (float)(time3 - time2) / 1000000,
+           (float)(time3 - time2) / (float)(time4 - time0) * 100);
+    printf("%15.12f s, %15.12f % : CPU/MCPU: KERNEL\n",
+           (float)(time4 - time3) / 1000000,
+           (float)(time4 - time3) / (float)(time4 - time0) * 100);
+
+    printf("Total time:\n");
+    printf("%.12f s\n", (float)(time4 - time0) / 1000000);
+
+} // main
+
+#ifdef __cplusplus
+}
+#endif

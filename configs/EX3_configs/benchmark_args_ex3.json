@@ -1,0 +1,187 @@
+{
+  "comment": "EX3 benchmark arguments configuration - command line arguments for each benchmark and dataset size",
+  
+  "b+tree": {
+    "mini": ["file", "input_data/mini/input/mil.txt", "command", "input_data/mini/input/command.txt", "-o", "/dev/null"],
+    "small": ["file", "input_data/small/input/mil.txt", "command", "input_data/small/input/command.txt", "-o", "/dev/null"],
+    "medium": ["file", "input_data/medium/input/mil.txt", "command", "input_data/medium/input/command.txt", "-o", "/dev/null"],
+    "large": ["file", "input_data/large/input/mil.txt", "command", "input_data/large/input/command.txt", "-o", "/dev/null"],
+    "extra-large": ["file", "input_data/extra-large/input/mil.txt", "command", "input_data/extra-large/input/command.txt", "-o", "/dev/null"]
+  },
+  
+  "backprop": {
+    "mini": ["65536", "-o", "/dev/null"],
+    "small": ["65536", "-o", "/dev/null"],
+    "medium": ["65536", "-o", "/dev/null"],
+    "large": ["65536", "-o", "/dev/null"],
+    "extra-large": ["65536", "-o", "/dev/null"]
+  },
+  
+  "bfs": {
+    "mini": ["./input_data/mini/input/graph1M.txt", "-o", "/dev/null"],
+    "small": ["./input_data/small/input/graph2M.txt", "-o", "/dev/null"],
+    "medium": ["./input_data/medium/input/graph4M.txt", "-o", "/dev/null"],
+    "large": ["./input_data/large/input/graph8M.txt", "-o", "/dev/null"],
+    "extra-large": ["./input_data/extra-large/input/graph16M.txt", "-o", "/dev/null"]
+  },
+  
+  "bilateral": {
+    "mini": ["./input_data/nature_monte.bmp", "1", "2", "3", "/dev/null"],
+    "small": ["./input_data/nature_monte.bmp", "2", "3", "15", "/dev/null"],
+    "medium": ["./input_data/nature_monte.bmp", "5", "5", "30", "/dev/null"],
+    "large": ["./input_data/nature_monte.bmp", "10", "8", "50", "/dev/null"],
+    "extra-large": ["./input_data/nature_monte.bmp", "15", "10", "70", "/dev/null"]
+  },
+  
+  "cfd": {
+    "mini": ["input_data/mini/input/fvcorr.domn.012K", "/dev/null"],
+    "small": ["input_data/small/input/fvcorr.domn.048K", "/dev/null"],
+    "medium": ["input_data/medium/input/fvcorr.domn.097K", "/dev/null"],
+    "large": ["input_data/large/input/fvcorr.domn.193K", "/dev/null"],
+    "extra-large": ["input_data/extra-large/input/missile.domn.0.2M", "/dev/null"]
+  },
+  
+  "dwt2d": {
+    "mini": ["input_data/mini/input/16.bmp", "-d", "160x160", "-f", "-9", "-l", "2", "/dev/null"],
+    "small": ["input_data/small/input/64.bmp", "-d", "640x640", "-f", "-9", "-l", "3", "/dev/null"],
+    "medium": ["input_data/medium/input/192.bmp", "-d", "6400x6400", "-f", "-9", "-l", "4", "/dev/null"],
+    "large": ["input_data/large/input/rgb.bmp", "-d", "10240x10240", "-f", "-9", "-l", "5", "/dev/null"],
+    "extra-large": ["input_data/extra-large/input/rgb.bmp", "-d", "20480x20480", "-f", "-9", "-l", "5", "/dev/null"]
+  },
+  
+  "gaussian": {
+    "mini": ["-s", "512", "-o", "/dev/null"],
+    "small": ["-s", "1024", "-o", "/dev/null"],
+    "medium": ["-s", "2048", "-o", "/dev/null"],
+    "large": ["-s", "4096", "-o", "/dev/null"],
+    "extra-large": ["-s", "6144", "-o", "/dev/null"]
+  },
+  
+  "heartwall": {
+    "mini": ["input_data/test.avi.part00", "10", "/dev/null"],
+    "small": ["input_data/test.avi.part00", "20", "/dev/null"],
+    "medium": ["input_data/test.avi.part00", "30", "/dev/null"],
+    "large": ["input_data/test.avi.part00", "40", "/dev/null"],
+    "extra-large": ["input_data/test.avi.part00", "50", "/dev/null"]
+  },
+  
+  "hotspot": {
+    "mini": ["64", "64", "500", "1", "input_data/mini/input/temp_64", "input_data/mini/input/power_64", "/dev/null"],
+    "small": ["512", "512", "500", "1", "input_data/small/input/temp_512", "input_data/small/input/power_512", "/dev/null"],
+    "medium": ["1024", "1024", "500", "1", "input_data/medium/input/temp_1024", "input_data/medium/input/power_1024", "/dev/null"],
+    "large": ["4096", "4096", "500", "1", "input_data/large/input/temp_4096", "input_data/large/input/power_4096", "/dev/null"],
+    "extra-large": ["8192", "8192", "500", "1", "input_data/extra-large/input/temp_8192", "input_data/extra-large/input/power_8192", "/dev/null"]
+  },
+  
+  "hotspot3D": {
+    "mini": ["64", "8", "500", "input_data/mini/input/power_64x8", "input_data/mini/input/temp_64x8", "/dev/null"],
+    "small": ["512", "2", "500", "input_data/small/input/power_512x2", "input_data/small/input/temp_512x2", "/dev/null"],
+    "medium": ["512", "4", "500", "input_data/medium/input/power_512x4", "input_data/medium/input/temp_512x4", "/dev/null"],
+    "large": ["512", "8", "500", "input_data/large/input/power_512x8", "input_data/large/input/temp_512x8", "/dev/null"],
+    "extra-large": ["1024", "4", "500", "input_data/extra-large/input/power_1024x4", "input_data/extra-large/input/temp_1024x4", "/dev/null"]
+  },
+  
+  "huffman": {
+    "mini": ["input_data/mini/input/input.in", "-o", "/dev/null"],
+    "small": ["input_data/small/input/input.in", "-o", "/dev/null"],
+    "medium": ["input_data/medium/input/input.in", "-o", "/dev/null"],
+    "large": ["input_data/large/input/input.in", "-o", "/dev/null"],
+    "extra-large": ["input_data/extra-large/input/input.in", "-o", "/dev/null"]
+  },
+  
+  "hybridsort": {
+    "mini": ["input_data/mini/input/input.txt", "-o", "/dev/null"],
+    "small": ["input_data/small/input/input.txt", "-o", "/dev/null"],
+    "medium": ["input_data/medium/input/input.txt", "-o", "/dev/null"],
+    "large": ["input_data/large/input/input.txt", "-o", "/dev/null"],
+    "extra-large": ["input_data/extra-large/input/input.txt", "-o", "/dev/null"]
+  },
+  
+  "kmeans": {
+    "mini": ["-i", "input_data/mini/input/10000_34.txt", "-o", "/dev/null"],
+    "small": ["-i", "input_data/small/input/50000_34.txt", "-o", "/dev/null"],
+    "medium": ["-i", "input_data/medium/input/100000_34.txt", "-o", "/dev/null"],
+    "large": ["-i", "input_data/large/input/1000000_34.txt", "-o", "/dev/null"],
+    "extra-large": ["-i", "input_data/extra-large/input/5000000_34.txt", "-o", "/dev/null"]
+  },
+  
+  "lavaMD": {
+    "mini": ["-boxes1d", "5", "-o", "/dev/null"],
+    "small": ["-boxes1d", "7", "-o", "/dev/null"],
+    "medium": ["-boxes1d", "10", "-o", "/dev/null"],
+    "large": ["-boxes1d", "15", "-o", "/dev/null"],
+    "extra-large": ["-boxes1d", "20", "-o", "/dev/null"]
+  },
+  
+  "leukocyte": {
+    "mini": ["input_data/small/input/testfile.avi", "5", "-o", "/dev/null"],
+    "small": ["input_data/small/input/testfile.avi", "15", "-o", "/dev/null"],
+    "medium": ["input_data/medium/input/testfile.avi.part00", "50", "-o", "/dev/null"],
+    "large": ["input_data/large/input/testfile.avi", "100", "-o", "/dev/null"],
+    "extra-large": ["input_data/extra-large/input/testfile.avi", "150", "-o", "/dev/null"]
+  },
+  
+  "lud": {
+    "mini": ["-s", "516", "-v", "-o", "/dev/null"],
+    "small": ["-s", "1024", "-v", "-o", "/dev/null"],
+    "medium": ["-s", "2048", "-v", "-o", "/dev/null"],
+    "large": ["-s", "3072", "-v", "-o", "/dev/null"],
+    "extra-large": ["-s", "4096", "-v", "-o", "/dev/null"]
+  },
+  
+  "myocyte": {
+    "mini": ["100", "1", "0", "-o", "/dev/null"],
+    "small": ["100", "5", "0", "-o", "/dev/null"],
+    "medium": ["100", "10", "0", "-o", "/dev/null"],
+    "large": ["100", "15", "0", "-o", "/dev/null"],
+    "extra-large": ["100", "20", "0", "-o", "/dev/null"]
+  },
+  
+  "nw": {
+    "mini": ["4096", "10", "-o", "/dev/null"],
+    "small": ["8192", "10", "-o", "/dev/null"],
+    "medium": ["12288", "10", "-o", "/dev/null"],
+    "large": ["16384", "10", "-o", "/dev/null"],
+    "extra-large": ["24576", "10", "-o", "/dev/null"]
+  },
+  
+  "particlefilter": {
+    "mini": ["-x", "512", "-y", "512", "-z", "10", "-np", "20000", "-o", "/dev/null"],
+    "small": ["-x", "512", "-y", "512", "-z", "20", "-np", "30000", "-o", "/dev/null"],
+    "medium": ["-x", "768", "-y", "768", "-z", "20", "-np", "40000", "-o", "/dev/null"],
+    "large": ["-x", "1024", "-y", "1024", "-z", "20", "-np", "50000", "-o", "/dev/null"],
+    "extra-large": ["-x", "1024", "-y", "1024", "-z", "30", "-np", "80000", "-o", "/dev/null"]
+  },
+  
+  "pathfinder": {
+    "mini": ["50000", "100", "10", "-no-rand", "-o", "/dev/null"],
+    "small": ["100000", "100", "20", "-no-rand", "-o", "/dev/null"],
+    "medium": ["150000", "100", "20", "-no-rand", "-o", "/dev/null"],
+    "large": ["200000", "100", "20", "-no-rand", "-o", "/dev/null"],
+    "extra-large": ["250000", "100", "20", "--no-rand", "-o", "/dev/null"]
+  },
+  
+  "srad_v1": {
+    "mini": ["100", "0.5", "502", "458", "-o", "/dev/null"],
+    "small": ["100", "0.5", "1004", "916", "-o", "/dev/null"],
+    "medium": ["150", "0.5", "2008", "1832", "-o", "/dev/null"],
+    "large": ["200", "0.5", "4016", "3664", "-o", "/dev/null"],
+    "extra-large": ["250", "0.5", "6024", "5496", "-o", "/dev/null"]
+  },
+  
+  "srad_v2": {
+    "mini": ["512", "512", "0", "31", "0", "31", "0.5", "2", "-o", "/dev/null"],
+    "small": ["2048", "2048", "0", "127", "0", "127", "0.5", "2", "-o", "/dev/null"],
+    "medium": ["4096", "4096", "0", "255", "0", "255", "0.5", "2", "-o", "/dev/null"],
+    "large": ["8192", "8192", "0", "511", "0", "511", "0.5", "2", "-o", "/dev/null"],
+    "extra-large": ["16384", "16384", "0", "1023", "0", "1023", "0.5", "2", "-o", "/dev/null"]
+  },
+  
+  "streamcluster": {
+    "mini": ["10", "20", "256", "1024", "1024", "1000", "none", "/dev/null", "1"],
+    "small": ["10", "20", "256", "4096", "4096", "1000", "none", "/dev/null", "1"],
+    "medium": ["10", "20", "256", "8192", "8192", "1000", "none", "/dev/null", "1"],
+    "large": ["10", "20", "256", "16384", "16384", "1000", "none", "/dev/null", "1"],
+    "extra-large": ["10", "20", "256", "65536", "65536", "1000", "none", "/dev/null", "1"]
+  }
+}

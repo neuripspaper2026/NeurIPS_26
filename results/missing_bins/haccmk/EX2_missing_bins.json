@@ -1,0 +1,17 @@
+{
+  "benchmark": "haccmk",
+  "ex_version": "EX2",
+  "generated_at": "2026-01-15T14:26:07",
+  "missing": [
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 4
+    },
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 8
+    }
+  ]
+}

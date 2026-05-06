@@ -1,0 +1,21 @@
+timestamp,stage,dataset,model,version,file_name,status,message,checker
+2026-01-25 17:43:03,check,mini,,,output_claude_v10_mini_output.pgm,pass,Outputs matched.,mibench
+2026-01-25 17:43:03,check,mini,,,output_claude_v1_mini_output.pgm,pass,Outputs matched.,mibench
+2026-01-25 17:43:03,check,mini,,,output_claude_v2_mini_output.pgm,pass,Outputs matched.,mibench
+2026-01-25 17:43:03,check,mini,,,output_claude_v3_mini_output.pgm,pass,Outputs matched.,mibench
+2026-01-25 17:43:03,check,mini,,,output_claude_v4_mini_output.pgm,pass,Outputs matched.,mibench
+2026-01-25 17:43:03,check,mini,,,output_claude_v5_mini_output.pgm,pass,Outputs matched.,mibench
+2026-01-25 17:43:03,check,mini,,,output_claude_v6_mini_output.pgm,fail,Mismatch at element 311,mibench
+2026-01-25 17:43:03,check,mini,,,output_claude_v7_mini_output.pgm,pass,Outputs matched.,mibench
+2026-01-25 17:43:03,check,mini,,,output_claude_v8_mini_output.pgm,pass,Outputs matched.,mibench
+2026-01-25 17:43:03,check,mini,,,output_claude_v9_mini_output.pgm,pass,Outputs matched.,mibench
+2026-01-25 17:43:03,check,mini,,,output_gpt5.1_v10_mini_output.pgm,pass,Outputs matched.,mibench
+2026-01-25 17:43:03,check,mini,,,output_gpt5.1_v1_mini_output.pgm,pass,Outputs matched.,mibench
+2026-01-25 17:43:03,check,mini,,,output_gpt5.1_v2_mini_output.pgm,pass,Outputs matched.,mibench
+2026-01-25 17:43:03,check,mini,,,output_gpt5.1_v3_mini_output.pgm,pass,Outputs matched.,mibench
+2026-01-25 17:43:03,check,mini,,,output_gpt5.1_v4_mini_output.pgm,pass,Outputs matched.,mibench
+2026-01-25 17:43:03,check,mini,,,output_gpt5.1_v5_mini_output.pgm,pass,Outputs matched.,mibench
+2026-01-25 17:43:03,check,mini,,,output_gpt5.1_v6_mini_output.pgm,pass,Outputs matched.,mibench
+2026-01-25 17:43:03,check,mini,,,output_gpt5.1_v7_mini_output.pgm,pass,Outputs matched.,mibench
+2026-01-25 17:43:03,check,mini,,,output_gpt5.1_v8_mini_output.pgm,pass,Outputs matched.,mibench
+2026-01-25 17:43:03,check,mini,,,output_gpt5.1_v9_mini_output.pgm,pass,Outputs matched.,mibench

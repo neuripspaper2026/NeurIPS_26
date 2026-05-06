@@ -1,0 +1,183 @@
+/**
+ * This version is stamped on May 10, 2016
+ *
+ * Contact:
+ *   Louis-Noel Pouchet <pouchet.ohio-state.edu>
+ *   Tomofumi Yuki <tomofumi.yuki.fr>
+ *
+ * Web address: http://polybench.sourceforge.net
+ */
+/* mvt.c: this file is part of PolyBench/C */
+#define POLYBENCH_DUMP_ARRAYS
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include <math.h>
+#include <time.h>
+#include <stdlib.h>
+#include <omp.h>
+
+/* Include polybench common header. */
+#include <polybench.h>
+
+/* Include benchmark-specific header. */
+#include "mvt.h"
+
+
+/* Array initialization. */
+static
+void init_array(int n,
+		DATA_TYPE POLYBENCH_1D(x1,N,n),
+		DATA_TYPE POLYBENCH_1D(x2,N,n),
+		DATA_TYPE POLYBENCH_1D(y_1,N,n),
+		DATA_TYPE POLYBENCH_1D(y_2,N,n),
+		DATA_TYPE POLYBENCH_2D(A,N,N,n,n))
+{
+  int i, j;
+
+  for (i = 0; i < n; i++)
+    {
+      x1[i] = (DATA_TYPE) (i % n) / n;
+      x2[i] = (DATA_TYPE) ((i + 1) % n) / n;
+      y_1[i] = (DATA_TYPE) ((i + 3) % n) / n;
+      y_2[i] = (DATA_TYPE) ((i + 4) % n) / n;
+      for (j = 0; j < n; j++)
+	A[i][j] = (DATA_TYPE) (i*j % n) / n;
+    }
+}
+
+
+/* DCE code. Must scan the entire live-out data.
+   Can be used also to check the correctness of the output. */
+static
+void print_array(int n,
+		 DATA_TYPE POLYBENCH_1D(x1,N,n),
+		 DATA_TYPE POLYBENCH_1D(x2,N,n))
+
+{
+  int i;
+
+  POLYBENCH_DUMP_START;
+  POLYBENCH_DUMP_BEGIN("x1");
+  for (i = 0; i < n; i++) {
+    if (i % 20 == 0) fprintf (POLYBENCH_DUMP_TARGET, "\n");
+    fprintf (POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, x1[i]);
+  }
+  POLYBENCH_DUMP_END("x1");
+
+  POLYBENCH_DUMP_BEGIN("x2");
+  for (i = 0; i < n; i++) {
+    if (i % 20 == 0) fprintf (POLYBENCH_DUMP_TARGET, "\n");
+    fprintf (POLYBENCH_DUMP_TARGET, DATA_PRINTF_MODIFIER, x2[i]);
+  }
+  POLYBENCH_DUMP_END("x2");
+  POLYBENCH_DUMP_FINISH;
+}
+
+
+/* Main computational kernel. The whole function will be timed,
+   including the call and return. */
+static
+void kernel_mvt(int n,
+		DATA_TYPE POLYBENCH_1D(x1,N,n),
+		DATA_TYPE POLYBENCH_1D(x2,N,n),
+		DATA_TYPE POLYBENCH_1D(y_1,N,n),
+		DATA_TYPE POLYBENCH_1D(y_2,N,n),
+		DATA_TYPE POLYBENCH_2D(A,N,N,n,n))
+{
+  int i, j;
+
+#pragma scop
+#pragma omp parallel
+  {
+#pragma omp for private(j)
+    for (i = 0; i < _PB_N; i++)
+      for (j = 0; j < _PB_N; j++)
+	x1[i] = x1[i] + A[i][j] * y_1[j];
+    
+#pragma omp for private(j)
+    for (i = 0; i < _PB_N; i++)
+      for (j = 0; j < _PB_N; j++)
+	x2[i] = x2[i] + A[j][i] * y_2[j];
+  }
+#pragma endscop
+
+}
+
+
+int main(int argc, char** argv)
+{
+  /* Start timing for total execution */
+  struct timespec main_start, main_end;
+  clock_gettime(CLOCK_MONOTONIC, &main_start);
+
+  /* Retrieve problem size. */
+  int n = N;
+
+  /* Variable declaration/allocation. */
+  POLYBENCH_2D_ARRAY_DECL(A, DATA_TYPE, N, N, n, n);
+  POLYBENCH_1D_ARRAY_DECL(x1, DATA_TYPE, N, n);
+  POLYBENCH_1D_ARRAY_DECL(x2, DATA_TYPE, N, n);
+  POLYBENCH_1D_ARRAY_DECL(y_1, DATA_TYPE, N, n);
+  POLYBENCH_1D_ARRAY_DECL(y_2, DATA_TYPE, N, n);
+
+
+  /* Initialize array(s). */
+  init_array (n,
+	      POLYBENCH_ARRAY(x1),
+	      POLYBENCH_ARRAY(x2),
+	      POLYBENCH_ARRAY(y_1),
+	      POLYBENCH_ARRAY(y_2),
+	      POLYBENCH_ARRAY(A));
+
+  /* Start timing for kernel execution */
+  struct timespec kernel_start, kernel_end;
+  clock_gettime(CLOCK_MONOTONIC, &kernel_start);
+
+  /* Run kernel. */
+  kernel_mvt (n,
+	      POLYBENCH_ARRAY(x1),
+	      POLYBENCH_ARRAY(x2),
+	      POLYBENCH_ARRAY(y_1),
+	      POLYBENCH_ARRAY(y_2),
+	      POLYBENCH_ARRAY(A));
+
+  /* End timing for kernel execution */
+  clock_gettime(CLOCK_MONOTONIC, &kernel_end);
+  double kernel_time = (kernel_end.tv_sec - kernel_start.tv_sec) +
+                       (kernel_end.tv_nsec - kernel_start.tv_nsec) / 1e9;
+
+  /* Prevent dead-code elimination. All live-out data must be printed
+     by the function call in argument. */
+  polybench_prevent_dce(print_array(n, POLYBENCH_ARRAY(x1), POLYBENCH_ARRAY(x2)));
+
+  /* Be clean. */
+  POLYBENCH_FREE_ARRAY(A);
+  POLYBENCH_FREE_ARRAY(x1);
+  POLYBENCH_FREE_ARRAY(x2);
+  POLYBENCH_FREE_ARRAY(y_1);
+  POLYBENCH_FREE_ARRAY(y_2);
+
+  /* End timing for total execution */
+  clock_gettime(CLOCK_MONOTONIC, &main_end);
+  double main_time = (main_end.tv_sec - main_start.tv_sec) +
+                     (main_end.tv_nsec - main_start.tv_nsec) / 1e9;
+
+  /* Determine timing output destination */
+  FILE *timing_file = stderr;
+  const char *timing_path = getenv("TIMING_LOG_FILE");
+  if (timing_path && timing_path[0] != '\0') {
+    FILE *tmp = fopen(timing_path, "w");
+    if (tmp)
+      timing_file = tmp;
+  }
+
+  /* Print timing results */
+  fprintf(timing_file, "KERNEL_TIME: %.9f\n", kernel_time);
+  fprintf(timing_file, "TOTAL_TIME: %.9f\n", main_time);
+
+  if (timing_file != stderr)
+    fclose(timing_file);
+
+  return 0;
+}

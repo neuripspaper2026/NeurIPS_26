@@ -1,0 +1,26 @@
+#!/bin/bash
+# Run SRAD_V2 with specified dataset size
+# Usage: ./run <dataset_size>
+# dataset_size: mini, small, medium, large, extra-large
+
+case $1 in
+    mini)
+        ./srad 512 512 0 31 0 31 0.5 2 -o input_data/mini/output_mini.txt
+        ;;
+    small)
+        ./srad 2048 2048 0 127 0 127 0.5 2 -o input_data/small/output_small.txt
+        ;;
+    medium)
+        ./srad 4096 4096 0 255 0 255 0.5 2 -o input_data/medium/output_medium.txt
+        ;;
+    large)
+        ./srad 8192 8192 0 511 0 511 0.5 2 -o input_data/large/output_large.txt
+        ;;
+    extra-large)
+        ./srad 16384 16384 0 1023 0 1023 0.5 2 -o input_data/extra-large/output_extra_large.txt
+        ;;
+    *)
+        echo "Usage: $0 {mini|small|medium|large|extra-large}"
+        exit 1
+        ;;
+esac

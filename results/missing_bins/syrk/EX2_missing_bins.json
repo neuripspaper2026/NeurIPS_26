@@ -1,0 +1,32 @@
+{
+  "benchmark": "syrk",
+  "ex_version": "EX2",
+  "generated_at": "2026-01-04T12:06:46",
+  "missing": [
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 9
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 9
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 9
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 9
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 9
+    }
+  ]
+}

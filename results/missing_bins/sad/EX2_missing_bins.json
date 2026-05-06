@@ -1,0 +1,42 @@
+{
+  "benchmark": "sad",
+  "ex_version": "EX2",
+  "generated_at": "2026-03-29T05:17:04",
+  "missing": [
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 2
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 3
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 4
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 5
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 6
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 8
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 10
+    }
+  ]
+}

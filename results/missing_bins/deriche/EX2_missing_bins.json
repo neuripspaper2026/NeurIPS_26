@@ -1,0 +1,57 @@
+{
+  "benchmark": "deriche",
+  "ex_version": "EX2",
+  "generated_at": "2026-01-04T19:35:39",
+  "missing": [
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 6
+    },
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 7
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 6
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 7
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 6
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 7
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 6
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 7
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 6
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 7
+    }
+  ]
+}

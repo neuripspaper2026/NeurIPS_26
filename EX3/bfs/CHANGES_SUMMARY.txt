@@ -1,0 +1,57 @@
+BFS Benchmark - EX3 Modifications Summary
+==========================================
+
+DATE: 2026-01-26
+
+MODIFICATIONS MADE:
+
+1. TIME MEASUREMENT
+   ✓ Added #include <time.h> to bfs.cu
+   ✓ Added global variable: double total_kernel_time = 0.0
+   ✓ Added main timer: struct timespec main_start, main_end at program start
+   ✓ Added kernel timing in do-while loop (accumulates across all iterations)
+     - Measures both Kernel() and Kernel2() together in each iteration
+     - Uses clock_gettime(CLOCK_MONOTONIC, ...)
+     - Includes cudaDeviceSynchronize() for accurate timing
+   ✓ Added timing output at end of main()
+     - Outputs KERNEL_TIME (sum of all kernel iterations)
+     - Outputs TOTAL_TIME (entire program execution)
+     - Uses TIMING_LOG_FILE environment variable
+
+2. FILE STRUCTURE
+   ✓ Moved kernel2.cu to EX3_optimized_codes/
+   ✓ Modified bfs.cu includes to reference EX3_optimized_codes/kernel.cu and kernel2.cu
+   ✓ Both kernels now in same directory for consistent variant management
+
+3. MULTI-VARIANT MAKEFILE
+   ✓ Detects kernel.cu and kernel2.cu baseline files
+   ✓ Detects kernel_<model>_<trail>.cu and kernel2_<model>_<trail>.cu variants
+   ✓ Only builds when BOTH kernels exist for a variant (paired detection)
+   ✓ Generates temporary bfs.cu files with modified include paths
+   ✓ Compiles directly to executable (no .o files)
+   ✓ Error tolerant: continues building other variants on failure (-@ prefix)
+   ✓ Outputs executables to EX3_optimized_codes/
+     - Baseline: EX3_optimized_codes/bfs
+     - Variants: EX3_optimized_codes/bfs_<model>_<trail>
+   ✓ Safe clean rule: filters out .cu/.h/.c files to prevent source deletion
+
+4. KEY FEATURES
+   - BFS has TWO kernels that work together:
+     * Kernel (kernel.cu): Explores current layer, marks next layer nodes
+     * Kernel2 (kernel2.cu): Updates graph mask for next iteration
+   - Both kernels are timed together in each BFS iteration
+   - Total kernel time is accumulated across all iterations
+   - Makefile ensures both kernel variants exist before building
+
+SPECIAL NOTES:
+   - BFS uses iterative kernel calls in a do-while loop
+   - Kernel timing captures sum of all (Kernel + Kernel2) executions
+   - cudaDeviceSynchronize() replaces any deprecated APIs
+
+FILES MODIFIED:
+   - bfs.cu (time measurement + include paths)
+   - Makefile (complete rewrite for multi-variant support)
+
+FILES CREATED:
+   - EX3_optimized_codes/kernel2.cu (moved from root)
+   - CHANGES_SUMMARY.txt (this file)

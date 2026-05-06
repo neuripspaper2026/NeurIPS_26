@@ -1,0 +1,468 @@
+timestamp,stage,dataset,model,version,file_name,status,message,checker
+2025-12-24 09:54:49,check,extra-large,,,output_claude_v10_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_claude_v10_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_claude_v10_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_claude_v10_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_claude_v10_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_claude_v1_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_claude_v1_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_claude_v1_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_claude_v1_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_claude_v1_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_claude_v2_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_claude_v2_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_claude_v2_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_claude_v2_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_claude_v2_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_claude_v3_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_claude_v3_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_claude_v3_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_claude_v3_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_claude_v3_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_claude_v4_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_claude_v4_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_claude_v4_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_claude_v4_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_claude_v4_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_claude_v5_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_claude_v5_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_claude_v5_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_claude_v5_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_claude_v5_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_claude_v6_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_claude_v6_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_claude_v6_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_claude_v6_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_claude_v6_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_claude_v7_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_claude_v7_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_claude_v7_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_claude_v7_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_claude_v7_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_claude_v8_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_claude_v8_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_claude_v8_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_claude_v8_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_claude_v8_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_claude_v9_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_claude_v9_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_claude_v9_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_claude_v9_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_claude_v9_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_gpt5.1_v10_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_gpt5.1_v10_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_gpt5.1_v10_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_gpt5.1_v10_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_gpt5.1_v10_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_gpt5.1_v2_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_gpt5.1_v2_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_gpt5.1_v2_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_gpt5.1_v2_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_gpt5.1_v2_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_gpt5.1_v6_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_gpt5.1_v6_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_gpt5.1_v6_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_gpt5.1_v6_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_gpt5.1_v6_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_gpt5.1_v7_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_gpt5.1_v7_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_gpt5.1_v7_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_gpt5.1_v7_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_gpt5.1_v7_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_gpt5.1_v8_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_gpt5.1_v8_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_gpt5.1_v8_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_gpt5.1_v8_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_gpt5.1_v8_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_gpt5.1_v9_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_gpt5.1_v9_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_gpt5.1_v9_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_gpt5.1_v9_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_gpt5.1_v9_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_qwen_v10_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_qwen_v10_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_qwen_v10_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_qwen_v10_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_qwen_v10_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_qwen_v1_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_qwen_v1_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_qwen_v1_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_qwen_v1_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_qwen_v1_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_qwen_v2_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_qwen_v2_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_qwen_v2_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_qwen_v2_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_qwen_v2_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_qwen_v4_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_qwen_v4_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_qwen_v4_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_qwen_v4_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_qwen_v4_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_qwen_v6_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_qwen_v6_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_qwen_v6_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_qwen_v6_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_qwen_v6_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_qwen_v8_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_qwen_v8_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_qwen_v8_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_qwen_v8_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_qwen_v8_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,extra-large,,,output_qwen_v9_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,large,,,output_qwen_v9_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,medium,,,output_qwen_v9_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,mini,,,output_qwen_v9_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 09:54:49,check,small,,,output_qwen_v9_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_claude_v10_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_claude_v10_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_claude_v10_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_claude_v10_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_claude_v10_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_claude_v1_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_claude_v1_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_claude_v1_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_claude_v1_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_claude_v1_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_claude_v2_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_claude_v2_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_claude_v2_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_claude_v2_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_claude_v2_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_claude_v3_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_claude_v3_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_claude_v3_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_claude_v3_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_claude_v3_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_claude_v4_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_claude_v4_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_claude_v4_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_claude_v4_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_claude_v4_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_claude_v5_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_claude_v5_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_claude_v5_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_claude_v5_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_claude_v5_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_claude_v6_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_claude_v6_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_claude_v6_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_claude_v6_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_claude_v6_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_claude_v7_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_claude_v7_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_claude_v7_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_claude_v7_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_claude_v7_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_claude_v8_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_claude_v8_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_claude_v8_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_claude_v8_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_claude_v8_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_claude_v9_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_claude_v9_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_claude_v9_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_claude_v9_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_claude_v9_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_gpt5.1_v10_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_gpt5.1_v10_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_gpt5.1_v10_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_gpt5.1_v10_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_gpt5.1_v10_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_gpt5.1_v2_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_gpt5.1_v2_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_gpt5.1_v2_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_gpt5.1_v2_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_gpt5.1_v2_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_gpt5.1_v6_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_gpt5.1_v6_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_gpt5.1_v6_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_gpt5.1_v6_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_gpt5.1_v6_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_gpt5.1_v7_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_gpt5.1_v7_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_gpt5.1_v7_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_gpt5.1_v7_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_gpt5.1_v7_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_gpt5.1_v9_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_gpt5.1_v9_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_gpt5.1_v9_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_gpt5.1_v9_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_gpt5.1_v9_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_qwen_v10_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_qwen_v10_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_qwen_v10_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_qwen_v10_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_qwen_v10_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_qwen_v1_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_qwen_v1_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_qwen_v1_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_qwen_v1_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_qwen_v1_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_qwen_v2_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_qwen_v2_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_qwen_v2_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_qwen_v2_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_qwen_v2_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_qwen_v4_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_qwen_v4_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_qwen_v4_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_qwen_v4_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_qwen_v4_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_qwen_v6_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_qwen_v6_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_qwen_v6_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_qwen_v6_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_qwen_v6_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_qwen_v8_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_qwen_v8_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_qwen_v8_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_qwen_v8_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_qwen_v8_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,extra-large,,,output_qwen_v9_extra-large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,large,,,output_qwen_v9_large_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 128 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,medium,,,output_qwen_v9_medium_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 64 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,mini,,,output_qwen_v9_mini_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:37:03,check,small,,,output_qwen_v9_small_output.txt,fail,Failed to parse text output: the number of columns changed from 1 to 32 at row 3; use `usecols` to select a subset and avoid this error,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_claude_v10_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_claude_v10_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_claude_v10_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_claude_v10_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_claude_v10_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_claude_v1_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_claude_v1_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_claude_v1_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_claude_v1_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_claude_v1_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_claude_v2_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_claude_v2_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_claude_v2_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_claude_v2_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_claude_v2_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_claude_v3_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_claude_v3_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_claude_v3_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_claude_v3_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_claude_v3_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_claude_v4_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_claude_v4_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_claude_v4_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_claude_v4_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_claude_v4_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_claude_v5_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_claude_v5_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_claude_v5_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_claude_v5_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_claude_v5_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_claude_v6_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_claude_v6_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_claude_v6_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_claude_v6_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_claude_v6_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_claude_v7_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_claude_v7_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_claude_v7_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_claude_v7_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_claude_v7_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_claude_v8_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_claude_v8_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_claude_v8_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_claude_v8_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_claude_v8_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_claude_v9_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_claude_v9_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_claude_v9_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_claude_v9_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_claude_v9_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_gpt5.1_v10_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_gpt5.1_v10_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_gpt5.1_v10_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_gpt5.1_v10_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_gpt5.1_v10_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_gpt5.1_v2_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_gpt5.1_v2_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_gpt5.1_v2_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_gpt5.1_v2_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_gpt5.1_v2_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_gpt5.1_v6_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_gpt5.1_v6_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_gpt5.1_v6_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_gpt5.1_v6_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_gpt5.1_v6_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_gpt5.1_v7_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_gpt5.1_v7_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_gpt5.1_v7_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_gpt5.1_v7_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_gpt5.1_v7_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_gpt5.1_v9_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_gpt5.1_v9_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_gpt5.1_v9_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_gpt5.1_v9_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_gpt5.1_v9_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_qwen_v10_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_qwen_v10_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_qwen_v10_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_qwen_v10_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_qwen_v10_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_qwen_v1_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_qwen_v1_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_qwen_v1_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_qwen_v1_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_qwen_v1_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_qwen_v2_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_qwen_v2_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_qwen_v2_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_qwen_v2_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_qwen_v2_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_qwen_v4_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_qwen_v4_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_qwen_v4_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_qwen_v4_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_qwen_v4_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_qwen_v6_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_qwen_v6_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_qwen_v6_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_qwen_v6_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_qwen_v6_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_qwen_v8_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_qwen_v8_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_qwen_v8_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_qwen_v8_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_qwen_v8_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,extra-large,,,output_qwen_v9_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,large,,,output_qwen_v9_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,medium,,,output_qwen_v9_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,mini,,,output_qwen_v9_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:48:34,check,small,,,output_qwen_v9_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_claude_v10_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_claude_v10_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_claude_v10_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_claude_v10_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_claude_v10_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_claude_v1_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_claude_v1_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_claude_v1_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_claude_v1_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_claude_v1_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_claude_v2_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_claude_v2_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_claude_v2_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_claude_v2_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_claude_v2_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_claude_v3_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_claude_v3_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_claude_v3_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_claude_v3_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_claude_v3_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_claude_v4_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_claude_v4_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_claude_v4_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_claude_v4_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_claude_v4_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_claude_v5_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_claude_v5_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_claude_v5_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_claude_v5_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_claude_v5_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_claude_v6_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_claude_v6_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_claude_v6_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_claude_v6_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_claude_v6_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_claude_v7_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_claude_v7_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_claude_v7_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_claude_v7_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_claude_v7_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_claude_v8_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_claude_v8_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_claude_v8_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_claude_v8_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_claude_v8_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_claude_v9_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_claude_v9_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_claude_v9_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_claude_v9_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_claude_v9_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_gpt5.1_v10_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_gpt5.1_v10_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_gpt5.1_v10_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_gpt5.1_v10_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_gpt5.1_v10_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_gpt5.1_v2_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_gpt5.1_v2_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_gpt5.1_v2_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_gpt5.1_v2_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_gpt5.1_v2_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_gpt5.1_v6_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_gpt5.1_v6_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_gpt5.1_v6_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_gpt5.1_v6_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_gpt5.1_v6_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_gpt5.1_v7_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_gpt5.1_v7_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_gpt5.1_v7_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_gpt5.1_v7_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_gpt5.1_v7_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_gpt5.1_v9_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_gpt5.1_v9_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_gpt5.1_v9_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_gpt5.1_v9_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_gpt5.1_v9_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_qwen_v10_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_qwen_v10_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_qwen_v10_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_qwen_v10_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_qwen_v10_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_qwen_v1_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_qwen_v1_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_qwen_v1_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_qwen_v1_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_qwen_v1_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_qwen_v2_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_qwen_v2_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_qwen_v2_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_qwen_v2_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_qwen_v2_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_qwen_v4_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_qwen_v4_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_qwen_v4_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_qwen_v4_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_qwen_v4_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_qwen_v6_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_qwen_v6_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_qwen_v6_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_qwen_v6_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_qwen_v6_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_qwen_v8_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_qwen_v8_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_qwen_v8_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_qwen_v8_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_qwen_v8_small_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,extra-large,,,output_qwen_v9_extra-large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,large,,,output_qwen_v9_large_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,medium,,,output_qwen_v9_medium_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,mini,,,output_qwen_v9_mini_output.txt,pass,Outputs matched.,rodinia
+2025-12-24 19:49:33,check,small,,,output_qwen_v9_small_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_claude_v10_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_claude_v1_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_claude_v2_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_claude_v3_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_claude_v4_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_claude_v5_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_claude_v6_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_claude_v7_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_claude_v8_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_claude_v9_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_gpt5.1_v10_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_gpt5.1_v2_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_gpt5.1_v6_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_gpt5.1_v7_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_gpt5.1_v9_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_qwen_v10_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_qwen_v1_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_qwen_v2_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_qwen_v4_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_qwen_v6_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_qwen_v8_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 17:41:02,check,mini,,,output_qwen_v9_mini_output.txt,pass,Outputs matched.,rodinia

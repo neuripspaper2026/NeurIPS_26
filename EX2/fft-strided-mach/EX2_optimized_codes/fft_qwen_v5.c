@@ -1,0 +1,52 @@
+#include <time.h>
+#ifdef _OPENMP
+#include <omp.h>
+#endif
+#include "../fft.h"
+
+static double fft_strided_kernel_time_acc = 0.0;
+
+void reset_fft_strided_kernel_time(void) { fft_strided_kernel_time_acc = 0.0; }
+double get_fft_strided_kernel_time(void) { return fft_strided_kernel_time_acc; }
+
+void fft(double real[FFT_SIZE], double img[FFT_SIZE], double real_twid[FFT_SIZE/2], double img_twid[FFT_SIZE/2]){
+    int even, odd, span, log, rootindex;
+    double temp;
+    log = 0;
+    struct timespec kernel_start, kernel_end;
+
+    clock_gettime(CLOCK_MONOTONIC, &kernel_start);
+
+    #pragma omp parallel for private(span, log, odd, even, rootindex, temp) schedule(static)
+    for(span=FFT_SIZE>>1; span; span>>=1){
+        log = 0;
+        for(int s=FFT_SIZE>>1; s > span; s>>=1)
+            log++;
+        
+        for(odd=span; odd<FFT_SIZE; odd++){
+            if((odd & span) == 0) continue; // equivalent to odd |= span in the original logic
+            even = odd ^ span;
+
+            temp = real[even] + real[odd];
+            real[odd] = real[even] - real[odd];
+            real[even] = temp;
+
+            temp = img[even] + img[odd];
+            img[odd] = img[even] - img[odd];
+            img[even] = temp;
+
+            rootindex = (even<<log) & (FFT_SIZE - 1);
+            if(rootindex){
+                temp = real_twid[rootindex] * real[odd] -
+                    img_twid[rootindex]  * img[odd];
+                img[odd] = real_twid[rootindex]*img[odd] +
+                    img_twid[rootindex]*real[odd];
+                real[odd] = temp;
+            }
+        }
+    }
+
+    clock_gettime(CLOCK_MONOTONIC, &kernel_end);
+    fft_strided_kernel_time_acc += (kernel_end.tv_sec - kernel_start.tv_sec) +
+                                   (kernel_end.tv_nsec - kernel_start.tv_nsec) / 1e9;
+}

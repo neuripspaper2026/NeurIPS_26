@@ -1,0 +1,6 @@
+timestamp,stage,dataset,model,version,file_name,status,message,checker
+2026-01-25 03:12:20,check,mini,,,output_gpt5.1_v1_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 03:12:20,check,mini,,,output_gpt5.1_v4_mini_output.txt,fail,Mismatch at element 108,rodinia
+2026-01-25 03:12:20,check,mini,,,output_gpt5.1_v5_mini_output.txt,fail,Mismatch at element 108,rodinia
+2026-01-25 03:12:20,check,mini,,,output_gpt5.1_v6_mini_output.txt,pass,Outputs matched.,rodinia
+2026-01-25 03:12:20,check,mini,,,output_gpt5.1_v9_mini_output.txt,fail,Mismatch at element 108,rodinia

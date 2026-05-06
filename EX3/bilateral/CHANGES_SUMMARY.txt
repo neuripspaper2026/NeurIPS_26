@@ -1,0 +1,60 @@
+Bilateral Filter - EX3 Modifications Summary
+============================================
+
+DATE: 2026-01-26
+
+MODIFICATIONS MADE:
+
+1. TIME MEASUREMENT
+   ✓ Added #include <time.h> to bilateralFilter.cpp
+   ✓ Added global variable: double total_kernel_time = 0.0
+   ✓ Added main timer: struct timespec main_start, main_end at program start
+   ✓ Added kernel timing in runBenchmark() around iCycles loop
+     - Measures all kernel executions (150 cycles by default)
+     - Uses clock_gettime(CLOCK_MONOTONIC, ...)
+     - Includes cudaDeviceSynchronize() for accurate timing
+   ✓ Added timing output at end of main()
+     - Outputs KERNEL_TIME (total kernel execution time)
+     - Outputs TOTAL_TIME (entire program execution)
+     - Uses TIMING_LOG_FILE environment variable
+
+2. FILE STRUCTURE
+   ✓ Kernel file already in EX3_optimized_codes/bilateral_kernel.cu
+   ✓ Main computation kernel: d_bilateral_filter (line 80)
+   ✓ Multiple source files: bilateralFilter.cpp, bmploader.cpp, bilateral_kernel.cu
+
+3. MULTI-VARIANT MAKEFILE
+   ✓ Detects bilateral_kernel.cu baseline file
+   ✓ Detects bilateral_kernel_<model>_<trail>.cu variants
+   ✓ Compiles all sources directly into executable (no intermediate .o files)
+   ✓ Error tolerant: continues building other variants on failure (-@ prefix)
+   ✓ Outputs executables to EX3_optimized_codes/
+     - Baseline: EX3_optimized_codes/bilateralFilter
+     - Variants: EX3_optimized_codes/bilateralFilter_<model>_<trail>
+   ✓ Safe clean rule: filters out .cu/.h/.c/.cpp files to prevent source deletion
+
+4. KEY FEATURES
+   - Bilateral filter is an edge-preserving smoothing filter
+   - Main kernel: d_bilateral_filter performs the bilateral filtering operation
+   - Uses CUDA texture objects for efficient memory access
+   - Default: runs 150 cycles for benchmarking
+   - Kernel timing captures total execution time of all cycles
+
+SPECIAL NOTES:
+   - Bilateral filter runs multiple cycles (iCycles = 150 by default)
+   - Kernel timing measures total time of all cycles
+   - Uses texture memory for input image access
+   - Multi-file compilation: .cpp + .cu files linked together
+
+FILES MODIFIED:
+   - bilateralFilter.cpp (time measurement)
+   - Makefile (complete rewrite for multi-variant support)
+
+FILES ALREADY IN PLACE:
+   - EX3_optimized_codes/bilateral_kernel.cu (baseline kernel)
+
+COMMAND LINE USAGE:
+   ./bilateralFilter <IMAGE> <euclidean_delta> <gaussian_delta> <filter_radius> <output_file>
+
+EXAMPLE:
+   ./EX3_optimized_codes/bilateralFilter input_data/nature_monte.bmp 0.1 4 5 output.bin

@@ -1,0 +1,457 @@
+<<<CODE>>>
+__device__ void kernel_ecc(fp timeinst, fp *d_initvalu, fp *d_finavalu,
+                           int valu_offset, fp *d_params) {
+
+    //=====================================================================
+    //	VARIABLES
+    //=====================================================================
+
+    // input parameters
+    fp cycleLength;
+
+    // variable references
+    int offset_1;
+    int offset_2;
+    int offset_3;
+    int offset_4;
+    int offset_5;
+    int offset_6;
+    int offset_7;
+    int offset_8;
+    int offset_9;
+    int offset_10;
+    int offset_11;
+    int offset_12;
+    int offset_13;
+    int offset_14;
+    int offset_15;
+    int offset_16;
+    int offset_17;
+    int offset_18;
+    int offset_19;
+    int offset_20;
+    int offset_21;
+    int offset_22;
+    int offset_23;
+    int offset_24;
+    int offset_25;
+    int offset_26;
+    int offset_27;
+    int offset_28;
+    int offset_29;
+    int offset_30;
+    int offset_31;
+    int offset_32;
+    int offset_33;
+    int offset_34;
+    int offset_35;
+    int offset_36;
+    int offset_37;
+    int offset_38;
+    int offset_39;
+    int offset_40;
+
+    // stored input array
+    fp d_initvalu_1;
+    fp d_initvalu_2;
+    fp d_initvalu_3;
+    fp d_initvalu_4;
+    fp d_initvalu_5;
+    fp d_initvalu_6;
+    fp d_initvalu_7;
+    fp d_initvalu_8;
+    fp d_initvalu_9;
+    fp d_initvalu_10;
+    fp d_initvalu_11;
+    fp d_initvalu_12;
+    fp d_initvalu_13;
+    fp d_initvalu_14;
+    fp d_initvalu_15;
+    fp d_initvalu_16;
+    fp d_initvalu_17;
+    fp d_initvalu_18;
+    fp d_initvalu_19;
+    fp d_initvalu_20;
+    fp d_initvalu_21;
+    fp d_initvalu_23;
+    fp d_initvalu_24;
+    fp d_initvalu_25;
+    fp d_initvalu_26;
+    fp d_initvalu_27;
+    fp d_initvalu_28;
+    fp d_initvalu_29;
+    fp d_initvalu_30;
+    fp d_initvalu_31;
+    fp d_initvalu_32;
+    fp d_initvalu_33;
+    fp d_initvalu_34;
+    fp d_initvalu_35;
+    fp d_initvalu_36;
+    fp d_initvalu_37;
+    fp d_initvalu_38;
+    fp d_initvalu_39;
+    fp d_initvalu_40;
+
+    // matlab constants undefined in c
+    fp pi;
+
+    // Constants
+    fp R;
+    fp Frdy;
+    fp Temp;
+    fp FoRT;
+    fp Cmem;
+    fp Qpow;
+
+    // Cell geometry
+    fp cellLength;
+    fp cellRadius;
+    fp Vcell;
+    fp Vmyo;
+    fp Vsr;
+    fp Vsl;
+    fp Vjunc;
+    fp J_ca_juncsl;
+    fp J_ca_slmyo;
+    fp J_na_juncsl;
+    fp J_na_slmyo;
+
+    // Fractional currents in compartments
+    fp Fjunc;
+    fp Fsl;
+    fp Fjunc_CaL;
+    fp Fsl_CaL;
+
+    // Fixed ion concentrations
+    fp Cli;
+    fp Clo;
+    fp Ko;
+    fp Nao;
+    fp Cao;
+    fp Mgi;
+
+    // Nernst Potentials
+    fp ena_junc;
+    fp ena_sl;
+    fp ek;
+    fp eca_junc;
+    fp eca_sl;
+    fp ecl;
+
+    // Na transport parameters
+    fp GNa;
+    fp GNaB;
+    fp IbarNaK;
+    fp KmNaip;
+    fp KmKo;
+
+    // K current parameters
+    fp pNaK;
+    fp GtoSlow;
+    fp GtoFast;
+    fp gkp;
+
+    // Cl current parameters
+    fp GClCa;
+    fp GClB;
+    fp KdClCa;
+
+    // I_Ca parameters
+    fp pNa;
+    fp pCa;
+    fp pK;
+    fp Q10CaL;
+
+    // Ca transport parameters
+    fp IbarNCX;
+    fp KmCai;
+    fp KmCao;
+    fp KmNai;
+    fp KmNao;
+    fp ksat;
+    fp nu;
+    fp Kdact;
+    fp Q10NCX;
+    fp IbarSLCaP;
+    fp KmPCa;
+    fp GCaB;
+    fp Q10SLCaP;
+
+    // SR flux parameters
+    fp Q10SRCaP;
+    fp Vmax_SRCaP;
+    fp Kmf;
+    fp Kmr;
+    fp hillSRCaP;
+    fp ks;
+    fp koCa;
+    fp kom;
+    fp kiCa;
+    fp kim;
+    fp ec50SR;
+
+    // Buffering parameters
+    fp Bmax_Naj;
+    fp Bmax_Nasl;
+    fp koff_na;
+    fp kon_na;
+    fp Bmax_TnClow;
+    fp koff_tncl;
+    fp kon_tncl;
+    fp Bmax_TnChigh;
+    fp koff_tnchca;
+    fp kon_tnchca;
+    fp koff_tnchmg;
+    fp kon_tnchmg;
+    fp Bmax_myosin;
+    fp koff_myoca;
+    fp kon_myoca;
+    fp koff_myomg;
+    fp kon_myomg;
+    fp Bmax_SR;
+    fp koff_sr;
+    fp kon_sr;
+    fp Bmax_SLlowsl;
+    fp Bmax_SLlowj;
+    fp koff_sll;
+    fp kon_sll;
+    fp Bmax_SLhighsl;
+    fp Bmax_SLhighj;
+    fp koff_slh;
+    fp kon_slh;
+    fp Bmax_Csqn;
+    fp koff_csqn;
+    fp kon_csqn;
+
+    // I_Na: Fast Na Current
+    fp am;
+    fp bm;
+    fp ah;
+    fp bh;
+    fp aj;
+    fp bj;
+    fp I_Na_junc;
+    fp I_Na_sl;
+
+    // I_nabk: Na Background Current
+    fp I_nabk_junc;
+    fp I_nabk_sl;
+
+    // I_nak: Na/K Pump Current
+    fp sigma;
+    fp fnak;
+    fp I_nak_junc;
+    fp I_nak_sl;
+    fp I_nak;
+
+    // I_kr: Rapidly Activating K Current
+    fp gkr;
+    fp xrss;
+    fp tauxr;
+    fp rkr;
+    fp I_kr;
+
+    // I_ks: Slowly Activating K Current
+    fp pcaks_junc;
+    fp pcaks_sl;
+    fp gks_junc;
+    fp gks_sl;
+    fp eks;
+    fp xsss;
+    fp tauxs;
+    fp I_ks_junc;
+    fp I_ks_sl;
+    fp I_ks;
+
+    // I_kp: Plateau K current
+    fp kp_kp;
+    fp I_kp_junc;
+    fp I_kp_sl;
+    fp I_kp;
+
+    // I_to: Transient Outward K Current (slow and fast components)
+    fp xtoss;
+    fp ytoss;
+    fp rtoss;
+    fp tauxtos;
+    fp tauytos;
+    fp taurtos;
+    fp I_tos;
+
+    fp tauxtof;
+    fp tauytof;
+    fp I_tof;
+    fp I_to;
+
+    // I_ki: Time-Independent K Current
+    fp aki;
+    fp bki;
+    fp kiss;
+    fp I_ki;
+
+    // I_ClCa: Ca-activated Cl Current, I_Clbk: background Cl Current
+    fp I_ClCa_junc;
+    fp I_ClCa_sl;
+    fp I_ClCa;
+    fp I_Clbk;
+
+    // I_Ca: L-type Calcium Current
+    fp dss;
+    fp taud;
+    fp fss;
+    fp tauf;
+
+    fp ibarca_j;
+    fp ibarca_sl;
+    fp ibark;
+    fp ibarna_j;
+    fp ibarna_sl;
+    fp I_Ca_junc;
+    fp I_Ca_sl;
+    fp I_Ca;
+    fp I_CaK;
+    fp I_CaNa_junc;
+    fp I_CaNa_sl;
+
+    // I_ncx: Na/Ca Exchanger flux
+    fp Ka_junc;
+    fp Ka_sl;
+    fp s1_junc;
+    fp s1_sl;
+    fp s2_junc;
+    fp s3_junc;
+    fp s2_sl;
+    fp s3_sl;
+    fp I_ncx_junc;
+    fp I_ncx_sl;
+    fp I_ncx;
+
+    // I_pca: Sarcolemmal Ca Pump Current
+    fp I_pca_junc;
+    fp I_pca_sl;
+    fp I_pca;
+
+    // I_cabk: Ca Background Current
+    fp I_cabk_junc;
+    fp I_cabk_sl;
+    fp I_cabk;
+
+    // SR fluxes: Calcium Release, SR Ca pump, SR Ca leak
+    fp MaxSR;
+    fp MinSR;
+    fp kCaSR;
+    fp koSRCa;
+    fp kiSRCa;
+    fp RI;
+    fp J_SRCarel;
+    fp J_serca;
+    fp J_SRleak;
+
+    // Cytosolic Ca Buffers
+    fp J_CaB_cytosol;
+
+    // Junctional and SL Ca Buffers
+    fp J_CaB_junction;
+    fp J_CaB_sl;
+
+    // SR Ca Concentrations
+    fp oneovervsr;
+
+    // Sodium Concentrations
+    fp I_Na_tot_junc;
+    fp I_Na_tot_sl;
+    fp oneovervsl;
+
+    // Potassium Concentration
+    fp I_K_tot;
+
+    // Calcium Concentrations
+    fp I_Ca_tot_junc;
+    fp I_Ca_tot_sl;
+
+    // Simulation type
+    int state;
+    fp I_app;
+    fp V_hold;
+    fp V_test;
+    fp V_clamp;
+    fp R_clamp;
+
+    // Membrane Potential
+    fp I_Na_tot;
+    fp I_Cl_tot;
+    fp I_Ca_tot;
+    fp I_tot;
+
+    //=====================================================================
+    //	EXECUTION
+    //=====================================================================
+
+    // input parameters
+    cycleLength = d_params[15];
+
+    // Compute offsets
+    offset_1 = valu_offset;
+    offset_2 = valu_offset + 1;
+    offset_3 = valu_offset + 2;
+    offset_4 = valu_offset + 3;
+    offset_5 = valu_offset + 4;
+    offset_6 = valu_offset + 5;
+    offset_7 = valu_offset + 6;
+    offset_8 = valu_offset + 7;
+    offset_9 = valu_offset + 8;
+    offset_10 = valu_offset + 9;
+    offset_11 = valu_offset + 10;
+    offset_12 = valu_offset + 11;
+    offset_13 = valu_offset + 12;
+    offset_14 = valu_offset + 13;
+    offset_15 = valu_offset + 14;
+    offset_16 = valu_offset + 15;
+    offset_17 = valu_offset + 16;
+    offset_18 = valu_offset + 17;
+    offset_19 = valu_offset + 18;
+    offset_20 = valu_offset + 19;
+    offset_21 = valu_offset + 20;
+    offset_22 = valu_offset + 21;
+    offset_23 = valu_offset + 22;
+    offset_24 = valu_offset + 23;
+    offset_25 = valu_offset + 24;
+    offset_26 = valu_offset + 25;
+    offset_27 = valu_offset + 26;
+    offset_28 = valu_offset + 27;
+    offset_29 = valu_offset + 28;
+    offset_30 = valu_offset + 29;
+    offset_31 = valu_offset + 30;
+    offset_32 = valu_offset + 31;
+    offset_33 = valu_offset + 32;
+    offset_34 = valu_offset + 33;
+    offset_35 = valu_offset + 34;
+    offset_36 = valu_offset + 35;
+    offset_37 = valu_offset + 36;
+    offset_38 = valu_offset + 37;
+    offset_39 = valu_offset + 38;
+    offset_40 = valu_offset + 39;
+
+    // Load input values from global memory once
+    d_initvalu_1 = d_initvalu[offset_1];
+    d_initvalu_2 = d_initvalu[offset_2];
+    d_initvalu_3 = d_initvalu[offset_3];
+    d_initvalu_4 = d_initvalu[offset_4];
+    d_initvalu_5 = d_initvalu[offset_5];
+    d_initvalu_6 = d_initvalu[offset_6];
+    d_initvalu_7 = d_initvalu[offset_7];
+    d_initvalu_8 = d_initvalu[offset_8];
+    d_initvalu_9 = d_initvalu[offset_9];
+    d_initvalu_10 = d_initvalu[offset_10];
+    d_initvalu_11 = d_initvalu[offset_11];
+    d_initvalu_12 = d_initvalu[offset_12];
+    d_initvalu_13 = d_initvalu[offset_13];
+    d_initvalu_14 = d_initvalu[offset_14];
+    d_initvalu_15 = d_initvalu[offset_15];
+    d_initvalu_16 = d_initvalu[offset_16];
+    d_initvalu_17 = d_initvalu[offset_17];
+    d_initvalu_18 = d_initvalu[offset_18];
+    d_initvalu_19 = d_initvalu[offset_19];
+    d_initvalu_20 = d_initvalu[offset_20];
+    d_initvalu_21 = d_initvalu[offset_21];
+    d_initvalu_23 = d_initvalu[

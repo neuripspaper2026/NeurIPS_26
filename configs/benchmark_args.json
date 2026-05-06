@@ -1,0 +1,1965 @@
+{
+  "particlefilter": {
+    "mini": [
+      "-x",
+      "512",
+      "-y",
+      "512",
+      "-z",
+      "10",
+      "-np",
+      "20000",
+      "-o",
+      "/dev/null"
+    ],
+    "small": [
+      "-x",
+      "512",
+      "-y",
+      "512",
+      "-z",
+      "20",
+      "-np",
+      "30000",
+      "-o",
+      "/dev/null"
+    ],
+    "medium": [
+      "-x",
+      "768",
+      "-y",
+      "768",
+      "-z",
+      "20",
+      "-np",
+      "40000",
+      "-o",
+      "/dev/null"
+    ],
+    "large": [
+      "-x",
+      "1024",
+      "-y",
+      "1024",
+      "-z",
+      "20",
+      "-np",
+      "50000",
+      "-o",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "-x",
+      "1024",
+      "-y",
+      "1024",
+      "-z",
+      "30",
+      "-np",
+      "80000",
+      "-o",
+      "/dev/null"
+    ]
+  },
+  "backprop": {
+    "mini": [
+      "65536",
+      "-o",
+      "/dev/null"
+    ],
+    "small": [
+      "1048576",
+      "-o",
+      "/dev/null"
+    ],
+    "medium": [
+      "2097152",
+      "-o",
+      "/dev/null"
+    ],
+    "large": [
+      "8388608",
+      "-o",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "33554432",
+      "-o",
+      "/dev/null"
+    ]
+  },
+  "sad": {
+    "mini": [
+      "-i",
+      "input_data/mini/input/reference.bin,input_data/mini/input/frame.bin",
+      "-o",
+      "/dev/null"
+    ],
+    "small": [
+      "-i",
+      "input_data/small/input/reference.bin,input_data/small/input/frame.bin",
+      "-o",
+      "/dev/null"
+    ],
+    "medium": [
+      "-i",
+      "input_data/medium/input/reference.bin,input_data/medium/input/frame.bin",
+      "-o",
+      "/dev/null"
+    ],
+    "large": [
+      "-i",
+      "input_data/large/input/reference.bin,input_data/large/input/frame.bin",
+      "-o",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "-i",
+      "input_data/extra-large/input/reference.bin,input_data/extra-large/input/frame.bin",
+      "-o",
+      "/dev/null"
+    ],
+    "default": [
+      "-i",
+      "input_data/mini/input/reference.bin,input_data/mini/input/frame.bin",
+      "-o",
+      "/dev/null"
+    ]
+  },
+  "cutcp": {
+    "mini": [
+      "-i",
+      "input_data/mini/input/input_0000.pqr",
+      "-o",
+      "/dev/null"
+    ],
+    "small": [
+      "-i",
+      "input_data/small/input/watbox.sl40.pqr",
+      "-o",
+      "/dev/null"
+    ],
+    "medium": [
+      "-i",
+      "input_data/medium/input/input_0000.pqr",
+      "-o",
+      "/dev/null"
+    ],
+    "large": [
+      "-i",
+      "input_data/large/input/watbox.sl100.pqr",
+      "-o",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "-i",
+      "input_data/extra-large/input/input_0000.pqr",
+      "-o",
+      "/dev/null"
+    ],
+    "default": [
+      "-i",
+      "input_data/mini/input/input_0000.pqr",
+      "-o",
+      "/dev/null"
+    ]
+  },
+  "histo": {
+    "mini": [
+      "-i",
+      "input_data/mini/input/img.bin",
+      "-o",
+      "/dev/null",
+      "1000"
+    ],
+    "small": [
+      "-i",
+      "input_data/small/input/img.bin",
+      "-o",
+      "/dev/null",
+      "1000"
+    ],
+    "medium": [
+      "-i",
+      "input_data/medium/input/img.bin",
+      "-o",
+      "/dev/null",
+      "1000"
+    ],
+    "large": [
+      "-i",
+      "input_data/large/input/img.bin",
+      "-o",
+      "/dev/null",
+      "1000"
+    ],
+    "extra-large": [
+      "-i",
+      "input_data/extra-large/input/img.bin",
+      "-o",
+      "/dev/null",
+      "1000"
+    ]
+  },
+  "lbm": {
+    "mini": [
+      "-i",
+      "input_data/mini/input/60_60_80_ldc.of",
+      "-o",
+      "/dev/null",
+      "100"
+    ],
+    "small": [
+      "-i",
+      "input_data/small/input/120_120_150_ldc.of",
+      "-o",
+      "/dev/null",
+      "100"
+    ],
+    "medium": [
+      "-i",
+      "input_data/medium/input/180_180_200_ldc.of",
+      "-o",
+      "/dev/null",
+      "100"
+    ],
+    "large": [
+      "-i",
+      "input_data/large/input/240_240_250_ldc.of",
+      "-o",
+      "/dev/null",
+      "100"
+    ],
+    "extra-large": [
+      "-i",
+      "input_data/extra-large/input/300_300_300_ldc.of",
+      "-o",
+      "/dev/null",
+      "100"
+    ]
+  },
+  "mri-gridding": {
+    "mini": [
+      "-i",
+      "input_data/mini/input/mini.uks",
+      "-o",
+      "/dev/null"
+    ],
+    "small": [
+      "-i",
+      "input_data/small/input/small.uks",
+      "-o",
+      "/dev/null"
+    ],
+    "medium": [
+      "-i",
+      "input_data/medium/input/medium.uks",
+      "-o",
+      "/dev/null"
+    ],
+    "large": [
+      "-i",
+      "input_data/large/input/large.uks",
+      "-o",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "-i",
+      "input_data/extra-large/input/extra-large.uks",
+      "-o",
+      "/dev/null"
+    ]
+  },
+  "mri-q": {
+    "mini": [
+      "-i",
+      "input_data/mini/input/20_20_20_dataset.bin",
+      "-o",
+      "/dev/null"
+    ],
+    "small": [
+      "-i",
+      "input_data/small/input/32_32_32_dataset.bin",
+      "-o",
+      "/dev/null"
+    ],
+    "medium": [
+      "-i",
+      "input_data/medium/input/51_51_51_dataset.bin",
+      "-o",
+      "/dev/null"
+    ],
+    "large": [
+      "-i",
+      "input_data/large/input/64_64_64_dataset.bin",
+      "-o",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "-i",
+      "input_data/extra-large/input/81_81_81_dataset.bin",
+      "-o",
+      "/dev/null"
+    ]
+  },
+  "sgemm": {
+    "mini": [
+      "-i",
+      "input_data/mini/input/matrix1.txt,input_data/mini/input/matrix2.txt,input_data/mini/input/matrix2t.txt",
+      "-o",
+      "/dev/null"
+    ],
+    "small": [
+      "-i",
+      "input_data/small/input/matrix1.txt,input_data/small/input/matrix2.txt,input_data/small/input/matrix2t.txt",
+      "-o",
+      "/dev/null"
+    ],
+    "medium": [
+      "-i",
+      "input_data/medium/input/matrix1.txt,input_data/medium/input/matrix2.txt,input_data/medium/input/matrix2t.txt",
+      "-o",
+      "/dev/null"
+    ],
+    "large": [
+      "-i",
+      "input_data/large/input/matrix1.txt,input_data/large/input/matrix2.txt,input_data/large/input/matrix2t.txt",
+      "-o",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "-i",
+      "input_data/extra_large/input/matrix1.txt,input_data/extra_large/input/matrix2.txt,input_data/extra_large/input/matrix2t.txt",
+      "-o",
+      "/dev/null"
+    ]
+  },
+  "spmv": {
+    "mini": [
+      "-i",
+      "input_data/mini/input/matrix.mtx,input_data/mini/input/vector.bin",
+      "-o",
+      "/dev/null"
+    ],
+    "small": [
+      "-i",
+      "input_data/small/input/1138_bus.mtx,input_data/small/input/vector.bin",
+      "-o",
+      "/dev/null"
+    ],
+    "medium": [
+      "-i",
+      "input_data/medium/input/bcsstk18.mtx,input_data/medium/input/vector.bin",
+      "-o",
+      "/dev/null"
+    ],
+    "large": [
+      "-i",
+      "input_data/large/input/Dubcova3.mtx.bin,input_data/large/input/vector.bin",
+      "-o",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "-i",
+      "input_data/extra-large/input/matrix.mtx,input_data/extra-large/input/vector.bin",
+      "-o",
+      "/dev/null"
+    ]
+  },
+  "stencil": {
+    "mini": [
+      "-i",
+      "input_data/mini/input/64x64x16.bin",
+      "-o",
+      "/dev/null",
+      "64",
+      "64",
+      "64",
+      "100"
+    ],
+    "small": [
+      "-i",
+      "input_data/small/input/128x128x32.bin",
+      "-o",
+      "/dev/null",
+      "128",
+      "128",
+      "32",
+      "100"
+    ],
+    "medium": [
+      "-i",
+      "input_data/medium/input/256x256x48.bin",
+      "-o",
+      "/dev/null",
+      "256",
+      "256",
+      "48",
+      "100"
+    ],
+    "large": [
+      "-i",
+      "input_data/large/input/512x512x64x100.bin",
+      "-o",
+      "/dev/null",
+      "512",
+      "512",
+      "64",
+      "100"
+    ],
+    "extra-large": [
+      "-i",
+      "input_data/extra-large/input/768x768x96.bin",
+      "-o",
+      "/dev/null",
+      "768",
+      "768",
+      "96",
+      "100"
+    ]
+  },
+  "streamcluster": {
+    "mini": [
+      "10",
+      "20",
+      "32",
+      "1024",
+      "1024",
+      "100",
+      "none",
+      "/dev/null",
+      "1"
+    ],
+    "small": [
+      "10",
+      "20",
+      "32",
+      "4096",
+      "4096",
+      "100",
+      "none",
+      "/dev/null",
+      "1"
+    ],
+    "medium": [
+      "10",
+      "20",
+      "64",
+      "16384",
+      "16384",
+      "200",
+      "none",
+      "/dev/null",
+      "1"
+    ],
+    "large": [
+      "10",
+      "40",
+      "128",
+      "65536",
+      "65536",
+      "500",
+      "none",
+      "/dev/null",
+      "1"
+    ],
+    "extra-large": [
+      "10",
+      "60",
+      "128",
+      "98304",
+      "98304",
+      "500",
+      "none",
+      "/dev/null",
+      "1"
+    ]
+  },
+  "srad_v1": {
+    "mini": [
+      "100",
+      "0.5",
+      "502",
+      "458",
+      "1",
+      "/dev/null"
+    ],
+    "small": [
+      "100",
+      "0.5",
+      "1004",
+      "916",
+      "1",
+      "/dev/null"
+    ],
+    "medium": [
+      "150",
+      "0.5",
+      "2008",
+      "1832",
+      "1",
+      "/dev/null"
+    ],
+    "large": [
+      "200",
+      "0.5",
+      "4016",
+      "3664",
+      "1",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "250",
+      "0.5",
+      "6024",
+      "5496",
+      "1",
+      "/dev/null"
+    ],
+    "default": [
+      "100",
+      "0.5",
+      "502",
+      "458",
+      "1",
+      "/dev/null"
+    ]
+  },
+  "srad_v2": {
+    "mini": [
+      "256",
+      "256",
+      "0",
+      "63",
+      "0",
+      "63",
+      "8",
+      "0.5",
+      "100",
+      "/dev/null"
+    ],
+    "small": [
+      "512",
+      "512",
+      "0",
+      "127",
+      "0",
+      "127",
+      "8",
+      "0.5",
+      "100",
+      "/dev/null"
+    ],
+    "medium": [
+      "1024",
+      "1024",
+      "0",
+      "255",
+      "0",
+      "255",
+      "8",
+      "0.5",
+      "150",
+      "/dev/null"
+    ],
+    "large": [
+      "2048",
+      "2048",
+      "0",
+      "511",
+      "0",
+      "511",
+      "8",
+      "0.5",
+      "200",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "4096",
+      "4096",
+      "0",
+      "1023",
+      "0",
+      "1023",
+      "8",
+      "0.5",
+      "250",
+      "/dev/null"
+    ]
+  },
+  "pathfinder": {
+    "mini": [
+      "15000000",
+      "10",
+      "-no-rand",
+      "-o",
+      "/dev/null"
+    ],
+    "small": [
+      "30000000",
+      "10",
+      "-no-rand",
+      "-o",
+      "/dev/null"
+    ],
+    "medium": [
+      "60000000",
+      "10",
+      "-no-rand",
+      "-o",
+      "/dev/null"
+    ],
+    "large": [
+      "100000000",
+      "10",
+      "--no-rand",
+      "-o",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "150000000",
+      "10",
+      "--no-rand",
+      "-o",
+      "/dev/null"
+    ]
+  },
+  "nw": {
+    "mini": [
+      "4096",
+      "10",
+      "1",
+      "-o",
+      "input_data/mini/output/output_mini.txt"
+    ],
+    "small": [
+      "8192",
+      "10",
+      "1",
+      "-o",
+      "input_data/small/output/output_small.txt"
+    ],
+    "medium": [
+      "12288",
+      "10",
+      "1",
+      "-o",
+      "input_data/medium/output/output_medium.txt"
+    ],
+    "large": [
+      "16384",
+      "10",
+      "1",
+      "-o",
+      "input_data/large/output/output_large.txt"
+    ],
+    "extra-large": [
+      "24576",
+      "10",
+      "1",
+      "-o",
+      "input_data/extra-large/output/output_extra-large.txt"
+    ]
+  },
+  "myocyte": {
+    "mini": [
+      "100",
+      "50",
+      "0",
+      "4",
+      "-o",
+      "/dev/null"
+    ],
+    "small": [
+      "100",
+      "200",
+      "0",
+      "4",
+      "-o",
+      "/dev/null"
+    ],
+    "medium": [
+      "100",
+      "1200",
+      "0",
+      "4",
+      "-o",
+      "/dev/null"
+    ],
+    "large": [
+      "100",
+      "4000",
+      "0",
+      "4",
+      "-o",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "100",
+      "8000",
+      "0",
+      "4",
+      "-o",
+      "/dev/null"
+    ]
+  },
+  "lud": {
+    "mini": [
+      "-s",
+      "516",
+      "-v",
+      "-o",
+      "/dev/null"
+    ],
+    "small": [
+      "-s",
+      "1024",
+      "-v",
+      "-o",
+      "/dev/null"
+    ],
+    "medium": [
+      "-s",
+      "2048",
+      "-v",
+      "-o",
+      "/dev/null"
+    ],
+    "large": [
+      "-s",
+      "3072",
+      "-v",
+      "-o",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "-s",
+      "4096",
+      "-v",
+      "-o",
+      "/dev/null"
+    ]
+  },
+  "leukocyte": {
+    "mini": [
+      "5",
+      "4",
+      "input_data/mini/testfile.avi",
+      "-o",
+      "/dev/null"
+    ],
+    "small": [
+      "15",
+      "4",
+      "input_data/small/testfile.avi",
+      "-o",
+      "/dev/null"
+    ],
+    "medium": [
+      "50",
+      "4",
+      "input_data/medium/testfile.avi",
+      "-o",
+      "/dev/null"
+    ],
+    "large": [
+      "100",
+      "4",
+      "input_data/large/testfile.avi",
+      "-o",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "150",
+      "4",
+      "input_data/extra-large/testfile.avi",
+      "-o",
+      "/dev/null"
+    ]
+  },
+  "kmeans": {
+    "mini": [
+      "-i",
+      "input_data/mini/input/10000_34.txt",
+      "-o",
+      "/dev/null"
+    ],
+    "small": [
+      "-i",
+      "input_data/small/input/50000_34.txt",
+      "-o",
+      "/dev/null"
+    ],
+    "medium": [
+      "-i",
+      "input_data/medium/input/100000_34.txt",
+      "-o",
+      "/dev/null"
+    ],
+    "large": [
+      "-i",
+      "input_data/large/input/1000000_34.txt",
+      "-o",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "-i",
+      "input_data/extra-large/input/5000000_34.txt",
+      "-o",
+      "/dev/null"
+    ]
+  },
+  "lavaMD": {
+    "mini": [
+      "-boxes1d",
+      "5",
+      "-o",
+      "/dev/null"
+    ],
+    "small": [
+      "-boxes1d",
+      "7",
+      "-o",
+      "/dev/null"
+    ],
+    "medium": [
+      "-boxes1d",
+      "10",
+      "-o",
+      "/dev/null"
+    ],
+    "large": [
+      "-boxes1d",
+      "15",
+      "-o",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "-boxes1d",
+      "20",
+      "-o",
+      "/dev/null"
+    ]
+  },
+  "hotspot3D": {
+    "mini": [
+      "64",
+      "8",
+      "500",
+      "input_data/mini/input/power_64x8",
+      "input_data/mini/input/temp_64x8",
+      "/dev/null"
+    ],
+    "small": [
+      "512",
+      "2",
+      "500",
+      "input_data/small/input/power_512x2",
+      "input_data/small/input/temp_512x2",
+      "/dev/null"
+    ],
+    "medium": [
+      "512",
+      "4",
+      "500",
+      "input_data/medium/input/power_512x4",
+      "input_data/medium/input/temp_512x4",
+      "/dev/null"
+    ],
+    "large": [
+      "512",
+      "8",
+      "500",
+      "input_data/large/input/power_512x8",
+      "input_data/large/input/temp_512x8",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "1024",
+      "4",
+      "500",
+      "input_data/extra-large/input/power_1024x4",
+      "input_data/extra-large/input/temp_1024x4",
+      "/dev/null"
+    ]
+  },
+  "hotspot": {
+    "mini": [
+      "64",
+      "64",
+      "500",
+      "1",
+      "input_data/mini/input/temp_64",
+      "input_data/mini/input/power_64",
+      "/dev/null"
+    ],
+    "small": [
+      "512",
+      "512",
+      "500",
+      "1",
+      "input_data/small/input/temp_512",
+      "input_data/small/input/power_512",
+      "/dev/null"
+    ],
+    "medium": [
+      "1024",
+      "1024",
+      "500",
+      "1",
+      "input_data/medium/input/temp_1024",
+      "input_data/medium/input/power_1024",
+      "/dev/null"
+    ],
+    "large": [
+      "4096",
+      "4096",
+      "500",
+      "1",
+      "input_data/large/input/temp_4096",
+      "input_data/large/input/power_4096",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "8192",
+      "8192",
+      "500",
+      "1",
+      "input_data/extra-large/input/temp_8192",
+      "input_data/extra-large/input/power_8192",
+      "/dev/null"
+    ]
+  },
+  "heartwall": {
+    "mini": [
+      "input_data/test.avi.part00",
+      "10",
+      "/dev/null"
+    ],
+    "small": [
+      "input_data/test.avi.part00",
+      "20",
+      "/dev/null"
+    ],
+    "medium": [
+      "input_data/test.avi.part00",
+      "30",
+      "/dev/null"
+    ],
+    "large": [
+      "input_data/test.avi.part00",
+      "40",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "input_data/test.avi.part00",
+      "50",
+      "/dev/null"
+    ]
+  },
+  "cfd": {
+    "mini": [
+      "input_data/mini/input/avg/nasa01600.domn.0.2M",
+      "/dev/null"
+    ],
+    "small": [
+      "input_data/small/input/fvcorr.domn.097K",
+      "/dev/null"
+    ],
+    "medium": [
+      "input_data/medium/input/fvcorr.domn.097K",
+      "/dev/null"
+    ],
+    "large": [
+      "input_data/large/input/fvcorr.domn.193K",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "input_data/extra-large/input/missile.domn.0.2M",
+      "/dev/null"
+    ]
+  },
+  "bfs": {
+    "mini": [
+      "./input_data/mini/input/graph1M.txt",
+      "-o",
+      "/dev/null"
+    ],
+    "small": [
+      "./input_data/small/input/graph2M.txt",
+      "-o",
+      "/dev/null"
+    ],
+    "medium": [
+      "./input_data/medium/input/graph4M.txt",
+      "-o",
+      "/dev/null"
+    ],
+    "large": [
+      "./input_data/large/input/graph8M.txt",
+      "-o",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/graph16M.txt",
+      "-o",
+      "/dev/null"
+    ]
+  },
+  "b+tree": {
+    "mini": [
+      "file",
+      "input_data/mini/input/mil.txt",
+      "command",
+      "input_data/mini/input/command.txt",
+      "-o",
+      "/dev/null"
+    ],
+    "small": [
+      "file",
+      "input_data/small/input/mil.txt",
+      "command",
+      "input_data/small/input/command.txt",
+      "-o",
+      "/dev/null"
+    ],
+    "medium": [
+      "file",
+      "input_data/medium/input/mil.txt",
+      "command",
+      "input_data/medium/input/command.txt",
+      "-o",
+      "/dev/null"
+    ],
+    "large": [
+      "file",
+      "input_data/large/input/mil.txt",
+      "command",
+      "input_data/large/input/command.txt",
+      "-o",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "file",
+      "input_data/extra-large/input/mil.txt",
+      "command",
+      "input_data/extra-large/input/command.txt",
+      "-o",
+      "/dev/null"
+    ]
+  },
+  "bilateral": {
+    "mini": [
+      "./input_data/nature_monte.bmp",
+      "1",
+      "2",
+      "3",
+      "/dev/null"
+    ],
+    "small": [
+      "./input_data/nature_monte.bmp",
+      "2",
+      "3",
+      "15",
+      "/dev/null"
+    ],
+    "medium": [
+      "./input_data/nature_monte.bmp",
+      "5",
+      "5",
+      "30",
+      "/dev/null"
+    ],
+    "large": [
+      "./input_data/nature_monte.bmp",
+      "10",
+      "8",
+      "50",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "./input_data/nature_monte.bmp",
+      "15",
+      "10",
+      "70",
+      "/dev/null"
+    ]
+  },
+  "matmul": {
+    "mini": [
+      "500",
+      "/dev/null"
+    ],
+    "small": [
+      "1000",
+      "/dev/null"
+    ],
+    "medium": [
+      "1500",
+      "/dev/null"
+    ],
+    "large": [
+      "2000",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "3000",
+      "/dev/null"
+    ]
+  },
+  "coulomb": {
+    "mini": [
+      "200",
+      "1",
+      "0.1",
+      "/dev/null"
+    ],
+    "small": [
+      "250",
+      "1",
+      "0.1",
+      "/dev/null"
+    ],
+    "medium": [
+      "300",
+      "1",
+      "0.1",
+      "/dev/null"
+    ],
+    "large": [
+      "350",
+      "1",
+      "0.1",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "400",
+      "1",
+      "0.1",
+      "/dev/null"
+    ]
+  },
+  "pi": {
+    "mini": [
+      "200000000",
+      "/dev/null"
+    ],
+    "small": [
+      "400000000",
+      "/dev/null"
+    ],
+    "medium": [
+      "800000000",
+      "/dev/null"
+    ],
+    "large": [
+      "1200000000",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "2000000000",
+      "/dev/null"
+    ]
+  },
+  "atmux": {
+    "mini": [
+      "5000",
+      "/dev/null"
+    ],
+    "small": [
+      "10000",
+      "/dev/null"
+    ],
+    "medium": [
+      "20000",
+      "/dev/null"
+    ],
+    "large": [
+      "30000",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "45000",
+      "/dev/null"
+    ]
+  },
+  "haccmk": {
+    "default": []
+  },
+  "aes": {
+    "mini": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ],
+    "small": [
+      "./input_data/small/input/input.data",
+      "./input_data/small/output/check.data"
+    ],
+    "medium": [
+      "./input_data/medium/input/input.data",
+      "./input_data/medium/output/check.data"
+    ],
+    "large": [
+      "./input_data/large/input/input.data",
+      "./input_data/large/output/check.data"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input.data",
+      "./input_data/extra-large/output/check.data"
+    ],
+    "default": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ]
+  },
+  "basicmath-mibench": {
+    "mini": [
+      "mini",
+      "/dev/null"
+    ],
+    "small": [
+      "small",
+      "/dev/null"
+    ],
+    "medium": [
+      "medium",
+      "/dev/null"
+    ],
+    "large": [
+      "large",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "extra-large",
+      "/dev/null"
+    ]
+  },
+  "bitcount-mibench": {
+    "mini": [
+      "11250000",
+      "--bits-only",
+      "/dev/null"
+    ],
+    "small": [
+      "11250000",
+      "--bits-only",
+      "/dev/null"
+    ],
+    "medium": [
+      "112500000",
+      "--bits-only",
+      "/dev/null"
+    ],
+    "large": [
+      "312500000",
+      "--bits-only",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "912500000",
+      "--bits-only",
+      "/dev/null"
+    ],
+    "default": [
+      "11250000",
+      "--bits-only",
+      "/dev/null"
+    ]
+  },
+  "qsort-mibench": {
+    "mini": [
+      "./input_data/mini/input/input_mini.dat",
+      "/dev/null"
+    ],
+    "small": [
+      "./input_data/small/input/input_small.dat",
+      "/dev/null"
+    ],
+    "medium": [
+      "./input_data/medium/input/input_medium.dat",
+      "/dev/null"
+    ],
+    "large": [
+      "./input_data/large/input/input_large.dat",
+      "/dev/null"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input_extra-large.dat",
+      "/dev/null"
+    ]
+  },
+  "susan-s-mibench": {
+    "mini": [
+      "./input_data/mini/input/input_mini.pgm",
+      "/dev/null",
+      "-s"
+    ],
+    "small": [
+      "./input_data/small/input/input_small.pgm",
+      "/dev/null",
+      "-s"
+    ],
+    "medium": [
+      "./input_data/medium/input/input_medium.pgm",
+      "/dev/null",
+      "-s"
+    ],
+    "large": [
+      "./input_data/large/input/input_large.pgm",
+      "/dev/null",
+      "-s"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input_extra-large.pgm",
+      "/dev/null",
+      "-s"
+    ],
+    "default": [
+      "./input_data/mini/input/input_mini.pgm",
+      "/dev/null",
+      "-s"
+    ]
+  },
+  "susan-e-mibench": {
+    "mini": [
+      "./input_data/mini/input/input_mini.pgm",
+      "/dev/null",
+      "-e"
+    ],
+    "small": [
+      "./input_data/small/input/input_small.pgm",
+      "/dev/null",
+      "-e"
+    ],
+    "medium": [
+      "./input_data/medium/input/input_medium.pgm",
+      "/dev/null",
+      "-e"
+    ],
+    "large": [
+      "./input_data/large/input/input_large.pgm",
+      "/dev/null",
+      "-e"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input_extra-large.pgm",
+      "/dev/null",
+      "-e"
+    ]
+  },
+  "susan-c-mibench": {
+    "mini": [
+      "./input_data/mini/input/input_mini.pgm",
+      "/dev/null",
+      "-c"
+    ],
+    "small": [
+      "./input_data/small/input/input_small.pgm",
+      "/dev/null",
+      "-c"
+    ],
+    "medium": [
+      "./input_data/medium/input/input_medium.pgm",
+      "/dev/null",
+      "-c"
+    ],
+    "large": [
+      "./input_data/large/input/input_large.pgm",
+      "/dev/null",
+      "-c"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input_extra-large.pgm",
+      "/dev/null",
+      "-c"
+    ]
+  },
+  "dijkstra-mibench": {
+    "mini": [
+      "./input_data/mini/input/input.dat"
+    ],
+    "small": [
+      "./input_data/small/input/input.dat"
+    ],
+    "medium": [
+      "./input_data/medium/input/input.dat"
+    ],
+    "large": [
+      "./input_data/large/input/input.dat"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input.dat"
+    ]
+  },
+  "patricia-mibench": {
+    "mini": [
+      "./input_data/mini/input/input.udp"
+    ],
+    "small": [
+      "./input_data/small/input/input.udp"
+    ],
+    "medium": [
+      "./input_data/medium/input/input.udp"
+    ],
+    "large": [
+      "./input_data/large/input/input.udp"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input.udp"
+    ]
+  },
+  "stringsearch-mibench": {
+    "mini": [
+      "mini"
+    ],
+    "small": [
+      "small"
+    ],
+    "medium": [
+      "medium"
+    ],
+    "large": [
+      "large"
+    ],
+    "extra-large": [
+      "extra-large"
+    ]
+  },
+  "canneal-parsec": {
+    "mini": [
+      "1",
+      "1000",
+      "2000",
+      "input_data/mini/input/input_mini.nets",
+      "50"
+    ],
+    "small": [
+      "1",
+      "50000",
+      "2500",
+      "input_data/small/input/input_small.nets",
+      "150"
+    ],
+    "medium": [
+      "1",
+      "200000",
+      "3000",
+      "input_data/medium/input/input_medium.nets",
+      "400"
+    ],
+    "large": [
+      "1",
+      "500000",
+      "3500",
+      "input_data/large/input/input_large.nets",
+      "700"
+    ],
+    "extra-large": [
+      "1",
+      "1000000",
+      "4000",
+      "input_data/extra-large/input/input_extra-large.nets",
+      "1000"
+    ]
+  },
+  "bfs-bulk-mach": {
+    "mini": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ],
+    "small": [
+      "./input_data/small/input/input.data",
+      "./input_data/small/output/check.data"
+    ],
+    "medium": [
+      "./input_data/medium/input/input.data",
+      "./input_data/medium/output/check.data"
+    ],
+    "large": [
+      "./input_data/large/input/input.data",
+      "./input_data/large/output/check.data"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input.data",
+      "./input_data/extra-large/output/check.data"
+    ],
+    "default": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ]
+  },
+  "bfs-queue-mach": {
+    "mini": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ],
+    "small": [
+      "./input_data/small/input/input.data",
+      "./input_data/small/output/check.data"
+    ],
+    "medium": [
+      "./input_data/medium/input/input.data",
+      "./input_data/medium/output/check.data"
+    ],
+    "large": [
+      "./input_data/large/input/input.data",
+      "./input_data/large/output/check.data"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input.data",
+      "./input_data/extra-large/output/check.data"
+    ],
+    "default": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ]
+  },
+  "fft-strided-mach": {
+    "mini": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ],
+    "small": [
+      "./input_data/small/input/input.data",
+      "./input_data/small/output/check.data"
+    ],
+    "medium": [
+      "./input_data/medium/input/input.data",
+      "./input_data/medium/output/check.data"
+    ],
+    "large": [
+      "./input_data/large/input/input.data",
+      "./input_data/large/output/check.data"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input.data",
+      "./input_data/extra-large/output/check.data"
+    ],
+    "default": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ]
+  },
+  "fft-transpose-mach": {
+    "mini": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ],
+    "small": [
+      "./input_data/small/input/input.data",
+      "./input_data/small/output/check.data"
+    ],
+    "medium": [
+      "./input_data/medium/input/input.data",
+      "./input_data/medium/output/check.data"
+    ],
+    "large": [
+      "./input_data/large/input/input.data",
+      "./input_data/large/output/check.data"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input.data",
+      "./input_data/extra-large/output/check.data"
+    ],
+    "default": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ]
+  },
+  "gemm-blocked-mach": {
+    "mini": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ],
+    "small": [
+      "./input_data/small/input/input.data",
+      "./input_data/small/output/check.data"
+    ],
+    "medium": [
+      "./input_data/medium/input/input.data",
+      "./input_data/medium/output/check.data"
+    ],
+    "large": [
+      "./input_data/large/input/input.data",
+      "./input_data/large/output/check.data"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input.data",
+      "./input_data/extra-large/output/check.data"
+    ],
+    "default": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ]
+  },
+  "gemm-ncubed-mach": {
+    "mini": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ],
+    "small": [
+      "./input_data/small/input/input.data",
+      "./input_data/small/output/check.data"
+    ],
+    "medium": [
+      "./input_data/medium/input/input.data",
+      "./input_data/medium/output/check.data"
+    ],
+    "large": [
+      "./input_data/large/input/input.data",
+      "./input_data/large/output/check.data"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input.data",
+      "./input_data/extra-large/output/check.data"
+    ],
+    "default": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ]
+  },
+  "kmp-mach": {
+    "mini": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ],
+    "small": [
+      "./input_data/small/input/input.data",
+      "./input_data/small/output/check.data"
+    ],
+    "medium": [
+      "./input_data/medium/input/input.data",
+      "./input_data/medium/output/check.data"
+    ],
+    "large": [
+      "./input_data/large/input/input.data",
+      "./input_data/large/output/check.data"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input.data",
+      "./input_data/extra-large/output/check.data"
+    ],
+    "default": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ]
+  },
+  "md-grid-mach": {
+    "mini": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ],
+    "small": [
+      "./input_data/small/input/input.data",
+      "./input_data/small/output/check.data"
+    ],
+    "medium": [
+      "./input_data/medium/input/input.data",
+      "./input_data/medium/output/check.data"
+    ],
+    "large": [
+      "./input_data/large/input/input.data",
+      "./input_data/large/output/check.data"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input.data",
+      "./input_data/extra-large/output/check.data"
+    ],
+    "default": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ]
+  },
+  "md-knn-mach": {
+    "mini": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ],
+    "small": [
+      "./input_data/small/input/input.data",
+      "./input_data/small/output/check.data"
+    ],
+    "medium": [
+      "./input_data/medium/input/input.data",
+      "./input_data/medium/output/check.data"
+    ],
+    "large": [
+      "./input_data/large/input/input.data",
+      "./input_data/large/output/check.data"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input.data",
+      "./input_data/extra-large/output/check.data"
+    ],
+    "default": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ]
+  },
+  "nw-mach": {
+    "mini": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ],
+    "small": [
+      "./input_data/small/input/input.data",
+      "./input_data/small/output/check.data"
+    ],
+    "medium": [
+      "./input_data/medium/input/input.data",
+      "./input_data/medium/output/check.data"
+    ],
+    "large": [
+      "./input_data/large/input/input.data",
+      "./input_data/large/output/check.data"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input.data",
+      "./input_data/extra-large/output/check.data"
+    ],
+    "default": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ]
+  },
+  "sort-merge-mach": {
+    "mini": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ],
+    "small": [
+      "./input_data/small/input/input.data",
+      "./input_data/small/output/check.data"
+    ],
+    "medium": [
+      "./input_data/medium/input/input.data",
+      "./input_data/medium/output/check.data"
+    ],
+    "large": [
+      "./input_data/large/input/input.data",
+      "./input_data/large/output/check.data"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input.data",
+      "./input_data/extra-large/output/check.data"
+    ],
+    "default": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ]
+  },
+  "sort-radix-mach": {
+    "mini": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ],
+    "small": [
+      "./input_data/small/input/input.data",
+      "./input_data/small/output/check.data"
+    ],
+    "medium": [
+      "./input_data/medium/input/input.data",
+      "./input_data/medium/output/check.data"
+    ],
+    "large": [
+      "./input_data/large/input/input.data",
+      "./input_data/large/output/check.data"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input.data",
+      "./input_data/extra-large/output/check.data"
+    ],
+    "default": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ]
+  },
+  "spmv-crs-mach": {
+    "mini": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ],
+    "small": [
+      "./input_data/small/input/input.data",
+      "./input_data/small/output/check.data"
+    ],
+    "medium": [
+      "./input_data/medium/input/input.data",
+      "./input_data/medium/output/check.data"
+    ],
+    "large": [
+      "./input_data/large/input/input.data",
+      "./input_data/large/output/check.data"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input.data",
+      "./input_data/extra-large/output/check.data"
+    ],
+    "default": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ]
+  },
+  "spmv-ellpack-mach": {
+    "mini": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ],
+    "small": [
+      "./input_data/small/input/input.data",
+      "./input_data/small/output/check.data"
+    ],
+    "medium": [
+      "./input_data/medium/input/input.data",
+      "./input_data/medium/output/check.data"
+    ],
+    "large": [
+      "./input_data/large/input/input.data",
+      "./input_data/large/output/check.data"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input.data",
+      "./input_data/extra-large/output/check.data"
+    ],
+    "default": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ]
+  },
+  "stencil-2d-mach": {
+    "mini": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ],
+    "small": [
+      "./input_data/small/input/input.data",
+      "./input_data/small/output/check.data"
+    ],
+    "medium": [
+      "./input_data/medium/input/input.data",
+      "./input_data/medium/output/check.data"
+    ],
+    "large": [
+      "./input_data/large/input/input.data",
+      "./input_data/large/output/check.data"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input.data",
+      "./input_data/extra-large/output/check.data"
+    ],
+    "default": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ]
+  },
+  "stencil-3d-mach": {
+    "mini": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ],
+    "small": [
+      "./input_data/small/input/input.data",
+      "./input_data/small/output/check.data"
+    ],
+    "medium": [
+      "./input_data/medium/input/input.data",
+      "./input_data/medium/output/check.data"
+    ],
+    "large": [
+      "./input_data/large/input/input.data",
+      "./input_data/large/output/check.data"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input.data",
+      "./input_data/extra-large/output/check.data"
+    ],
+    "default": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ]
+  },
+  "viterbi-mach": {
+    "mini": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ],
+    "small": [
+      "./input_data/small/input/input.data",
+      "./input_data/small/output/check.data"
+    ],
+    "medium": [
+      "./input_data/medium/input/input.data",
+      "./input_data/medium/output/check.data"
+    ],
+    "large": [
+      "./input_data/large/input/input.data",
+      "./input_data/large/output/check.data"
+    ],
+    "extra-large": [
+      "./input_data/extra-large/input/input.data",
+      "./input_data/extra-large/output/check.data"
+    ],
+    "default": [
+      "./input_data/mini/input/input.data",
+      "./input_data/mini/output/check.data"
+    ]
+  },
+  "tpacf": {
+    "mini": [
+      "-i",
+      "input_data/mini/input/Datapnts.1,input_data/mini/input/Randompnts.1,input_data/mini/input/Randompnts.2,input_data/mini/input/Randompnts.3,input_data/mini/input/Randompnts.4,input_data/mini/input/Randompnts.5,input_data/mini/input/Randompnts.6,input_data/mini/input/Randompnts.7,input_data/mini/input/Randompnts.8,input_data/mini/input/Randompnts.9,input_data/mini/input/Randompnts.10,input_data/mini/input/Randompnts.11,input_data/mini/input/Randompnts.12,input_data/mini/input/Randompnts.13,input_data/mini/input/Randompnts.14,input_data/mini/input/Randompnts.15,input_data/mini/input/Randompnts.16,input_data/mini/input/Randompnts.17,input_data/mini/input/Randompnts.18,input_data/mini/input/Randompnts.19,input_data/mini/input/Randompnts.20,input_data/mini/input/Randompnts.21,input_data/mini/input/Randompnts.22,input_data/mini/input/Randompnts.23,input_data/mini/input/Randompnts.24,input_data/mini/input/Randompnts.25,input_data/mini/input/Randompnts.26,input_data/mini/input/Randompnts.27,input_data/mini/input/Randompnts.28,input_data/mini/input/Randompnts.29,input_data/mini/input/Randompnts.30,input_data/mini/input/Randompnts.31,input_data/mini/input/Randompnts.32,input_data/mini/input/Randompnts.33,input_data/mini/input/Randompnts.34,input_data/mini/input/Randompnts.35,input_data/mini/input/Randompnts.36,input_data/mini/input/Randompnts.37,input_data/mini/input/Randompnts.38,input_data/mini/input/Randompnts.39,input_data/mini/input/Randompnts.40,input_data/mini/input/Randompnts.41,input_data/mini/input/Randompnts.42,input_data/mini/input/Randompnts.43,input_data/mini/input/Randompnts.44,input_data/mini/input/Randompnts.45,input_data/mini/input/Randompnts.46,input_data/mini/input/Randompnts.47,input_data/mini/input/Randompnts.48,input_data/mini/input/Randompnts.49,input_data/mini/input/Randompnts.50,input_data/mini/input/Randompnts.51,input_data/mini/input/Randompnts.52,input_data/mini/input/Randompnts.53,input_data/mini/input/Randompnts.54,input_data/mini/input/Randompnts.55,input_data/mini/input/Randompnts.56,input_data/mini/input/Randompnts.57,input_data/mini/input/Randompnts.58,input_data/mini/input/Randompnts.59,input_data/mini/input/Randompnts.60,input_data/mini/input/Randompnts.61,input_data/mini/input/Randompnts.62,input_data/mini/input/Randompnts.63,input_data/mini/input/Randompnts.64,input_data/mini/input/Randompnts.65,input_data/mini/input/Randompnts.66,input_data/mini/input/Randompnts.67,input_data/mini/input/Randompnts.68,input_data/mini/input/Randompnts.69,input_data/mini/input/Randompnts.70,input_data/mini/input/Randompnts.71,input_data/mini/input/Randompnts.72,input_data/mini/input/Randompnts.73,input_data/mini/input/Randompnts.74,input_data/mini/input/Randompnts.75,input_data/mini/input/Randompnts.76,input_data/mini/input/Randompnts.77,input_data/mini/input/Randompnts.78,input_data/mini/input/Randompnts.79,input_data/mini/input/Randompnts.80,input_data/mini/input/Randompnts.81,input_data/mini/input/Randompnts.82,input_data/mini/input/Randompnts.83,input_data/mini/input/Randompnts.84,input_data/mini/input/Randompnts.85,input_data/mini/input/Randompnts.86,input_data/mini/input/Randompnts.87,input_data/mini/input/Randompnts.88,input_data/mini/input/Randompnts.89,input_data/mini/input/Randompnts.90,input_data/mini/input/Randompnts.91,input_data/mini/input/Randompnts.92,input_data/mini/input/Randompnts.93,input_data/mini/input/Randompnts.94,input_data/mini/input/Randompnts.95,input_data/mini/input/Randompnts.96,input_data/mini/input/Randompnts.97,input_data/mini/input/Randompnts.98,input_data/mini/input/Randompnts.99,input_data/mini/input/Randompnts.100",
+      "-o",
+      "/dev/null",
+      "--",
+      "-n",
+      "100",
+      "-p",
+      "100"
+    ],
+    "small": [
+      "-i",
+      "input_data/small/input/Datapnts.1,input_data/small/input/Randompnts.1,input_data/small/input/Randompnts.2,input_data/small/input/Randompnts.3,input_data/small/input/Randompnts.4,input_data/small/input/Randompnts.5,input_data/small/input/Randompnts.6,input_data/small/input/Randompnts.7,input_data/small/input/Randompnts.8,input_data/small/input/Randompnts.9,input_data/small/input/Randompnts.10,input_data/small/input/Randompnts.11,input_data/small/input/Randompnts.12,input_data/small/input/Randompnts.13,input_data/small/input/Randompnts.14,input_data/small/input/Randompnts.15,input_data/small/input/Randompnts.16,input_data/small/input/Randompnts.17,input_data/small/input/Randompnts.18,input_data/small/input/Randompnts.19,input_data/small/input/Randompnts.20,input_data/small/input/Randompnts.21,input_data/small/input/Randompnts.22,input_data/small/input/Randompnts.23,input_data/small/input/Randompnts.24,input_data/small/input/Randompnts.25,input_data/small/input/Randompnts.26,input_data/small/input/Randompnts.27,input_data/small/input/Randompnts.28,input_data/small/input/Randompnts.29,input_data/small/input/Randompnts.30,input_data/small/input/Randompnts.31,input_data/small/input/Randompnts.32,input_data/small/input/Randompnts.33,input_data/small/input/Randompnts.34,input_data/small/input/Randompnts.35,input_data/small/input/Randompnts.36,input_data/small/input/Randompnts.37,input_data/small/input/Randompnts.38,input_data/small/input/Randompnts.39,input_data/small/input/Randompnts.40,input_data/small/input/Randompnts.41,input_data/small/input/Randompnts.42,input_data/small/input/Randompnts.43,input_data/small/input/Randompnts.44,input_data/small/input/Randompnts.45,input_data/small/input/Randompnts.46,input_data/small/input/Randompnts.47,input_data/small/input/Randompnts.48,input_data/small/input/Randompnts.49,input_data/small/input/Randompnts.50,input_data/small/input/Randompnts.51,input_data/small/input/Randompnts.52,input_data/small/input/Randompnts.53,input_data/small/input/Randompnts.54,input_data/small/input/Randompnts.55,input_data/small/input/Randompnts.56,input_data/small/input/Randompnts.57,input_data/small/input/Randompnts.58,input_data/small/input/Randompnts.59,input_data/small/input/Randompnts.60,input_data/small/input/Randompnts.61,input_data/small/input/Randompnts.62,input_data/small/input/Randompnts.63,input_data/small/input/Randompnts.64,input_data/small/input/Randompnts.65,input_data/small/input/Randompnts.66,input_data/small/input/Randompnts.67,input_data/small/input/Randompnts.68,input_data/small/input/Randompnts.69,input_data/small/input/Randompnts.70,input_data/small/input/Randompnts.71,input_data/small/input/Randompnts.72,input_data/small/input/Randompnts.73,input_data/small/input/Randompnts.74,input_data/small/input/Randompnts.75,input_data/small/input/Randompnts.76,input_data/small/input/Randompnts.77,input_data/small/input/Randompnts.78,input_data/small/input/Randompnts.79,input_data/small/input/Randompnts.80,input_data/small/input/Randompnts.81,input_data/small/input/Randompnts.82,input_data/small/input/Randompnts.83,input_data/small/input/Randompnts.84,input_data/small/input/Randompnts.85,input_data/small/input/Randompnts.86,input_data/small/input/Randompnts.87,input_data/small/input/Randompnts.88,input_data/small/input/Randompnts.89,input_data/small/input/Randompnts.90,input_data/small/input/Randompnts.91,input_data/small/input/Randompnts.92,input_data/small/input/Randompnts.93,input_data/small/input/Randompnts.94,input_data/small/input/Randompnts.95,input_data/small/input/Randompnts.96,input_data/small/input/Randompnts.97,input_data/small/input/Randompnts.98,input_data/small/input/Randompnts.99,input_data/small/input/Randompnts.100",
+      "-o",
+      "/dev/null",
+      "--",
+      "-n",
+      "100",
+      "-p",
+      "487"
+    ],
+    "medium": [
+      "-i",
+      "input_data/medium/input/Datapnts.1,input_data/medium/input/Randompnts.1,input_data/medium/input/Randompnts.2,input_data/medium/input/Randompnts.3,input_data/medium/input/Randompnts.4,input_data/medium/input/Randompnts.5,input_data/medium/input/Randompnts.6,input_data/medium/input/Randompnts.7,input_data/medium/input/Randompnts.8,input_data/medium/input/Randompnts.9,input_data/medium/input/Randompnts.10,input_data/medium/input/Randompnts.11,input_data/medium/input/Randompnts.12,input_data/medium/input/Randompnts.13,input_data/medium/input/Randompnts.14,input_data/medium/input/Randompnts.15,input_data/medium/input/Randompnts.16,input_data/medium/input/Randompnts.17,input_data/medium/input/Randompnts.18,input_data/medium/input/Randompnts.19,input_data/medium/input/Randompnts.20,input_data/medium/input/Randompnts.21,input_data/medium/input/Randompnts.22,input_data/medium/input/Randompnts.23,input_data/medium/input/Randompnts.24,input_data/medium/input/Randompnts.25,input_data/medium/input/Randompnts.26,input_data/medium/input/Randompnts.27,input_data/medium/input/Randompnts.28,input_data/medium/input/Randompnts.29,input_data/medium/input/Randompnts.30,input_data/medium/input/Randompnts.31,input_data/medium/input/Randompnts.32,input_data/medium/input/Randompnts.33,input_data/medium/input/Randompnts.34,input_data/medium/input/Randompnts.35,input_data/medium/input/Randompnts.36,input_data/medium/input/Randompnts.37,input_data/medium/input/Randompnts.38,input_data/medium/input/Randompnts.39,input_data/medium/input/Randompnts.40,input_data/medium/input/Randompnts.41,input_data/medium/input/Randompnts.42,input_data/medium/input/Randompnts.43,input_data/medium/input/Randompnts.44,input_data/medium/input/Randompnts.45,input_data/medium/input/Randompnts.46,input_data/medium/input/Randompnts.47,input_data/medium/input/Randompnts.48,input_data/medium/input/Randompnts.49,input_data/medium/input/Randompnts.50,input_data/medium/input/Randompnts.51,input_data/medium/input/Randompnts.52,input_data/medium/input/Randompnts.53,input_data/medium/input/Randompnts.54,input_data/medium/input/Randompnts.55,input_data/medium/input/Randompnts.56,input_data/medium/input/Randompnts.57,input_data/medium/input/Randompnts.58,input_data/medium/input/Randompnts.59,input_data/medium/input/Randompnts.60,input_data/medium/input/Randompnts.61,input_data/medium/input/Randompnts.62,input_data/medium/input/Randompnts.63,input_data/medium/input/Randompnts.64,input_data/medium/input/Randompnts.65,input_data/medium/input/Randompnts.66,input_data/medium/input/Randompnts.67,input_data/medium/input/Randompnts.68,input_data/medium/input/Randompnts.69,input_data/medium/input/Randompnts.70,input_data/medium/input/Randompnts.71,input_data/medium/input/Randompnts.72,input_data/medium/input/Randompnts.73,input_data/medium/input/Randompnts.74,input_data/medium/input/Randompnts.75,input_data/medium/input/Randompnts.76,input_data/medium/input/Randompnts.77,input_data/medium/input/Randompnts.78,input_data/medium/input/Randompnts.79,input_data/medium/input/Randompnts.80,input_data/medium/input/Randompnts.81,input_data/medium/input/Randompnts.82,input_data/medium/input/Randompnts.83,input_data/medium/input/Randompnts.84,input_data/medium/input/Randompnts.85,input_data/medium/input/Randompnts.86,input_data/medium/input/Randompnts.87,input_data/medium/input/Randompnts.88,input_data/medium/input/Randompnts.89,input_data/medium/input/Randompnts.90,input_data/medium/input/Randompnts.91,input_data/medium/input/Randompnts.92,input_data/medium/input/Randompnts.93,input_data/medium/input/Randompnts.94,input_data/medium/input/Randompnts.95,input_data/medium/input/Randompnts.96,input_data/medium/input/Randompnts.97,input_data/medium/input/Randompnts.98,input_data/medium/input/Randompnts.99,input_data/medium/input/Randompnts.100",
+      "-o",
+      "/dev/null",
+      "--",
+      "-n",
+      "100",
+      "-p",
+      "4096"
+    ],
+    "large": [
+      "-i",
+      "input_data/large/input/Datapnts.1,input_data/large/input/Randompnts.1,input_data/large/input/Randompnts.2,input_data/large/input/Randompnts.3,input_data/large/input/Randompnts.4,input_data/large/input/Randompnts.5,input_data/large/input/Randompnts.6,input_data/large/input/Randompnts.7,input_data/large/input/Randompnts.8,input_data/large/input/Randompnts.9,input_data/large/input/Randompnts.10,input_data/large/input/Randompnts.11,input_data/large/input/Randompnts.12,input_data/large/input/Randompnts.13,input_data/large/input/Randompnts.14,input_data/large/input/Randompnts.15,input_data/large/input/Randompnts.16,input_data/large/input/Randompnts.17,input_data/large/input/Randompnts.18,input_data/large/input/Randompnts.19,input_data/large/input/Randompnts.20,input_data/large/input/Randompnts.21,input_data/large/input/Randompnts.22,input_data/large/input/Randompnts.23,input_data/large/input/Randompnts.24,input_data/large/input/Randompnts.25,input_data/large/input/Randompnts.26,input_data/large/input/Randompnts.27,input_data/large/input/Randompnts.28,input_data/large/input/Randompnts.29,input_data/large/input/Randompnts.30,input_data/large/input/Randompnts.31,input_data/large/input/Randompnts.32,input_data/large/input/Randompnts.33,input_data/large/input/Randompnts.34,input_data/large/input/Randompnts.35,input_data/large/input/Randompnts.36,input_data/large/input/Randompnts.37,input_data/large/input/Randompnts.38,input_data/large/input/Randompnts.39,input_data/large/input/Randompnts.40,input_data/large/input/Randompnts.41,input_data/large/input/Randompnts.42,input_data/large/input/Randompnts.43,input_data/large/input/Randompnts.44,input_data/large/input/Randompnts.45,input_data/large/input/Randompnts.46,input_data/large/input/Randompnts.47,input_data/large/input/Randompnts.48,input_data/large/input/Randompnts.49,input_data/large/input/Randompnts.50,input_data/large/input/Randompnts.51,input_data/large/input/Randompnts.52,input_data/large/input/Randompnts.53,input_data/large/input/Randompnts.54,input_data/large/input/Randompnts.55,input_data/large/input/Randompnts.56,input_data/large/input/Randompnts.57,input_data/large/input/Randompnts.58,input_data/large/input/Randompnts.59,input_data/large/input/Randompnts.60,input_data/large/input/Randompnts.61,input_data/large/input/Randompnts.62,input_data/large/input/Randompnts.63,input_data/large/input/Randompnts.64,input_data/large/input/Randompnts.65,input_data/large/input/Randompnts.66,input_data/large/input/Randompnts.67,input_data/large/input/Randompnts.68,input_data/large/input/Randompnts.69,input_data/large/input/Randompnts.70,input_data/large/input/Randompnts.71,input_data/large/input/Randompnts.72,input_data/large/input/Randompnts.73,input_data/large/input/Randompnts.74,input_data/large/input/Randompnts.75,input_data/large/input/Randompnts.76,input_data/large/input/Randompnts.77,input_data/large/input/Randompnts.78,input_data/large/input/Randompnts.79,input_data/large/input/Randompnts.80,input_data/large/input/Randompnts.81,input_data/large/input/Randompnts.82,input_data/large/input/Randompnts.83,input_data/large/input/Randompnts.84,input_data/large/input/Randompnts.85,input_data/large/input/Randompnts.86,input_data/large/input/Randompnts.87,input_data/large/input/Randompnts.88,input_data/large/input/Randompnts.89,input_data/large/input/Randompnts.90,input_data/large/input/Randompnts.91,input_data/large/input/Randompnts.92,input_data/large/input/Randompnts.93,input_data/large/input/Randompnts.94,input_data/large/input/Randompnts.95,input_data/large/input/Randompnts.96,input_data/large/input/Randompnts.97,input_data/large/input/Randompnts.98,input_data/large/input/Randompnts.99,input_data/large/input/Randompnts.100",
+      "-o",
+      "/dev/null",
+      "--",
+      "-n",
+      "100",
+      "-p",
+      "10391"
+    ],
+    "extra-large": [
+      "-i",
+      "input_data/extra-large/input/Datapnts.1,input_data/extra-large/input/Randompnts.1,input_data/extra-large/input/Randompnts.2,input_data/extra-large/input/Randompnts.3,input_data/extra-large/input/Randompnts.4,input_data/extra-large/input/Randompnts.5,input_data/extra-large/input/Randompnts.6,input_data/extra-large/input/Randompnts.7,input_data/extra-large/input/Randompnts.8,input_data/extra-large/input/Randompnts.9,input_data/extra-large/input/Randompnts.10,input_data/extra-large/input/Randompnts.11,input_data/extra-large/input/Randompnts.12,input_data/extra-large/input/Randompnts.13,input_data/extra-large/input/Randompnts.14,input_data/extra-large/input/Randompnts.15,input_data/extra-large/input/Randompnts.16,input_data/extra-large/input/Randompnts.17,input_data/extra-large/input/Randompnts.18,input_data/extra-large/input/Randompnts.19,input_data/extra-large/input/Randompnts.20,input_data/extra-large/input/Randompnts.21,input_data/extra-large/input/Randompnts.22,input_data/extra-large/input/Randompnts.23,input_data/extra-large/input/Randompnts.24,input_data/extra-large/input/Randompnts.25,input_data/extra-large/input/Randompnts.26,input_data/extra-large/input/Randompnts.27,input_data/extra-large/input/Randompnts.28,input_data/extra-large/input/Randompnts.29,input_data/extra-large/input/Randompnts.30,input_data/extra-large/input/Randompnts.31,input_data/extra-large/input/Randompnts.32,input_data/extra-large/input/Randompnts.33,input_data/extra-large/input/Randompnts.34,input_data/extra-large/input/Randompnts.35,input_data/extra-large/input/Randompnts.36,input_data/extra-large/input/Randompnts.37,input_data/extra-large/input/Randompnts.38,input_data/extra-large/input/Randompnts.39,input_data/extra-large/input/Randompnts.40,input_data/extra-large/input/Randompnts.41,input_data/extra-large/input/Randompnts.42,input_data/extra-large/input/Randompnts.43,input_data/extra-large/input/Randompnts.44,input_data/extra-large/input/Randompnts.45,input_data/extra-large/input/Randompnts.46,input_data/extra-large/input/Randompnts.47,input_data/extra-large/input/Randompnts.48,input_data/extra-large/input/Randompnts.49,input_data/extra-large/input/Randompnts.50,input_data/extra-large/input/Randompnts.51,input_data/extra-large/input/Randompnts.52,input_data/extra-large/input/Randompnts.53,input_data/extra-large/input/Randompnts.54,input_data/extra-large/input/Randompnts.55,input_data/extra-large/input/Randompnts.56,input_data/extra-large/input/Randompnts.57,input_data/extra-large/input/Randompnts.58,input_data/extra-large/input/Randompnts.59,input_data/extra-large/input/Randompnts.60,input_data/extra-large/input/Randompnts.61,input_data/extra-large/input/Randompnts.62,input_data/extra-large/input/Randompnts.63,input_data/extra-large/input/Randompnts.64,input_data/extra-large/input/Randompnts.65,input_data/extra-large/input/Randompnts.66,input_data/extra-large/input/Randompnts.67,input_data/extra-large/input/Randompnts.68,input_data/extra-large/input/Randompnts.69,input_data/extra-large/input/Randompnts.70,input_data/extra-large/input/Randompnts.71,input_data/extra-large/input/Randompnts.72,input_data/extra-large/input/Randompnts.73,input_data/extra-large/input/Randompnts.74,input_data/extra-large/input/Randompnts.75,input_data/extra-large/input/Randompnts.76,input_data/extra-large/input/Randompnts.77,input_data/extra-large/input/Randompnts.78,input_data/extra-large/input/Randompnts.79,input_data/extra-large/input/Randompnts.80,input_data/extra-large/input/Randompnts.81,input_data/extra-large/input/Randompnts.82,input_data/extra-large/input/Randompnts.83,input_data/extra-large/input/Randompnts.84,input_data/extra-large/input/Randompnts.85,input_data/extra-large/input/Randompnts.86,input_data/extra-large/input/Randompnts.87,input_data/extra-large/input/Randompnts.88,input_data/extra-large/input/Randompnts.89,input_data/extra-large/input/Randompnts.90,input_data/extra-large/input/Randompnts.91,input_data/extra-large/input/Randompnts.92,input_data/extra-large/input/Randompnts.93,input_data/extra-large/input/Randompnts.94,input_data/extra-large/input/Randompnts.95,input_data/extra-large/input/Randompnts.96,input_data/extra-large/input/Randompnts.97,input_data/extra-large/input/Randompnts.98,input_data/extra-large/input/Randompnts.99,input_data/extra-large/input/Randompnts.100",
+      "-o",
+      "/dev/null",
+      "--",
+      "-n",
+      "100",
+      "-p",
+      "13000"
+    ]
+  }
+}
+

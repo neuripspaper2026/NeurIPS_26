@@ -1,0 +1,418 @@
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+#include <time.h>
+#ifdef _OPENMP
+#include <omp.h>
+#endif
+
+#include "define.c"
+#include "graphics.c"
+#include "resize.c"
+#include "timer.c"
+
+int main(int argc, char *argv[]) {
+    struct timespec main_start, main_end;
+    struct timespec kernel_start, kernel_end;
+    clock_gettime(CLOCK_MONOTONIC, &main_start);
+    clock_gettime(CLOCK_MONOTONIC, &kernel_start);
+
+    long long time0;
+    long long time1;
+    long long time2;
+    long long time3;
+    long long time4;
+    long long time5;
+    long long time6;
+    long long time7;
+    long long time8;
+    long long time9;
+    long long time10;
+
+    time0 = get_time();
+
+    // inputs image, input paramenters
+    fp *image_ori; // originalinput image
+    int image_ori_rows;
+    int image_ori_cols;
+    long image_ori_elem;
+
+    // inputs image, input paramenters
+    fp *image;   // input image
+    long Nr, Nc; // IMAGE nbr of rows/cols/elements
+    long Ne;
+
+    // algorithm parameters
+    int niter; // nbr of iterations
+    fp lambda; // update step size
+
+    // size of IMAGE
+    int r1, r2, c1, c2; // row/col coordinates of uniform ROI
+    long NeROI;         // ROI nbr of elements
+
+    // ROI statistics
+    fp meanROI, varROI, q0sqr; // local region statistics
+
+    // surrounding pixel indicies
+    int *iN, *iS, *jE, *jW;
+
+    // center pixel value
+    fp Jc;
+
+    // directional derivatives
+    fp *dN, *dS, *dW, *dE;
+
+    // calculation variables
+    fp tmp, sum, sum2;
+    fp G2, L, num, den, qsqr, D;
+
+    // diffusion coefficient
+    fp *c;
+    fp cN, cS, cW, cE;
+
+    // counters
+    int iter;  // primary loop
+    long i, j; // image row/col
+    long k;    // image single index
+
+    // number of threads (retained for interface compatibility)
+    int threads;
+
+    time1 = get_time();
+
+    int arg_error = 0;
+    if (argc != 7) {
+        printf("ERROR: wrong number of arguments\n");
+        arg_error = 1;
+    } else {
+        niter = atoi(argv[1]);
+        lambda = (fp)atof(argv[2]);
+        Nr = atol(argv[3]); // it is 502 in the original image
+        Nc = atol(argv[4]); // it is 458 in the original image
+        threads = atoi(argv[5]);
+        (void)threads;
+    }
+
+    time2 = get_time();
+
+    image_ori_rows = 502;
+    image_ori_cols = 458;
+    image_ori_elem = (long)image_ori_rows * (long)image_ori_cols;
+
+    image_ori = (fp *)malloc(sizeof(fp) * (size_t)image_ori_elem);
+    if (!image_ori) {
+        arg_error = 1;
+    }
+
+    if (!arg_error) {
+        read_graphics("${REPO_ROOT}/EX1/srad_v1/input_data/image.pgm",
+                      image_ori, image_ori_rows, image_ori_cols, 1);
+    }
+
+    time3 = get_time();
+
+    Ne = Nr * Nc;
+
+    image = NULL;
+    if (!arg_error) {
+        image = (fp *)malloc(sizeof(fp) * (size_t)Ne);
+        if (!image) {
+            arg_error = 1;
+        }
+    }
+
+    if (!arg_error) {
+        resize(image_ori, image_ori_rows, image_ori_cols, image, Nr, Nc, 1);
+    }
+
+    time4 = get_time();
+
+    r1 = 0;      // top row index of ROI
+    r2 = (int)Nr - 1; // bottom row index of ROI
+    c1 = 0;      // left column index of ROI
+    c2 = (int)Nc - 1; // right column index of ROI
+
+    // ROI image size
+    NeROI = (long)(r2 - r1 + 1) * (long)(c2 - c1 + 1); // number of elements in ROI, ROI size
+
+    // allocate variables for surrounding pixels
+    iN = NULL;
+    iS = NULL;
+    jW = NULL;
+    jE = NULL;
+    dN = NULL;
+    dS = NULL;
+    dW = NULL;
+    dE = NULL;
+    c  = NULL;
+
+    if (!arg_error) {
+        iN = (int *)malloc(sizeof(int) * (size_t)Nr); // north surrounding element
+        iS = (int *)malloc(sizeof(int) * (size_t)Nr); // south surrounding element
+        jW = (int *)malloc(sizeof(int) * (size_t)Nc); // west surrounding element
+        jE = (int *)malloc(sizeof(int) * (size_t)Nc); // east surrounding element
+
+        dN = (fp *)malloc(sizeof(fp) * (size_t)Ne); // north direction derivative
+        dS = (fp *)malloc(sizeof(fp) * (size_t)Ne); // south direction derivative
+        dW = (fp *)malloc(sizeof(fp) * (size_t)Ne); // west direction derivative
+        dE = (fp *)malloc(sizeof(fp) * (size_t)Ne); // east direction derivative
+
+        c = (fp *)malloc(sizeof(fp) * (size_t)Ne); // diffusion coefficient
+
+        if (!iN || !iS || !jW || !jE || !dN || !dS || !dW || !dE || !c) {
+            arg_error = 1;
+        }
+    }
+
+    if (!arg_error) {
+        // N/S/W/E indices of surrounding pixels (every element of IMAGE)
+        for (i = 0; i < Nr; i++) {
+            iN[i] = (int)(i - 1); // holds index of IMAGE row above
+            iS[i] = (int)(i + 1); // holds index of IMAGE row below
+        }
+        for (j = 0; j < Nc; j++) {
+            jW[j] = (int)(j - 1); // holds index of IMAGE column on the left
+            jE[j] = (int)(j + 1); // holds index of IMAGE column on the right
+        }
+        // N/S/W/E boundary conditions, fix surrounding indices outside boundary of IMAGE
+        iN[0] = 0;                // changes IMAGE top row index from -1 to 0
+        iS[Nr - 1] = (int)Nr - 1; // changes IMAGE bottom row index from Nr to Nr-1
+        jW[0] = 0;                // changes IMAGE leftmost column index from -1 to 0
+        jE[Nc - 1] = (int)Nc - 1; // changes IMAGE rightmost column index from Nc to Nc-1
+    }
+
+    time5 = get_time();
+
+    if (!arg_error) {
+        // exponentiate input IMAGE and copy to output image
+        #pragma omp parallel for if(Ne > 1024) schedule(static)
+        for (i = 0; i < Ne; i++) {
+            image[i] = (fp)exp((double)image[i] / 255.0);
+        }
+    }
+
+    time6 = get_time();
+
+    if (!arg_error) {
+        for (iter = 0; iter < niter; iter++) { // do for the number of iterations input parameter
+
+            sum = 0;
+            sum2 = 0;
+
+            // compute ROI statistics
+            #pragma omp parallel for reduction(+:sum,sum2) schedule(static)
+            for (j = c1; j <= c2; j++) { // columns in ROI
+                long jNr = (long)Nr * (long)j;
+                for (i = r1; i <= r2; i++) { // rows in ROI
+                    tmp = image[i + jNr];
+                    sum  += tmp;
+                    sum2 += tmp * tmp;
+                }
+            }
+
+            meanROI = sum / (fp)NeROI; // gets mean (average) value of element in ROI
+            varROI  = (sum2 / (fp)NeROI) - meanROI * meanROI; // gets variance of ROI
+            q0sqr   = varROI / (meanROI * meanROI); // gets standard deviation of ROI
+
+            // directional derivatives, ICOV, diffusion coefficient
+            #pragma omp parallel for private(i,k,Jc,G2,L,num,den,qsqr,tmp) schedule(static)
+            for (j = 0; j < Nc; j++) { // do for the range of columns in IMAGE
+
+                const long jNr = (long)Nr * (long)j;
+                const int j_w = jW[j];
+                const int j_e = jE[j];
+
+                for (i = 0; i < Nr; i++) { // do for the range of rows in IMAGE
+
+                    const int i_n = iN[i];
+                    const int i_s = iS[i];
+
+                    // current index/pixel
+                    k = i + jNr;     // get position of current element
+                    Jc = image[k];   // get value of the current element
+
+                    // directional derivatives (every element of IMAGE)
+                    const long kn = (long)i_n + jNr;
+                    const long ks = (long)i_s + jNr;
+                    const long kw = (long)i + (long)Nr * (long)j_w;
+                    const long ke = (long)i + (long)Nr * (long)j_e;
+
+                    const fp dN_val = image[kn] - Jc;
+                    const fp dS_val = image[ks] - Jc;
+                    const fp dW_val = image[kw] - Jc;
+                    const fp dE_val = image[ke] - Jc;
+
+                    dN[k] = dN_val;
+                    dS[k] = dS_val;
+                    dW[k] = dW_val;
+                    dE[k] = dE_val;
+
+                    // normalized discrete gradient mag squared (equ 52,53)
+                    tmp = Jc * Jc;
+                    G2 = (dN_val * dN_val +
+                          dS_val * dS_val +
+                          dW_val * dW_val +
+                          dE_val * dE_val) / tmp;
+
+                    // normalized discrete laplacian (equ 54)
+                    L = (dN_val + dS_val + dW_val + dE_val) / Jc;
+
+                    // ICOV (equ 31/35)
+                    num = (fp)(0.5) * G2 - (fp)(1.0 / 16.0) * (L * L);
+                    den = (fp)1.0 + (fp)0.25 * L;
+                    qsqr = num / (den * den);
+
+                    // diffusion coefficient (equ 33) (every element of IMAGE)
+                    den = (qsqr - q0sqr) / (q0sqr * ((fp)1.0 + q0sqr));
+                    tmp = (fp)1.0 / ((fp)1.0 + den);
+
+                    // saturate diffusion coefficient to 0-1 range
+                    if (tmp < (fp)0.0) {
+                        tmp = (fp)0.0;
+                    } else if (tmp > (fp)1.0) {
+                        tmp = (fp)1.0;
+                    }
+                    c[k] = tmp;
+                }
+            }
+
+            // divergence & image update
+            #pragma omp parallel for private(i,k,cN,cS,cW,cE,D) schedule(static)
+            for (j = 0; j < Nc; j++) { // do for the range of columns in IMAGE
+
+                const long jNr = (long)Nr * (long)j;
+                const int j_e = jE[j];
+
+                for (i = 0; i < Nr; i++) { // do for the range of rows in IMAGE
+
+                    const int i_s = iS[i];
+
+                    // current index
+                    k = i + jNr; // get position of current element
+
+                    // diffusion coefficient
+                    cN = c[k];                             // north diffusion coefficient
+                    cS = c[(long)i_s + jNr];              // south diffusion coefficient
+                    cW = c[k];                             // west diffusion coefficient
+                    cE = c[(long)i + (long)Nr * (long)j_e]; // east diffusion coefficient
+
+                    // divergence (equ 58)
+                    D = cN * dN[k] + cS * dS[k] + cW * dW[k] + cE * dE[k];
+
+                    // image update (equ 61) (every element of IMAGE)
+                    image[k] = image[k] + (fp)0.25 * lambda * D;
+                }
+            }
+        }
+    }
+
+    // printf("\n");
+
+    time7 = get_time();
+
+    if (!arg_error) {
+        #pragma omp parallel for if(Ne > 1024) schedule(static)
+        for (i = 0; i < Ne; i++) { // do for the number of elements in IMAGE
+            image[i] = (fp)(log((double)image[i]) * 255.0); // take logarithm of image, log compress
+        }
+    }
+
+    time8 = get_time();
+
+    if (!arg_error) {
+        write_graphics(argv[6], image, (int)Nr, (int)Nc, 1, 255);
+    }
+
+    time9 = get_time();
+
+    if (image_ori) {
+        free(image_ori);
+    }
+    if (image) {
+        free(image);
+    }
+
+    if (iN) {
+        free(iN);
+    }
+    if (iS) {
+        free(iS);
+    }
+    if (jW) {
+        free(jW);
+    }
+    if (jE) {
+        free(jE);
+    }
+    if (dN) {
+        free(dN);
+    }
+    if (dS) {
+        free(dS);
+    }
+    if (dW) {
+        free(dW);
+    }
+    if (dE) {
+        free(dE);
+    }
+    if (c) {
+        free(c);
+    }
+
+    time10 = get_time();
+
+    printf("Time spent in different stages of the application:\n");
+    printf("%.12f s, %.12f % : SETUP VARIABLES\n",
+           (float)(time1 - time0) / 1000000,
+           (float)(time1 - time0) / (float)(time10 - time0) * 100);
+    printf("%.12f s, %.12f % : READ COMMAND LINE PARAMETERS\n",
+           (float)(time2 - time1) / 1000000,
+           (float)(time2 - time1) / (float)(time10 - time0) * 100);
+    printf("%.12f s, %.12f % : READ IMAGE FROM FILE\n",
+           (float)(time3 - time2) / 1000000,
+           (float)(time3 - time2) / (float)(time10 - time0) * 100);
+    printf("%.12f s, %.12f % : RESIZE IMAGE\n",
+           (float)(time4 - time3) / 1000000,
+           (float)(time4 - time3) / (float)(time10 - time0) * 100);
+    printf("%.12f s, %.12f % : SETUP, MEMORY ALLOCATION\n",
+           (float)(time5 - time4) / 1000000,
+           (float)(time5 - time4) / (float)(time10 - time0) * 100);
+    printf("%.12f s, %.12f % : EXTRACT IMAGE\n",
+           (float)(time6 - time5) / 1000000,
+           (float)(time6 - time5) / (float)(time10 - time0) * 100);
+    printf("%.12f s, %.12f % : COMPUTE\n", (float)(time7 - time6) / 1000000,
+           (float)(time7 - time6) / (float)(time10 - time0) * 100);
+    printf("%.12f s, %.12f % : COMPRESS IMAGE\n",
+           (float)(time8 - time7) / 1000000,
+           (float)(time8 - time7) / (float)(time10 - time0) * 100);
+    printf("%.12f s, %.12f % : SAVE IMAGE INTO FILE\n",
+           (float)(time9 - time8) / 1000000,
+           (float)(time9 - time8) / (float)(time10 - time0) * 100);
+    printf("%.12f s, %.12f % : FREE MEMORY\n",
+           (float)(time10 - time9) / 1000000,
+           (float)(time10 - time9) / (float)(time10 - time0) * 100);
+    printf("Total time:\n");
+    printf("%.12f s\n", (float)(time10 - time0) / 1000000);
+
+    clock_gettime(CLOCK_MONOTONIC, &kernel_end);
+    clock_gettime(CLOCK_MONOTONIC, &main_end);
+    double kernel_time = (kernel_end.tv_sec - kernel_start.tv_sec) +
+                         (kernel_end.tv_nsec - kernel_start.tv_nsec) / 1e9;
+    double main_time = (main_end.tv_sec - main_start.tv_sec) +
+                       (main_end.tv_nsec - main_start.tv_nsec) / 1e9;
+
+    FILE *timing_file = stderr;
+    const char *timing_path = getenv("TIMING_LOG_FILE");
+    if (timing_path && timing_path[0] != '\0') {
+        FILE *tmp = fopen(timing_path, "w");
+        if (tmp)
+            timing_file = tmp;
+    }
+
+    fprintf(timing_file, "KERNEL_TIME: %.9f\n", kernel_time);
+    fprintf(timing_file, "TOTAL_TIME: %.9f\n", main_time);
+
+    if (timing_file != stderr)
+        fclose(timing_file);
+}

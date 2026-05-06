@@ -1,0 +1,42 @@
+{
+  "benchmark": "bitcount-mibench",
+  "ex_version": "EX2",
+  "generated_at": "2026-01-15T20:09:44",
+  "missing": [
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 1
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 3
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 5
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 6
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 7
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 8
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 10
+    }
+  ]
+}

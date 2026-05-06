@@ -1,0 +1,1 @@
+nsys profile --force-overwrite=true --trace cuda,nvtx,osrt --sample=cpu --output reports/bptree_mini ./b+tree file input_data/mini/input/mil.txt command input_data/mini/input/command.txt -o input_data/mini/output/result_mini.txt

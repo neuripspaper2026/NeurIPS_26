@@ -1,0 +1,37 @@
+{
+  "benchmark": "fft-strided-mach",
+  "source": "${REPO_ROOT}/configs/runtime_hints.json",
+  "generated_at": "2025-11-28T17:25:37",
+  "strategies": {
+    "mini": {
+      "warmup": 4,
+      "runs": 20,
+      "reason": "Very short kernel; startup overhead is significant.",
+      "runtime": 0.03
+    },
+    "small": {
+      "warmup": 4,
+      "runs": 20,
+      "reason": "Very short kernel; startup overhead is significant.",
+      "runtime": 0.016
+    },
+    "medium": {
+      "warmup": 4,
+      "runs": 20,
+      "reason": "Very short kernel; startup overhead is significant.",
+      "runtime": 0.014
+    },
+    "large": {
+      "warmup": 4,
+      "runs": 20,
+      "reason": "Very short kernel; startup overhead is significant.",
+      "runtime": 0.025
+    },
+    "extra-large": {
+      "warmup": 4,
+      "runs": 20,
+      "reason": "Very short kernel; startup overhead is significant.",
+      "runtime": 0.014
+    }
+  }
+}

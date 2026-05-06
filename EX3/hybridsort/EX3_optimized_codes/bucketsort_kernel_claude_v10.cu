@@ -1,0 +1,132 @@
+#ifndef _BUCKETSORT_KERNEL_H_
+#define _BUCKETSORT_KERNEL_H_
+
+#include <stdio.h>
+
+#define BUCKET_WARP_LOG_SIZE 5
+#define BUCKET_WARP_N 1
+#ifdef BUCKET_WG_SIZE_1
+#define BUCKET_THREAD_N BUCKET_WG_SIZE_1
+#else
+#define BUCKET_THREAD_N (BUCKET_WARP_N << BUCKET_WARP_LOG_SIZE)
+#endif
+#define BUCKET_BLOCK_MEMORY (DIVISIONS * BUCKET_WARP_N)
+#define BUCKET_BAND 128
+
+__device__ __forceinline__ int addOffset(volatile unsigned int *s_offset, unsigned int data,
+                         unsigned int threadTag) {
+    unsigned int count;
+    unsigned int old_val;
+
+    do {
+        old_val = s_offset[data];
+        count = old_val & 0x07FFFFFFU;
+        count = threadTag | (count + 1);
+        s_offset[data] = count;
+    } while (s_offset[data] != count);
+
+    return (count & 0x07FFFFFFU) - 1;
+}
+
+__global__ void __launch_bounds__(256, 4) bucketcount(float *input, int *indice,
+                            unsigned int *d_prefixoffsets, int size,
+                            cudaTextureObject_t texPivot) {
+    __shared__ unsigned int s_offset[BUCKET_BLOCK_MEMORY];
+
+    const unsigned int threadTag = threadIdx.x << (32 - BUCKET_WARP_LOG_SIZE);
+    const int warpBase = (threadIdx.x >> BUCKET_WARP_LOG_SIZE) * DIVISIONS;
+    const int numThreads = blockDim.x * gridDim.x;
+    
+    // Optimized shared memory initialization with vectorized access
+    #pragma unroll 4
+    for (int i = threadIdx.x; i < BUCKET_BLOCK_MEMORY; i += blockDim.x)
+        s_offset[i] = 0;
+
+    __syncthreads();
+
+    // Grid-stride loop with improved memory coalescing
+    const int stride = numThreads;
+    const int tid_start = blockIdx.x * blockDim.x + threadIdx.x;
+    
+    for (int tid = tid_start; tid < size; tid += stride) {
+        float elem = input[tid];
+
+        int idx = DIVISIONS / 2 - 1;
+        int jump = DIVISIONS / 4;
+        float piv = tex1Dfetch<float>(texPivot, idx);
+
+        // Binary search unrolled for better instruction-level parallelism
+        #pragma unroll
+        while (jump >= 1) {
+            idx = (elem < piv) ? (idx - jump) : (idx + jump);
+            piv = tex1Dfetch<float>(texPivot, idx);
+            jump /= 2;
+        }
+        idx = (elem < piv) ? idx : (idx + 1);
+
+        int offset = addOffset(s_offset + warpBase, idx, threadTag);
+        indice[tid] = (offset << LOG_DIVISIONS) + idx;
+    }
+
+    __syncthreads();
+
+    int prefixBase = blockIdx.x * BUCKET_BLOCK_MEMORY;
+
+    // Vectorized write-back with coalesced memory access
+    #pragma unroll 4
+    for (int i = threadIdx.x; i < BUCKET_BLOCK_MEMORY; i += blockDim.x)
+        d_prefixoffsets[prefixBase + i] = s_offset[i] & 0x07FFFFFFU;
+}
+
+__global__ void __launch_bounds__(256) bucketprefixoffset(unsigned int *d_prefixoffsets,
+                                   unsigned int *d_offsets, int blocks) {
+    int tid = blockIdx.x * blockDim.x + threadIdx.x;
+    int size = blocks * BUCKET_BLOCK_MEMORY;
+    int sum = 0;
+
+    // Improved memory access pattern with prefetching
+    #pragma unroll 2
+    for (int i = tid; i < size; i += DIVISIONS) {
+        int x = d_prefixoffsets[i];
+        d_prefixoffsets[i] = sum;
+        sum += x;
+    }
+
+    d_offsets[tid] = sum;
+}
+
+__global__ void __launch_bounds__(256, 4) bucketsort(float *input, int *indice, float *output, int size,
+                           unsigned int *d_prefixoffsets,
+                           unsigned int *l_offsets) {
+    __shared__ unsigned int s_offset[BUCKET_BLOCK_MEMORY];
+
+    int prefixBase = blockIdx.x * BUCKET_BLOCK_MEMORY;
+    const int warpBase = (threadIdx.x >> BUCKET_WARP_LOG_SIZE) * DIVISIONS;
+    const int numThreads = blockDim.x * gridDim.x;
+    
+    // Coalesced shared memory initialization
+    #pragma unroll 4
+    for (int i = threadIdx.x; i < BUCKET_BLOCK_MEMORY; i += blockDim.x) {
+        unsigned int div_idx = i & (DIVISIONS - 1);
+        s_offset[i] = l_offsets[div_idx] + d_prefixoffsets[prefixBase + i];
+    }
+
+    __syncthreads();
+
+    // Grid-stride loop with optimized memory access
+    const int stride = numThreads;
+    const int tid_start = blockIdx.x * blockDim.x + threadIdx.x;
+    
+    for (int tid = tid_start; tid < size; tid += stride) {
+        float elem = input[tid];
+        int id = indice[tid];
+        
+        unsigned int bucket_idx = id & (DIVISIONS - 1);
+        unsigned int offset_in_bucket = id >> LOG_DIVISIONS;
+        unsigned int output_idx = s_offset[warpBase + bucket_idx] + offset_in_bucket;
+        
+        output[output_idx] = elem;
+    }
+}
+
+#endif

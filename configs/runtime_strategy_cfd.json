@@ -1,0 +1,25 @@
+{
+  "benchmark": "cfd",
+  "source": "${REPO_ROOT}/configs/EX3_configs/runtime_hints_ex3.json",
+  "generated_at": "2026-04-21T07:16:19",
+  "strategies": {
+    "medium": {
+      "warmup": 2,
+      "runs": 8,
+      "reason": "Long-running kernel; minimal warm-up.",
+      "runtime": 1.702
+    },
+    "large": {
+      "warmup": 2,
+      "runs": 8,
+      "reason": "Long-running kernel; minimal warm-up.",
+      "runtime": 2.995
+    },
+    "extra-large": {
+      "warmup": 1,
+      "runs": 5,
+      "reason": "Very long kernel; small warm-up is sufficient.",
+      "runtime": 3.497
+    }
+  }
+}

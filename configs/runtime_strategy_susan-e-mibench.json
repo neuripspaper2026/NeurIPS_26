@@ -1,0 +1,37 @@
+{
+  "benchmark": "susan-e-mibench",
+  "source": "${REPO_ROOT}/configs/runtime_hints.json",
+  "generated_at": "2025-11-28T20:05:37",
+  "strategies": {
+    "mini": {
+      "warmup": 4,
+      "runs": 20,
+      "reason": "Very short kernel; startup overhead is significant.",
+      "runtime": 0.023
+    },
+    "small": {
+      "warmup": 2,
+      "runs": 8,
+      "reason": "Long-running kernel; minimal warm-up.",
+      "runtime": 1.308
+    },
+    "medium": {
+      "warmup": 1,
+      "runs": 5,
+      "reason": "Very long kernel; small warm-up is sufficient.",
+      "runtime": 9.034
+    },
+    "large": {
+      "warmup": 0,
+      "runs": 3,
+      "reason": "Extremely long kernel; warm-up not required.",
+      "runtime": 87.686
+    },
+    "extra-large": {
+      "warmup": 0,
+      "runs": 3,
+      "reason": "Extremely long kernel; warm-up not required.",
+      "runtime": 910.063
+    }
+  }
+}

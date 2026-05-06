@@ -1,0 +1,57 @@
+{
+  "benchmark": "gesummv",
+  "ex_version": "EX2",
+  "generated_at": "2026-01-04T09:21:23",
+  "missing": [
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 2
+    },
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 3
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 2
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 3
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 2
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 3
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 2
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 3
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 2
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 3
+    }
+  ]
+}

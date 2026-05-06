@@ -1,0 +1,22 @@
+{
+  "benchmark": "hotspot",
+  "ex_version": "EX1",
+  "generated_at": "2025-12-16T13:45:57",
+  "missing": [
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 3
+    },
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 6
+    },
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 7
+    }
+  ]
+}

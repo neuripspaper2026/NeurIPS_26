@@ -1,0 +1,57 @@
+{
+  "benchmark": "doitgen",
+  "ex_version": "EX1",
+  "generated_at": "2025-12-14T09:57:51",
+  "missing": [
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 4
+    },
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 8
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 4
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 8
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 4
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 8
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 4
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 8
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 4
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 8
+    }
+  ]
+}

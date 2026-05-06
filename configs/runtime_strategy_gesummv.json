@@ -1,0 +1,37 @@
+{
+  "benchmark": "gesummv",
+  "source": "${REPO_ROOT}/configs/runtime_hints.json",
+  "generated_at": "2025-12-11T23:50:42",
+  "strategies": {
+    "mini": {
+      "warmup": 4,
+      "runs": 20,
+      "reason": "Very short kernel; startup overhead is significant.",
+      "runtime": 0.048
+    },
+    "small": {
+      "warmup": 4,
+      "runs": 20,
+      "reason": "Very short kernel; startup overhead is significant.",
+      "runtime": 0.021
+    },
+    "medium": {
+      "warmup": 3,
+      "runs": 15,
+      "reason": "Short kernel; appreciable startup overhead.",
+      "runtime": 0.081
+    },
+    "large": {
+      "warmup": 3,
+      "runs": 15,
+      "reason": "Short kernel; appreciable startup overhead.",
+      "runtime": 0.078
+    },
+    "extra-large": {
+      "warmup": 3,
+      "runs": 10,
+      "reason": "Mid-short kernel; warm-up recommended.",
+      "runtime": 0.119
+    }
+  }
+}

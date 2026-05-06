@@ -1,0 +1,6 @@
+dataset,trail,model,threads,version,compiler,is_baseline,kernel_mean_s,total_mean_s,kernel_speedup,total_speedup,success_rate,warmup_runs,measure_runs,hint_key,executable
+mini,1,baseline,1,,gcc,True,0.005981015399999999,0.1905630082,1.0,1.0,1.0,3,10,mini,${REPO_ROOT}/EX2/basicmath-mibench/EX2_optimized_codes/basicmath-mibench_gcc
+small,1,baseline,1,,gcc,True,0.044654926,0.48975995120000004,1.0,1.0,1.0,2,10,small,${REPO_ROOT}/EX2/basicmath-mibench/EX2_optimized_codes/basicmath-mibench_gcc
+medium,1,baseline,1,,gcc,True,0.421992643625,2.094484496,1.0,1.0,1.0,2,8,medium,${REPO_ROOT}/EX2/basicmath-mibench/EX2_optimized_codes/basicmath-mibench_gcc
+large,1,baseline,1,,gcc,True,4.258522002,15.503503046666665,1.0,1.0,1.0,0,3,large,${REPO_ROOT}/EX2/basicmath-mibench/EX2_optimized_codes/basicmath-mibench_gcc
+extra-large,1,baseline,1,,gcc,True,17.139709706999998,58.98842422066667,1.0,1.0,1.0,0,3,extra-large,${REPO_ROOT}/EX2/basicmath-mibench/EX2_optimized_codes/basicmath-mibench_gcc

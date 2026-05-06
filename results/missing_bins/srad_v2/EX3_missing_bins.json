@@ -1,0 +1,37 @@
+{
+  "benchmark": "srad_v2",
+  "ex_version": "EX3",
+  "generated_at": "2026-04-21T05:51:24",
+  "missing": [
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 1
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 2
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 4
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 6
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 9
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 10
+    }
+  ]
+}

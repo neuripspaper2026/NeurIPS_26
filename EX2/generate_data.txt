@@ -1,0 +1,37 @@
+目标：实现一个通用的数据生成器 generate.py，用于为该基准批量产出“可被基准程序直接消费”的输入数据与可选的黄金结果（如需要）。
+
+必须遵循：
+- 输入契约：严格匹配该基准的输入二进制/文本格式（头部/端序/字段序/类型/对齐/尺寸等），由你根据该基准文档明确并实现。
+- 可复现：提供 --seed 控制随机性；默认确定性输出。
+- 目录安全：--out-dir 不存在时递归创建；不覆盖已存在文件（或提供 --overwrite）。
+- 校验：在写出前做轻量校验（尺寸、数量、字段范围、对齐等），失败时给出清晰英文错误。
+
+CLI 设计（最小集合）：
+- 子命令
+  - synthetic：合成生成（根据该基准的数据模式定义若干“scenario/kind”）
+  - from-sources：从外部来源（文件/目录/URL/数据库）转换为该基准输入格式
+- 通用参数
+  - --out-dir PATH：输出目录（递归创建）
+  - --count INT：生成条目/样本对数量（synthetic 用）
+  - --preset NAME：预设配置（如常用规模/字段组合）；可被显式参数覆盖
+  - --seed INT：随机种子
+  - 命名与编号：--name-style {a,b}、--start-index INT、--digits INT、--suffix/--prefix
+  - 元数据：可选写出 .meta/.shape/.json 侧车文件，便于调试与核对
+- 非图像基准请替换/删减与“尺寸/像素”相关参数，改为该基准的关键维度（如 N、M、K、batch、record_len、key_space 等）
+
+实现要点：
+- 将“数据模型→字节布局”明确为单一函数（encode_to_bytes(data)->bytes），集中处理端序、对齐、头部与校验。
+- 将“数据生成策略”与“写出策略”解耦：generate_* 返回内存对象；write_* 负责落盘与命名。
+- 命令行帮助与错误信息一律英文；最少但清晰的 README（格式、主要参数、2-3 个调用示例）。
+
+示例调用（占位，按该基准实际字段替换）：
+- 合成 10 份数据（预设 small，编号从 0 开始，4 位补零）：
+  python generate.py synthetic --out-dir data/small/input --count 10 --preset small --start-index 0 --digits 4
+- 从外部源转换（glob/列表/目录等）：
+  python generate.py from-sources --src-glob "raw/*.bin" --out-dir data/test/input --preset small
+- 运行基准（占位）：
+  ./benchmark_bin -i data/small/input/input_0000.bin -o result.bin
+
+注意：
+- 别将“基准程序输出”当作“下次输入”的参考数据，输入/输出语义必须分离。
+- 若基准程序显示“计算时间≈0”，优先排查输入格式是否不匹配（头/端序/类型/对齐）。

@@ -1,0 +1,17 @@
+{
+  "benchmark": "stencil-3d-mach",
+  "ex_version": "EX2",
+  "generated_at": "2026-01-04T06:26:43",
+  "missing": [
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 1
+    },
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 6
+    }
+  ]
+}

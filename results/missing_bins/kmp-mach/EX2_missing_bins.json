@@ -1,0 +1,17 @@
+{
+  "benchmark": "kmp-mach",
+  "ex_version": "EX2",
+  "generated_at": "2026-01-04T05:33:54",
+  "missing": [
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 1
+    },
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 2
+    }
+  ]
+}

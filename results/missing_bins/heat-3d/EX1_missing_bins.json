@@ -1,0 +1,107 @@
+{
+  "benchmark": "heat-3d",
+  "ex_version": "EX1",
+  "generated_at": "2025-12-15T06:37:06",
+  "missing": [
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 1
+    },
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 6
+    },
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 7
+    },
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 10
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 1
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 6
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 7
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 10
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 1
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 6
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 7
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 10
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 1
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 6
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 7
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 10
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 1
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 6
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 7
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 10
+    }
+  ]
+}

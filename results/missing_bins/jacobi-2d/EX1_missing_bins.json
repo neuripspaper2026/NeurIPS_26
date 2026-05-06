@@ -1,0 +1,32 @@
+{
+  "benchmark": "jacobi-2d",
+  "ex_version": "EX1",
+  "generated_at": "2025-12-15T09:37:52",
+  "missing": [
+    {
+      "dataset": "mini",
+      "model": "qwen",
+      "version": 10
+    },
+    {
+      "dataset": "small",
+      "model": "qwen",
+      "version": 10
+    },
+    {
+      "dataset": "medium",
+      "model": "qwen",
+      "version": 10
+    },
+    {
+      "dataset": "large",
+      "model": "qwen",
+      "version": 10
+    },
+    {
+      "dataset": "extra-large",
+      "model": "qwen",
+      "version": 10
+    }
+  ]
+}

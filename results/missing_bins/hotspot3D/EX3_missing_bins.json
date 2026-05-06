@@ -1,0 +1,17 @@
+{
+  "benchmark": "hotspot3D",
+  "ex_version": "EX3",
+  "generated_at": "2026-04-20T21:10:34",
+  "missing": [
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 4
+    },
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 6
+    }
+  ]
+}

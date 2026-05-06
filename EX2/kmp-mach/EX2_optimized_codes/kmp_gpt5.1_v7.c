@@ -1,0 +1,72 @@
+#include <time.h>
+#ifdef _OPENMP
+#include <omp.h>
+#endif
+#include "../kmp.h"
+
+static double kmp_kernel_time_acc = 0.0;
+
+void reset_kmp_kernel_time(void) { kmp_kernel_time_acc = 0.0; }
+double get_kmp_kernel_time(void) { return kmp_kernel_time_acc; }
+
+void CPF(char pattern[PATTERN_SIZE], int32_t kmpNext[PATTERN_SIZE]) {
+    int32_t k = 0;
+    int32_t q;
+
+    kmpNext[0] = 0;
+
+c1:
+    for (q = 1; q < PATTERN_SIZE; ++q) {
+c2:
+        while (k > 0 && pattern[k] != pattern[q]) {
+            /* use the previously computed prefix value based on current k */
+            k = kmpNext[k - 1];
+        }
+        if (pattern[k] == pattern[q]) {
+            ++k;
+        }
+        kmpNext[q] = k;
+    }
+}
+
+int kmp(char pattern[PATTERN_SIZE], char input[STRING_SIZE],
+        int32_t kmpNext[PATTERN_SIZE], int32_t n_matches[1]) {
+    int32_t i;
+    int32_t q = 0;
+    int32_t local_matches = 0;
+    struct timespec kernel_start, kernel_end;
+
+    n_matches[0] = 0;
+
+    clock_gettime(CLOCK_MONOTONIC, &kernel_start);
+
+    /* Build the prefix function once (serial, very small) */
+    CPF(pattern, kmpNext);
+
+    /* Main KMP search loop - serial due to dependency on q */
+k1:
+    for (i = 0; i < STRING_SIZE; ++i) {
+        char c = input[i];
+
+k2:
+        while (q > 0 && pattern[q] != c) {
+            q = kmpNext[q - 1];
+        }
+
+        if (pattern[q] == c) {
+            ++q;
+        }
+
+        if (q >= PATTERN_SIZE) {
+            ++local_matches;
+            q = kmpNext[q - 1];
+        }
+    }
+
+    n_matches[0] = local_matches;
+
+    clock_gettime(CLOCK_MONOTONIC, &kernel_end);
+    kmp_kernel_time_acc += (kernel_end.tv_sec - kernel_start.tv_sec) +
+                           (kernel_end.tv_nsec - kernel_start.tv_nsec) / 1e9;
+    return 0;
+}

@@ -1,0 +1,65 @@
+# --- Compiled artifacts ---
+*.o
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.lib
+*.exe
+*.out
+*.cubin
+*.fatbin
+
+# --- Common build dirs ---
+/build/
+/Build/
+/bin/
+/obj/
+/out/
+/dist/
+/Debug/
+/Release/
+
+# --- Per-benchmark generated executables (named like <bench>_gcc_<dataset>) ---
+EX1/**/EX1_optimized_codes/*_gcc*
+EX2/**/EX2_optimized_codes/*_gcc*
+EX3/**/EX3_optimized_codes/*_gcc*
+
+# --- Top-level CUDA / Rodinia binaries that drop next to source ---
+EX3/*/profile
+EX3/*/verify
+EX3/*/run_*
+
+# --- Benchmark inputs and reference outputs (regenerable / hosted separately) ---
+EX1/**/input_data/
+EX2/**/input_data/
+EX3/**/input_data/
+EX1/**/EX5_correctness/
+EX2/**/EX5_correctness/
+EX3/**/EX5_correctness/
+EX1/**/input_data.zip
+EX2/**/input_data.zip
+EX3/**/input_data.zip
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# --- Editor / OS ---
+.vscode/
+.idea/
+.DS_Store
+.cursor/
+.claude/
+
+# --- Logs / scratch ---
+*.log
+logs/
+salloc_log/
+log/
+.hf_cache_input_data/

@@ -1,0 +1,43 @@
+__global__ void srad2(fp d_lambda, int d_Nr, int d_Nc, long d_Ne, int *d_iN,
+                      int *d_iS, int *d_jE, int *d_jW, fp *d_dN, fp *d_dS,
+                      fp *d_dE, fp *d_dW, fp *d_c, fp *d_I) {
+
+    // indexes
+    int bx = blockIdx.x;               // get current horizontal block index
+    int tx = threadIdx.x;              // get current horizontal thread index
+    int ei = bx * blockDim.x + tx;     // more threads than actual elements !!!
+
+    // Early exit for out-of-bounds threads
+    if (ei >= d_Ne) return;
+
+    // variables
+    fp d_cN, d_cS, d_cW, d_cE;
+    fp d_D;
+
+    // figure out row/col location in new matrix
+    int row = ei % d_Nr;     // (0-n) row
+    int col = ei / d_Nr;     // (0-n) column
+
+    // Load d_c[ei] once into register
+    fp d_c_center = d_c[ei];
+
+    // Load neighbor indices into registers to reduce memory accesses
+    int iS_val = d_iS[row];
+    int jE_val = d_jE[col];
+
+    // diffusion coefficent
+    d_cN = d_c_center;                      // north diffusion coefficient
+    d_cS = d_c[iS_val + d_Nr * col];        // south diffusion coefficient
+    d_cW = d_c_center;                      // west diffusion coefficient
+    d_cE = d_c[row + d_Nr * jE_val];        // east diffusion coefficient
+
+    // divergence (equ 58)
+    d_D = d_cN * d_dN[ei] + d_cS * d_dS[ei] + d_cW * d_dW[ei] +
+          d_cE * d_dE[ei]; // divergence
+
+    // image update (equ 61) (every element of IMAGE)
+    d_I[ei] =
+        d_I[ei] +
+        0.25f * d_lambda *
+            d_D; // updates image (based on input time step and divergence)
+}

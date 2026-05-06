@@ -1,0 +1,82 @@
+{
+  "benchmark": "ludcmp",
+  "ex_version": "EX2",
+  "generated_at": "2026-01-04T05:02:15",
+  "missing": [
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 1
+    },
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 2
+    },
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 5
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 1
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 2
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 5
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 1
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 2
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 5
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 1
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 2
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 5
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 1
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 2
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 5
+    }
+  ]
+}

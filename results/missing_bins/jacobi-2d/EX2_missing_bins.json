@@ -1,0 +1,32 @@
+{
+  "benchmark": "jacobi-2d",
+  "ex_version": "EX2",
+  "generated_at": "2026-01-06T03:18:38",
+  "missing": [
+    {
+      "dataset": "mini",
+      "model": "gpt5.1",
+      "version": 10
+    },
+    {
+      "dataset": "small",
+      "model": "gpt5.1",
+      "version": 10
+    },
+    {
+      "dataset": "medium",
+      "model": "gpt5.1",
+      "version": 10
+    },
+    {
+      "dataset": "large",
+      "model": "gpt5.1",
+      "version": 10
+    },
+    {
+      "dataset": "extra-large",
+      "model": "gpt5.1",
+      "version": 10
+    }
+  ]
+}

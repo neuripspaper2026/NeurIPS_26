@@ -1,0 +1,62 @@
+#include <cassert>
+#include "annealer_thread.h"
+#include "location_t.h"
+#include "annealer_types.h"
+#include "netlist_elem.h"
+#include <math.h>
+#include <iostream>
+#include <fstream>
+#include "rng.h"
+
+using std::cout;
+using std::endl;
+
+annealer_thread::move_decision_t annealer_thread::accept_move(routing_cost_t delta_cost, double T, Rng* rng)
+{
+	//always accept moves that lower the cost function
+	if (delta_cost < 0){
+		return move_decision_accepted_good;
+	} else {
+		double random_value = rng->drand();
+		double boltzman = exp(- delta_cost/T);
+		if (boltzman > random_value){
+			return move_decision_accepted_bad;
+		} else {
+			return move_decision_rejected;
+		}
+	}
+}
+
+
+//*****************************************************************************************
+//  If get turns out to be expensive, I can reduce the # by passing it into the swap cost fcn
+//*****************************************************************************************
+routing_cost_t annealer_thread::calculate_delta_routing_cost(netlist_elem* a, netlist_elem* b)
+{
+	location_t* a_loc = a->present_loc.Get();
+	location_t* b_loc = b->present_loc.Get();
+	
+	routing_cost_t delta_cost = a->swap_cost(a_loc, b_loc);
+	delta_cost += b->swap_cost(b_loc, a_loc);
+
+	return delta_cost;
+}
+
+//*****************************************************************************************
+//  Check whether design has converged or maximum number of steps has reached
+//*****************************************************************************************
+bool annealer_thread::keep_going(int temp_steps_completed, int accepted_good_moves, int accepted_bad_moves)
+{
+	bool rv;
+
+	if(_number_temp_steps == -1) {
+		//run until design converges
+		rv = _keep_going_global_flag && (accepted_good_moves > accepted_bad_moves);
+		if(!rv) _keep_going_global_flag = false; // signal we have converged
+	} else {
+		//run a fixed amount of steps
+		rv = temp_steps_completed < _number_temp_steps;
+	}
+
+	return rv;
+}

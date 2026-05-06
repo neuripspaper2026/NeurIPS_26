@@ -1,0 +1,62 @@
+timestamp,stage,dataset,model,version,file_name,status,message,checker
+2026-01-24 20:50:43,check,,,,,skip,No MachSuite correctness artifacts found to inspect.,machsuite
+2026-01-24 21:24:10,check,extra-large,claude,v10,output_claude_v10_extra-large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,large,claude,v10,output_claude_v10_large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,medium,claude,v10,output_claude_v10_medium_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,mini,claude,v10,output_claude_v10_mini_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,small,claude,v10,output_claude_v10_small_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,extra-large,claude,v4,output_claude_v4_extra-large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,large,claude,v4,output_claude_v4_large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,medium,claude,v4,output_claude_v4_medium_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,mini,claude,v4,output_claude_v4_mini_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,small,claude,v4,output_claude_v4_small_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,extra-large,gpt5.1,v10,output_gpt5.1_v10_extra-large_output.data,fail,Output file is empty.,machsuite
+2026-01-24 21:24:10,check,large,gpt5.1,v10,output_gpt5.1_v10_large_output.data,fail,Output file is empty.,machsuite
+2026-01-24 21:24:10,check,medium,gpt5.1,v10,output_gpt5.1_v10_medium_output.data,fail,Output file is empty.,machsuite
+2026-01-24 21:24:10,check,mini,gpt5.1,v10,output_gpt5.1_v10_mini_output.data,fail,Output file is empty.,machsuite
+2026-01-24 21:24:10,check,small,gpt5.1,v10,output_gpt5.1_v10_small_output.data,fail,Output file is empty.,machsuite
+2026-01-24 21:24:10,check,extra-large,gpt5.1,v1,output_gpt5.1_v1_extra-large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,large,gpt5.1,v1,output_gpt5.1_v1_large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,medium,gpt5.1,v1,output_gpt5.1_v1_medium_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,mini,gpt5.1,v1,output_gpt5.1_v1_mini_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,small,gpt5.1,v1,output_gpt5.1_v1_small_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,extra-large,gpt5.1,v2,output_gpt5.1_v2_extra-large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,large,gpt5.1,v2,output_gpt5.1_v2_large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,medium,gpt5.1,v2,output_gpt5.1_v2_medium_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,mini,gpt5.1,v2,output_gpt5.1_v2_mini_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,small,gpt5.1,v2,output_gpt5.1_v2_small_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,extra-large,gpt5.1,v3,output_gpt5.1_v3_extra-large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,large,gpt5.1,v3,output_gpt5.1_v3_large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,medium,gpt5.1,v3,output_gpt5.1_v3_medium_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,mini,gpt5.1,v3,output_gpt5.1_v3_mini_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,small,gpt5.1,v3,output_gpt5.1_v3_small_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,extra-large,gpt5.1,v4,output_gpt5.1_v4_extra-large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,large,gpt5.1,v4,output_gpt5.1_v4_large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,medium,gpt5.1,v4,output_gpt5.1_v4_medium_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,mini,gpt5.1,v4,output_gpt5.1_v4_mini_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,small,gpt5.1,v4,output_gpt5.1_v4_small_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,extra-large,gpt5.1,v5,output_gpt5.1_v5_extra-large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,large,gpt5.1,v5,output_gpt5.1_v5_large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,medium,gpt5.1,v5,output_gpt5.1_v5_medium_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,mini,gpt5.1,v5,output_gpt5.1_v5_mini_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,small,gpt5.1,v5,output_gpt5.1_v5_small_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,extra-large,gpt5.1,v6,output_gpt5.1_v6_extra-large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,large,gpt5.1,v6,output_gpt5.1_v6_large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,medium,gpt5.1,v6,output_gpt5.1_v6_medium_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,mini,gpt5.1,v6,output_gpt5.1_v6_mini_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,small,gpt5.1,v6,output_gpt5.1_v6_small_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,extra-large,gpt5.1,v7,output_gpt5.1_v7_extra-large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,large,gpt5.1,v7,output_gpt5.1_v7_large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,medium,gpt5.1,v7,output_gpt5.1_v7_medium_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,mini,gpt5.1,v7,output_gpt5.1_v7_mini_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,small,gpt5.1,v7,output_gpt5.1_v7_small_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,extra-large,gpt5.1,v8,output_gpt5.1_v8_extra-large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,large,gpt5.1,v8,output_gpt5.1_v8_large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,medium,gpt5.1,v8,output_gpt5.1_v8_medium_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,mini,gpt5.1,v8,output_gpt5.1_v8_mini_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,small,gpt5.1,v8,output_gpt5.1_v8_small_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,extra-large,gpt5.1,v9,output_gpt5.1_v9_extra-large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,large,gpt5.1,v9,output_gpt5.1_v9_large_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,medium,gpt5.1,v9,output_gpt5.1_v9_medium_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,mini,gpt5.1,v9,output_gpt5.1_v9_mini_output.data,pass,Detected 'Success' marker.,machsuite
+2026-01-24 21:24:10,check,small,gpt5.1,v9,output_gpt5.1_v9_small_output.data,pass,Detected 'Success' marker.,machsuite

@@ -1,0 +1,37 @@
+{
+  "benchmark": "fdtd-2d",
+  "source": "${REPO_ROOT}/configs/runtime_hints.json",
+  "generated_at": "2025-12-11T23:50:59",
+  "strategies": {
+    "mini": {
+      "warmup": 3,
+      "runs": 15,
+      "reason": "Short kernel; appreciable startup overhead.",
+      "runtime": 0.062
+    },
+    "small": {
+      "warmup": 3,
+      "runs": 15,
+      "reason": "Short kernel; appreciable startup overhead.",
+      "runtime": 0.09
+    },
+    "medium": {
+      "warmup": 3,
+      "runs": 10,
+      "reason": "Mid-short kernel; warm-up recommended.",
+      "runtime": 0.281
+    },
+    "large": {
+      "warmup": 1,
+      "runs": 5,
+      "reason": "Very long kernel; small warm-up is sufficient.",
+      "runtime": 6.455
+    },
+    "extra-large": {
+      "warmup": 0,
+      "runs": 3,
+      "reason": "Extremely long kernel; warm-up not required.",
+      "runtime": 34.144
+    }
+  }
+}

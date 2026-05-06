@@ -1,0 +1,9 @@
+timestamp,stage,dataset,model,version,file_name,status,message,checker
+2026-01-25 02:54:44,check,mini,,,output_claude_v10_mini_output.dat,fail,Mismatch at element 2,parboil
+2026-01-25 02:54:44,check,mini,,,output_claude_v2_mini_output.dat,fail,Mismatch at element 2,parboil
+2026-01-25 02:54:44,check,mini,,,output_claude_v5_mini_output.dat,fail,Mismatch at element 0,parboil
+2026-01-25 02:54:44,check,mini,,,output_claude_v6_mini_output.dat,fail,Mismatch at element 0,parboil
+2026-01-25 02:54:44,check,mini,,,output_claude_v7_mini_output.dat,fail,Mismatch at element 2,parboil
+2026-01-25 02:54:44,check,mini,,,output_claude_v8_mini_output.dat,fail,Mismatch at element 3,parboil
+2026-01-25 02:54:44,check,mini,,,output_claude_v9_mini_output.dat,fail,Mismatch at element 2,parboil
+2026-01-25 02:54:44,check,mini,,,output_qwen_v9_mini_output.dat,fail,Mismatch at element 0,parboil

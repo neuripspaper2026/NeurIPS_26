@@ -1,0 +1,394 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/time.h>
+#include <time.h>
+
+// Returns the current system time in microseconds
+long long get_time() {
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    return (tv.tv_sec * 1000000) + tv.tv_usec;
+}
+
+using namespace std;
+
+#define BLOCK_SIZE 16
+#define BLOCK_SIZE_C BLOCK_SIZE
+#define BLOCK_SIZE_R BLOCK_SIZE
+
+#define STR_SIZE 256
+
+/* maximum power density possible (say 300W for a 10mm x 10mm chip) */
+#define MAX_PD (3.0e6)
+/* required precision in degrees    */
+#define PRECISION 0.001
+#define SPEC_HEAT_SI 1.75e6
+#define K_SI 100
+/* capacitance fitting factor   */
+#define FACTOR_CHIP 0.5
+
+
+typedef float FLOAT;
+
+/* chip parameters  */
+const FLOAT t_chip = 0.0005;
+const FLOAT chip_height = 0.016;
+const FLOAT chip_width = 0.016;
+
+/* ambient temperature, assuming no package at all  */
+const FLOAT amb_temp = 80.0;
+
+int num_omp_threads;
+
+/* Single iteration of the transient solver in the grid model.
+ * advances the solution of the discretized difference equations
+ * by one time step
+ */
+void single_iteration(FLOAT *result, FLOAT *temp, FLOAT *power, int row,
+                      int col, FLOAT Cap_1, FLOAT Rx_1, FLOAT Ry_1, FLOAT Rz_1,
+                      FLOAT step) {
+    (void)step;
+    const int num_chunk = row * col / (BLOCK_SIZE_R * BLOCK_SIZE_C);
+    const int chunks_in_row = col / BLOCK_SIZE_C;
+    const int chunks_in_col = row / BLOCK_SIZE_R;
+
+    for (int chunk = 0; chunk < num_chunk; ++chunk) {
+        const int r_start = BLOCK_SIZE_R * (chunk / chunks_in_col);
+        const int c_start = BLOCK_SIZE_C * (chunk % chunks_in_row);
+        const int r_block_end = r_start + BLOCK_SIZE_R;
+        const int c_block_end = c_start + BLOCK_SIZE_C;
+        const int r_end = (r_block_end > row) ? row : r_block_end;
+        const int c_end = (c_block_end > col) ? col : c_block_end;
+
+        if (r_start == 0 || c_start == 0 || r_end == row || c_end == col) {
+            const int r_limit = r_start + BLOCK_SIZE_R;
+            const int c_limit = c_start + BLOCK_SIZE_C;
+            for (int r = r_start; r < r_limit; ++r) {
+                const int row_off = r * col;
+                for (int c = c_start; c < c_limit; ++c) {
+                    const int idx = row_off + c;
+                    FLOAT t_rc = temp[idx];
+
+                    if (r == 0 && c == 0) {
+                        FLOAT t_r0c0 = t_rc;
+                        FLOAT t_r0c1 = temp[1];
+                        FLOAT t_r1c0 = temp[col];
+                        FLOAT delta =
+                            Cap_1 *
+                            (power[0] +
+                             (t_r0c1 - t_r0c0) * Rx_1 +
+                             (t_r1c0 - t_r0c0) * Ry_1 +
+                             (amb_temp - t_r0c0) * Rz_1);
+                        result[0] = t_r0c0 + delta;
+                    } else if (r == 0 && c == col - 1) {
+                        FLOAT t_r0cl_1 = t_rc;
+                        FLOAT t_r0cl_2 = temp[c - 1];
+                        FLOAT t_r1cl_1 = temp[c + col];
+                        FLOAT delta =
+                            Cap_1 *
+                            (power[c] +
+                             (t_r0cl_2 - t_r0cl_1) * Rx_1 +
+                             (t_r1cl_1 - t_r0cl_1) * Ry_1 +
+                             (amb_temp - t_r0cl_1) * Rz_1);
+                        result[c] = t_r0cl_1 + delta;
+                    } else if (r == row - 1 && c == col - 1) {
+                        FLOAT t_rl_1cl_1 = t_rc;
+                        FLOAT t_rl_1cl_2 = temp[idx - 1];
+                        FLOAT t_rl_2cl_1 = temp[(r - 1) * col + c];
+                        FLOAT delta =
+                            Cap_1 *
+                            (power[idx] +
+                             (t_rl_2cl_2 - t_rl_1cl_1) * Rx_1 +
+                             (t_rl_2cl_1 - t_rl_1cl_1) * Ry_1 +
+                             (amb_temp - t_rl_1cl_1) * Rz_1);
+                        result[idx] = t_rl_1cl_1 + delta;
+                    } else if (r == row - 1 && c == 0) {
+                        FLOAT t_rl_10 = t_rc;
+                        FLOAT t_rl_11 = temp[idx + 1];
+                        FLOAT t_rl_2_0 = temp[(r - 1) * col];
+                        FLOAT delta =
+                            Cap_1 *
+                            (power[row_off] +
+                             (t_rl_11 - t_rl_10) * Rx_1 +
+                             (t_rl_2_0 - t_rl_10) * Ry_1 +
+                             (amb_temp - t_rl_10) * Rz_1);
+                        result[row_off] = t_rl_10 + delta;
+                    } else if (r == 0) {
+                        FLOAT t = t_rc;
+                        FLOAT t_l = temp[c - 1];
+                        FLOAT t_r = temp[c + 1];
+                        FLOAT t_d = temp[col + c];
+                        FLOAT delta =
+                            Cap_1 *
+                            (power[c] +
+                             (t_r + t_l - 2.0 * t) * Rx_1 +
+                             (t_d - t) * Ry_1 +
+                             (amb_temp - t) * Rz_1);
+                        result[c] = t + delta;
+                    } else if (c == col - 1) {
+                        FLOAT t = t_rc;
+                        FLOAT t_u = temp[(r - 1) * col + c];
+                        FLOAT t_d = temp[(r + 1) * col + c];
+                        FLOAT t_l = temp[idx - 1];
+                        FLOAT delta =
+                            Cap_1 *
+                            (power[idx] +
+                             (t_d + t_u - 2.0 * t) * Ry_1 +
+                             (t_l - t) * Rx_1 +
+                             (amb_temp - t) * Rz_1);
+                        result[idx] = t + delta;
+                    } else if (r == row - 1) {
+                        FLOAT t = t_rc;
+                        FLOAT t_l = temp[idx - 1];
+                        FLOAT t_r = temp[idx + 1];
+                        FLOAT t_u = temp[(r - 1) * col + c];
+                        FLOAT delta =
+                            Cap_1 *
+                            (power[idx] +
+                             (t_r + t_l - 2.0 * t) * Rx_1 +
+                             (t_u - t) * Ry_1 +
+                             (amb_temp - t) * Rz_1);
+                        result[idx] = t + delta;
+                    } else if (c == 0) {
+                        FLOAT t = t_rc;
+                        FLOAT t_u = temp[(r - 1) * col];
+                        FLOAT t_d = temp[(r + 1) * col];
+                        FLOAT t_r = temp[idx + 1];
+                        FLOAT delta =
+                            Cap_1 *
+                            (power[row_off] +
+                             (t_d + t_u - 2.0 * t) * Ry_1 +
+                             (t_r - t) * Rx_1 +
+                             (amb_temp - t) * Rz_1);
+                        result[row_off] = t + delta;
+                    } else {
+                        FLOAT t = t_rc;
+                        FLOAT t_u = temp[(r - 1) * col + c];
+                        FLOAT t_d = temp[(r + 1) * col + c];
+                        FLOAT t_l = temp[idx - 1];
+                        FLOAT t_r = temp[idx + 1];
+                        FLOAT delta =
+                            Cap_1 *
+                            (power[idx] +
+                             (t_d + t_u - 2.0f * t) * Ry_1 +
+                             (t_r + t_l - 2.0f * t) * Rx_1 +
+                             (amb_temp - t) * Rz_1);
+                        result[idx] = t + delta;
+                    }
+                }
+            }
+            continue;
+        }
+
+        for (int r = r_start; r < r_block_end; ++r) {
+            const int row_off = r * col;
+            for (int c = c_start; c < c_block_end; ++c) {
+                const int idx = row_off + c;
+                FLOAT t = temp[idx];
+                FLOAT t_u = temp[idx - col];
+                FLOAT t_d = temp[idx + col];
+                FLOAT t_l = temp[idx - 1];
+                FLOAT t_r = temp[idx + 1];
+
+                result[idx] =
+                    t +
+                    Cap_1 *
+                        (power[idx] +
+                         (t_d + t_u - 2.0f * t) * Ry_1 +
+                         (t_r + t_l - 2.0f * t) * Rx_1 +
+                         (amb_temp - t) * Rz_1);
+            }
+        }
+    }
+}
+
+/* Transient solver driver routine: simply converts the heat
+ * transfer differential equations to difference equations
+ * and solves the difference equations by iterating
+ */
+void compute_tran_temp(FLOAT *result, int num_iterations, FLOAT *temp,
+                       FLOAT *power, int row, int col) {
+#ifdef VERBOSE
+    int i = 0;
+#endif
+
+    FLOAT grid_height = chip_height / row;
+    FLOAT grid_width = chip_width / col;
+
+    FLOAT Cap = FACTOR_CHIP * SPEC_HEAT_SI * t_chip * grid_width * grid_height;
+    FLOAT Rx = grid_width / (2.0 * K_SI * t_chip * grid_height);
+    FLOAT Ry = grid_height / (2.0 * K_SI * t_chip * grid_width);
+    FLOAT Rz = t_chip / (K_SI * grid_height * grid_width);
+
+    FLOAT max_slope = MAX_PD / (FACTOR_CHIP * t_chip * SPEC_HEAT_SI);
+    FLOAT step = PRECISION / max_slope / 1000.0;
+
+    FLOAT Rx_1 = 1.f / Rx;
+    FLOAT Ry_1 = 1.f / Ry;
+    FLOAT Rz_1 = 1.f / Rz;
+    FLOAT Cap_1 = step / Cap;
+#ifdef VERBOSE
+    fprintf(stdout, "total iterations: %d s\tstep size: %g s\n", num_iterations,
+            step);
+    fprintf(stdout, "Rx: %g\tRy: %g\tRz: %g\tCap: %g\n", Rx, Ry, Rz, Cap);
+#endif
+
+    {
+        FLOAT *r = result;
+        FLOAT *t = temp;
+        for (int i = 0; i < num_iterations; i++) {
+#ifdef VERBOSE
+            fprintf(stdout, "iteration %d\n", i++);
+#endif
+            single_iteration(r, t, power, row, col, Cap_1, Rx_1, Ry_1, Rz_1,
+                             step);
+            FLOAT *tmp = t;
+            t = r;
+            r = tmp;
+        }
+    }
+#ifdef VERBOSE
+    fprintf(stdout, "iteration %d\n", i++);
+#endif
+}
+
+void fatal(char *s) {
+    fprintf(stderr, "error: %s\n", s);
+    exit(1);
+}
+
+void writeoutput(FLOAT *vect, int grid_rows, int grid_cols, char *file) {
+
+    int i, j, index = 0;
+    FILE *fp;
+    char str[STR_SIZE];
+
+    if ((fp = fopen(file, "w")) == 0)
+        printf("The file was not opened\n");
+
+
+    for (i = 0; i < grid_rows; i++)
+        for (j = 0; j < grid_cols; j++) {
+
+            sprintf(str, "%d\t%g\n", index, vect[i * grid_cols + j]);
+            fputs(str, fp);
+            index++;
+        }
+
+    fclose(fp);
+}
+
+void read_input(FLOAT *vect, int grid_rows, int grid_cols, char *file) {
+    int i, index;
+    FILE *fp;
+    char str[STR_SIZE];
+    FLOAT val;
+
+    fp = fopen(file, "r");
+    if (!fp)
+        fatal("file could not be opened for reading");
+
+    for (i = 0; i < grid_rows * grid_cols; i++) {
+        fgets(str, STR_SIZE, fp);
+        if (feof(fp))
+            fatal("not enough lines in file");
+        if ((sscanf(str, "%f", &val) != 1))
+            fatal("invalid file format");
+        vect[i] = val;
+    }
+
+    fclose(fp);
+}
+
+void usage(int argc, char **argv) {
+    fprintf(stderr, "Usage: %s <grid_rows> <grid_cols> <sim_time> <no. of "
+                    "threads><temp_file> <power_file>\n",
+            argv[0]);
+    fprintf(stderr,
+            "\t<grid_rows>  - number of rows in the grid (positive integer)\n");
+    fprintf(
+        stderr,
+        "\t<grid_cols>  - number of columns in the grid (positive integer)\n");
+    fprintf(stderr, "\t<sim_time>   - number of iterations\n");
+    fprintf(stderr, "\t<no. of threads>   - number of threads\n");
+    fprintf(stderr, "\t<temp_file>  - name of the file containing the initial "
+                    "temperature values of each cell\n");
+    fprintf(stderr, "\t<power_file> - name of the file containing the "
+                    "dissipated power values of each cell\n");
+    fprintf(stderr, "\t<output_file> - name of the output file\n");
+    exit(1);
+}
+
+int main(int argc, char **argv) {
+    int grid_rows, grid_cols, sim_time, i;
+    FLOAT *temp, *power, *result;
+    char *tfile, *pfile, *ofile;
+
+    struct timespec main_start, main_end;
+    struct timespec kernel_start, kernel_end;
+    clock_gettime(CLOCK_MONOTONIC, &main_start);
+
+    FILE *timing_file = stderr;
+    const char *timing_path = getenv("TIMING_LOG_FILE");
+    if (timing_path && timing_path[0] != '\0') {
+        FILE *tmp = fopen(timing_path, "w");
+        if (tmp)
+            timing_file = tmp;
+    }
+
+    /* check validity of inputs */
+    if (argc != 8)
+        usage(argc, argv);
+    if ((grid_rows = atoi(argv[1])) <= 0 || (grid_cols = atoi(argv[2])) <= 0 ||
+        (sim_time = atoi(argv[3])) <= 0 ||
+        (num_omp_threads = atoi(argv[4])) <= 0)
+        usage(argc, argv);
+
+    /* allocate memory for the temperature and power arrays */
+    temp = (FLOAT *)calloc(grid_rows * grid_cols, sizeof(FLOAT));
+    power = (FLOAT *)calloc(grid_rows * grid_cols, sizeof(FLOAT));
+    result = (FLOAT *)calloc(grid_rows * grid_cols, sizeof(FLOAT));
+    if (!temp || !power)
+        fatal("unable to allocate memory");
+
+    /* read initial temperatures and input power    */
+    tfile = argv[5];
+    pfile = argv[6];
+    ofile = argv[7];
+
+    read_input(temp, grid_rows, grid_cols, tfile);
+    read_input(power, grid_rows, grid_cols, pfile);
+
+    printf("Start computing the transient temperature\n");
+    long long start_time = get_time();
+    clock_gettime(CLOCK_MONOTONIC, &kernel_start);
+    compute_tran_temp(result, sim_time, temp, power, grid_rows, grid_cols);
+    clock_gettime(CLOCK_MONOTONIC, &kernel_end);
+
+    long long end_time = get_time();
+
+    printf("Ending simulation\n");
+
+    /* output results to the file specified by command line */
+    /* The latest temperatures are in temp for even sim_time, otherwise in result */
+    writeoutput((sim_time % 2 == 0) ? temp : result, grid_rows, grid_cols, ofile);
+
+    /* cleanup  */
+    free(temp);
+    free(power);
+
+    clock_gettime(CLOCK_MONOTONIC, &main_end);
+
+    double kernel_time = (kernel_end.tv_sec - kernel_start.tv_sec) +
+                         (kernel_end.tv_nsec - kernel_start.tv_nsec) / 1e9;
+    double main_time = (main_end.tv_sec - main_start.tv_sec) +
+                       (main_end.tv_nsec - main_start.tv_nsec) / 1e9;
+
+    fprintf(timing_file, "KERNEL_TIME: %.9f\n", kernel_time);
+    fprintf(timing_file, "TOTAL_TIME: %.9f\n", main_time);
+
+    if (timing_file != stderr)
+        fclose(timing_file);
+
+    return 0;
+}

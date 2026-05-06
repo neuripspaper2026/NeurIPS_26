@@ -1,0 +1,22 @@
+{
+  "benchmark": "lud",
+  "ex_version": "EX2",
+  "generated_at": "2026-01-09T04:32:14",
+  "missing": [
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 1
+    },
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 4
+    },
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 7
+    }
+  ]
+}

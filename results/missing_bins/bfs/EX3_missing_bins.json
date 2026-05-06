@@ -1,0 +1,17 @@
+{
+  "benchmark": "bfs",
+  "ex_version": "EX3",
+  "generated_at": "2026-04-20T20:05:09",
+  "missing": [
+    {
+      "dataset": "default",
+      "model": "claude",
+      "version": 2
+    },
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 5
+    }
+  ]
+}

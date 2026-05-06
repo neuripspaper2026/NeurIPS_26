@@ -1,0 +1,1 @@
+{"timestamp": "2026-01-24 23:29:32", "stage": "capture", "executable": "fft-transpose-mach_gcc_gpt5.1_v1", "output": "${REPO_ROOT}/EX2/fft-transpose-mach/EX5_correctness/output_gpt5.1_v1_mini_output.data", "dataset": "mini", "model": "gpt5.1", "version": 1, "status": "ok", "returncode": 0, "stderr": "KERNEL_TIME: 0.001130276\nTOTAL_TIME: 0.018567640"}

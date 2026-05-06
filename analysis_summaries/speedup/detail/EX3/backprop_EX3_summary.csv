@@ -1,0 +1,15 @@
+dataset,trail,model,threads,version,compiler,sequence_id,is_baseline,kernel_mean_s,total_mean_s,kernel_speedup,total_speedup,success_rate,warmup_runs,measure_runs,hint_key,executable
+mini,1,baseline,,,unknown,0,True,0.004085672,0.246049829,1.0,1.0,1.0,0,1,mini,${REPO_ROOT}/EX3/backprop/EX3_optimized_codes/backprop
+mini,1,baseline,,,unknown,4,True,0.005380478,0.257256445,0.7593511208483708,0.9564379582404631,1.0,0,1,mini,${REPO_ROOT}/EX3/backprop/EX3_optimized_codes/backprop
+mini,1,baseline,,,unknown,7,True,0.005052571,0.240761094,0.8086322784974225,1.0219667343761114,1.0,0,1,mini,${REPO_ROOT}/EX3/backprop/EX3_optimized_codes/backprop
+mini,1,baseline,,,unknown,11,True,0.028171954,0.272919291,0.14502622004849222,0.9015479561684776,1.0,0,1,mini,${REPO_ROOT}/EX3/backprop/EX3_optimized_codes/backprop
+small,1,baseline,,,unknown,1,True,,,,,0.0,0,1,small,${REPO_ROOT}/EX3/backprop/EX3_optimized_codes/backprop
+small,1,baseline,,,unknown,5,True,,,,,0.0,0,1,small,${REPO_ROOT}/EX3/backprop/EX3_optimized_codes/backprop
+small,1,baseline,,,unknown,8,True,,,,,0.0,0,1,small,${REPO_ROOT}/EX3/backprop/EX3_optimized_codes/backprop
+small,1,baseline,,,unknown,12,True,,,,,0.0,0,1,small,${REPO_ROOT}/EX3/backprop/EX3_optimized_codes/backprop
+medium,1,baseline,,,unknown,2,True,,,,,0.0,0,1,medium,${REPO_ROOT}/EX3/backprop/EX3_optimized_codes/backprop
+medium,1,baseline,,,unknown,6,True,,,,,0.0,0,1,medium,${REPO_ROOT}/EX3/backprop/EX3_optimized_codes/backprop
+medium,1,baseline,,,unknown,9,True,,,,,0.0,0,1,medium,${REPO_ROOT}/EX3/backprop/EX3_optimized_codes/backprop
+medium,1,baseline,,,unknown,13,True,,,,,0.0,0,1,medium,${REPO_ROOT}/EX3/backprop/EX3_optimized_codes/backprop
+large,1,baseline,,,unknown,3,True,,,,,0.0,0,1,large,${REPO_ROOT}/EX3/backprop/EX3_optimized_codes/backprop
+large,1,baseline,,,unknown,10,True,,,,,0.0,0,1,large,${REPO_ROOT}/EX3/backprop/EX3_optimized_codes/backprop

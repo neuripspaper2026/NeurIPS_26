@@ -1,0 +1,411 @@
+<<<CODE>>>
+__device__ void kernel_ecc(fp timeinst, fp *d_initvalu, fp *d_finavalu,
+                           int valu_offset, fp *d_params) {
+
+    //=====================================================================
+    //	VARIABLES
+    //=====================================================================
+
+    // input parameters
+    fp cycleLength;
+
+    // variable references
+    int offset_1;
+    int offset_2;
+    int offset_3;
+    int offset_4;
+    int offset_5;
+    int offset_6;
+    int offset_7;
+    int offset_8;
+    int offset_9;
+    int offset_10;
+    int offset_11;
+    int offset_12;
+    int offset_13;
+    int offset_14;
+    int offset_15;
+    int offset_16;
+    int offset_17;
+    int offset_18;
+    int offset_19;
+    int offset_20;
+    int offset_21;
+    int offset_22;
+    int offset_23;
+    int offset_24;
+    int offset_25;
+    int offset_26;
+    int offset_27;
+    int offset_28;
+    int offset_29;
+    int offset_30;
+    int offset_31;
+    int offset_32;
+    int offset_33;
+    int offset_34;
+    int offset_35;
+    int offset_36;
+    int offset_37;
+    int offset_38;
+    int offset_39;
+    int offset_40;
+    int offset_41;
+    int offset_42;
+    int offset_43;
+    int offset_44;
+    int offset_45;
+    int offset_46;
+
+    // stored input array
+    fp d_initvalu_1;
+    fp d_initvalu_2;
+    fp d_initvalu_3;
+    fp d_initvalu_4;
+    fp d_initvalu_5;
+    fp d_initvalu_6;
+    fp d_initvalu_7;
+    fp d_initvalu_8;
+    fp d_initvalu_9;
+    fp d_initvalu_10;
+    fp d_initvalu_11;
+    fp d_initvalu_12;
+    fp d_initvalu_13;
+    fp d_initvalu_14;
+    fp d_initvalu_15;
+    fp d_initvalu_16;
+    fp d_initvalu_17;
+    fp d_initvalu_18;
+    fp d_initvalu_19;
+    fp d_initvalu_20;
+    fp d_initvalu_21;
+    fp d_initvalu_23;
+    fp d_initvalu_24;
+    fp d_initvalu_25;
+    fp d_initvalu_26;
+    fp d_initvalu_27;
+    fp d_initvalu_28;
+    fp d_initvalu_29;
+    fp d_initvalu_30;
+    fp d_initvalu_31;
+    fp d_initvalu_32;
+    fp d_initvalu_33;
+    fp d_initvalu_34;
+    fp d_initvalu_35;
+    fp d_initvalu_36;
+    fp d_initvalu_37;
+    fp d_initvalu_38;
+    fp d_initvalu_39;
+    fp d_initvalu_40;
+
+    // matlab constants undefined in c
+    const fp pi = 3.1416;
+
+    // Constants
+    const fp R = 8314;
+    const fp Frdy = 96485;
+    const fp Temp = 310;
+    const fp FoRT = Frdy / R / Temp;
+    const fp Cmem = 1.3810e-10;
+    const fp Qpow = (Temp - 310) / 10;
+
+    // Cell geometry
+    const fp cellLength = 100;
+    const fp cellRadius = 10.25;
+    const fp Vcell = pi * cellRadius * cellRadius * cellLength * 1e-15;
+    const fp Vmyo = 0.65 * Vcell;
+    const fp Vsr = 0.035 * Vcell;
+    const fp Vsl = 0.02 * Vcell;
+    const fp Vjunc = 0.0539 * 0.01 * Vcell;
+    const fp J_ca_juncsl = 1 / 1.2134e12;
+    const fp J_ca_slmyo = 1 / 2.68510e11;
+    const fp J_na_juncsl = 1 / (1.6382e12 / 3 * 100);
+    const fp J_na_slmyo = 1 / (1.8308e10 / 3 * 100);
+
+    // Fractional currents in compartments
+    const fp Fjunc = 0.11;
+    const fp Fsl = 1 - Fjunc;
+    const fp Fjunc_CaL = 0.9;
+    const fp Fsl_CaL = 1 - Fjunc_CaL;
+
+    // Fixed ion concentrations
+    const fp Cli = 15;
+    const fp Clo = 150;
+    const fp Ko = 5.4;
+    const fp Nao = 140;
+    const fp Cao = 1.8;
+    const fp Mgi = 1;
+
+    // Na transport parameters
+    const fp GNa = 16.0;
+    const fp GNaB = 0.297e-3;
+    const fp IbarNaK = 1.90719;
+    const fp KmNaip = 11;
+    const fp KmKo = 1.5;
+
+    // K current parameters
+    const fp pNaK = 0.01833;
+    const fp GtoSlow = 0.06;
+    const fp GtoFast = 0.02;
+    const fp gkp = 0.001;
+
+    // Cl current parameters
+    const fp GClCa = 0.109625;
+    const fp GClB = 9e-3;
+    const fp KdClCa = 100e-3;
+
+    // I_Ca parameters
+    const fp pNa = 1.5e-8;
+    const fp pCa = 5.4e-4;
+    const fp pK = 2.7e-7;
+    const fp Q10CaL = 1.8;
+
+    // Ca transport parameters
+    const fp IbarNCX = 9.0;
+    const fp KmCai = 3.59e-3;
+    const fp KmCao = 1.3;
+    const fp KmNai = 12.29;
+    const fp KmNao = 87.5;
+    const fp ksat = 0.27;
+    const fp nu = 0.35;
+    const fp Kdact = 0.256e-3;
+    const fp Q10NCX = 1.57;
+    const fp IbarSLCaP = 0.0673;
+    const fp KmPCa = 0.5e-3;
+    const fp GCaB = 2.513e-4;
+    const fp Q10SLCaP = 2.35;
+
+    // SR flux parameters
+    const fp Q10SRCaP = 2.6;
+    const fp Vmax_SRCaP = 2.86e-4;
+    const fp Kmf = 0.246e-3;
+    const fp Kmr = 1.7;
+    const fp hillSRCaP = 1.787;
+    const fp ks = 25;
+    const fp koCa = 10;
+    const fp kom = 0.06;
+    const fp kiCa = 0.5;
+    const fp kim = 0.005;
+    const fp ec50SR = 0.45;
+
+    // Buffering parameters
+    const fp Bmax_Naj = 7.561;
+    const fp Bmax_Nasl = 1.65;
+    const fp koff_na = 1e-3;
+    const fp kon_na = 0.1e-3;
+    const fp Bmax_TnClow = 70e-3;
+    const fp koff_tncl = 19.6e-3;
+    const fp kon_tncl = 32.7;
+    const fp Bmax_TnChigh = 140e-3;
+    const fp koff_tnchca = 0.032e-3;
+    const fp kon_tnchca = 2.37;
+    const fp koff_tnchmg = 3.33e-3;
+    const fp kon_tnchmg = 3e-3;
+    const fp Bmax_myosin = 140e-3;
+    const fp koff_myoca = 0.46e-3;
+    const fp kon_myoca = 13.8;
+    const fp koff_myomg = 0.057e-3;
+    const fp kon_myomg = 0.0157;
+    const fp Bmax_SR = 19 * 0.9e-3;
+    const fp koff_sr = 60e-3;
+    const fp kon_sr = 100;
+    const fp Bmax_SLlowsl = 37.38e-3 * Vmyo / Vsl;
+    const fp Bmax_SLlowj = 4.62e-3 * Vmyo / Vjunc * 0.1;
+    const fp koff_sll = 1300e-3;
+    const fp kon_sll = 100;
+    const fp Bmax_SLhighsl = 13.35e-3 * Vmyo / Vsl;
+    const fp Bmax_SLhighj = 1.65e-3 * Vmyo / Vjunc * 0.1;
+    const fp koff_slh = 30e-3;
+    const fp kon_slh = 100;
+    const fp Bmax_Csqn = 2.7;
+    const fp koff_csqn = 65;
+    const fp kon_csqn = 100;
+
+    fp am;
+    fp bm;
+    fp ah;
+    fp bh;
+    fp aj;
+    fp bj;
+    fp I_Na_junc;
+    fp I_Na_sl;
+
+    fp I_nabk_junc;
+    fp I_nabk_sl;
+
+    fp sigma;
+    fp fnak;
+    fp I_nak_junc;
+    fp I_nak_sl;
+    fp I_nak;
+
+    fp gkr;
+    fp xrss;
+    fp tauxr;
+    fp rkr;
+    fp I_kr;
+
+    fp pcaks_junc;
+    fp pcaks_sl;
+    fp gks_junc;
+    fp gks_sl;
+    fp eks;
+    fp xsss;
+    fp tauxs;
+    fp I_ks_junc;
+    fp I_ks_sl;
+    fp I_ks;
+
+    fp kp_kp;
+    fp I_kp_junc;
+    fp I_kp_sl;
+    fp I_kp;
+
+    fp xtoss;
+    fp ytoss;
+    fp rtoss;
+    fp tauxtos;
+    fp tauytos;
+    fp taurtos;
+    fp I_tos;
+
+    fp tauxtof;
+    fp tauytof;
+    fp I_tof;
+    fp I_to;
+
+    fp aki;
+    fp bki;
+    fp kiss;
+    fp I_ki;
+
+    fp I_ClCa_junc;
+    fp I_ClCa_sl;
+    fp I_ClCa;
+    fp I_Clbk;
+
+    fp dss;
+    fp taud;
+    fp fss;
+    fp tauf;
+
+    fp ibarca_j;
+    fp ibarca_sl;
+    fp ibark;
+    fp ibarna_j;
+    fp ibarna_sl;
+    fp I_Ca_junc;
+    fp I_Ca_sl;
+    fp I_Ca;
+    fp I_CaK;
+    fp I_CaNa_junc;
+    fp I_CaNa_sl;
+
+    fp Ka_junc;
+    fp Ka_sl;
+    fp s1_junc;
+    fp s1_sl;
+    fp s2_junc;
+    fp s3_junc;
+    fp s2_sl;
+    fp s3_sl;
+    fp I_ncx_junc;
+    fp I_ncx_sl;
+    fp I_ncx;
+
+    fp I_pca_junc;
+    fp I_pca_sl;
+    fp I_pca;
+
+    fp I_cabk_junc;
+    fp I_cabk_sl;
+    fp I_cabk;
+
+    fp MaxSR;
+    fp MinSR;
+    fp kCaSR;
+    fp koSRCa;
+    fp kiSRCa;
+    fp RI;
+    fp J_SRCarel;
+    fp J_serca;
+    fp J_SRleak;
+
+    fp J_CaB_cytosol;
+
+    fp J_CaB_junction;
+    fp J_CaB_sl;
+
+    fp oneovervsr;
+
+    fp I_Na_tot_junc;
+    fp I_Na_tot_sl;
+    fp oneovervsl;
+
+    fp I_K_tot;
+
+    fp I_Ca_tot_junc;
+    fp I_Ca_tot_sl;
+
+    int state;
+    fp I_app;
+    fp V_hold;
+    fp V_test;
+    fp V_clamp;
+    fp R_clamp;
+
+    fp I_Na_tot;
+    fp I_Cl_tot;
+    fp I_Ca_tot;
+    fp I_tot;
+
+    fp ena_junc;
+    fp ena_sl;
+    fp ek;
+    fp eca_junc;
+    fp eca_sl;
+    fp ecl;
+
+    //=====================================================================
+    //	EXECUTION
+    //=====================================================================
+
+    // input parameters
+    cycleLength = d_params[15];
+
+    // Compute offsets
+    offset_1 = valu_offset;
+    offset_2 = valu_offset + 1;
+    offset_3 = valu_offset + 2;
+    offset_4 = valu_offset + 3;
+    offset_5 = valu_offset + 4;
+    offset_6 = valu_offset + 5;
+    offset_7 = valu_offset + 6;
+    offset_8 = valu_offset + 7;
+    offset_9 = valu_offset + 8;
+    offset_10 = valu_offset + 9;
+    offset_11 = valu_offset + 10;
+    offset_12 = valu_offset + 11;
+    offset_13 = valu_offset + 12;
+    offset_14 = valu_offset + 13;
+    offset_15 = valu_offset + 14;
+    offset_16 = valu_offset + 15;
+    offset_17 = valu_offset + 16;
+    offset_18 = valu_offset + 17;
+    offset_19 = valu_offset + 18;
+    offset_20 = valu_offset + 19;
+    offset_21 = valu_offset + 20;
+    offset_22 = valu_offset + 21;
+    offset_23 = valu_offset + 22;
+    offset_24 = valu_offset + 23;
+    offset_25 = valu_offset + 24;
+    offset_26 = valu_offset + 25;
+    offset_27 = valu_offset + 26;
+    offset_28 = valu_offset + 27;
+    offset_29 = valu_offset + 28;
+    offset_30 = valu_offset + 29;
+    offset_31 = valu_offset + 30;
+    offset_32 = valu_offset + 31;
+    offset_33 = valu_offset + 32;
+    offset_34 = valu_offset + 33;
+    offset_35 =

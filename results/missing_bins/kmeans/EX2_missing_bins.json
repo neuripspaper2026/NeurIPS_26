@@ -1,0 +1,27 @@
+{
+  "benchmark": "kmeans",
+  "ex_version": "EX2",
+  "generated_at": "2026-01-04T14:42:55",
+  "missing": [
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 1
+    },
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 3
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 3
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 9
+    }
+  ]
+}

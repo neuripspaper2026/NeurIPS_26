@@ -1,0 +1,22 @@
+{
+  "benchmark": "hotspot",
+  "ex_version": "EX3",
+  "generated_at": "2026-04-21T04:00:19",
+  "missing": [
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 1
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 3
+    },
+    {
+      "dataset": "default",
+      "model": "qwen",
+      "version": 7
+    }
+  ]
+}

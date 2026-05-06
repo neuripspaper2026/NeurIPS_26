@@ -1,0 +1,151 @@
+timestamp,stage,dataset,model,version,file_name,status,message,checker
+2026-01-24 19:26:04,check,extra-large,claude,1,output_claude_v1_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,large,claude,1,output_claude_v1_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,medium,claude,1,output_claude_v1_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,mini,claude,1,output_claude_v1_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,small,claude,1,output_claude_v1_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,extra-large,claude,2,output_claude_v2_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,large,claude,2,output_claude_v2_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,medium,claude,2,output_claude_v2_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,mini,claude,2,output_claude_v2_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,small,claude,2,output_claude_v2_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,extra-large,claude,3,output_claude_v3_extra-large_output.txt,fail,"Float mismatch at row=6, col=10: 75873.11 vs 64247.45, diff=11625.660000000003 > tol=0.002",polybench
+2026-01-24 19:26:04,check,large,claude,3,output_claude_v3_large_output.txt,fail,"Float mismatch at row=3, col=1: 64871.34 vs 37430.4, diff=27440.939999999995 > tol=0.002",polybench
+2026-01-24 19:26:04,check,medium,claude,3,output_claude_v3_medium_output.txt,fail,"Float mismatch at row=3, col=1: 2481.01 vs 1770.57, diff=710.4400000000003 > tol=0.002",polybench
+2026-01-24 19:26:04,check,mini,claude,3,output_claude_v3_mini_output.txt,fail,"Float mismatch at row=3, col=1: 24.43 vs 17.69, diff=6.739999999999998 > tol=0.002",polybench
+2026-01-24 19:26:04,check,small,claude,3,output_claude_v3_small_output.txt,fail,"Float mismatch at row=3, col=1: 223.07 vs 14.65, diff=208.42 > tol=0.002",polybench
+2026-01-24 19:26:04,check,extra-large,claude,4,output_claude_v4_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,large,claude,4,output_claude_v4_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,medium,claude,4,output_claude_v4_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,mini,claude,4,output_claude_v4_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,small,claude,4,output_claude_v4_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,extra-large,claude,5,output_claude_v5_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,large,claude,5,output_claude_v5_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,medium,claude,5,output_claude_v5_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,mini,claude,5,output_claude_v5_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,small,claude,5,output_claude_v5_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,extra-large,claude,6,output_claude_v6_extra-large_output.txt,fail,"Float mismatch at row=3, col=1: 70381.88 vs 52296.25, diff=18085.630000000005 > tol=0.002",polybench
+2026-01-24 19:26:04,check,large,claude,6,output_claude_v6_large_output.txt,fail,"Float mismatch at row=3, col=1: 64871.34 vs 52227.01, diff=12644.329999999994 > tol=0.002",polybench
+2026-01-24 19:26:04,check,medium,claude,6,output_claude_v6_medium_output.txt,fail,"Float mismatch at row=3, col=1: 2481.01 vs 891.23, diff=1589.7800000000002 > tol=0.002",polybench
+2026-01-24 19:26:04,check,mini,claude,6,output_claude_v6_mini_output.txt,fail,"Float mismatch at row=3, col=1: 24.43 vs 14.39, diff=10.04 > tol=0.002",polybench
+2026-01-24 19:26:04,check,small,claude,6,output_claude_v6_small_output.txt,fail,"Float mismatch at row=3, col=1: 223.07 vs 135.32, diff=87.75 > tol=0.002",polybench
+2026-01-24 19:26:04,check,extra-large,claude,7,output_claude_v7_extra-large_output.txt,fail,"Float mismatch at row=3, col=1: 70381.88 vs 54268.8, diff=16113.080000000002 > tol=0.002",polybench
+2026-01-24 19:26:04,check,large,claude,7,output_claude_v7_large_output.txt,fail,"Float mismatch at row=3, col=1: 64871.34 vs 35472.66, diff=29398.679999999993 > tol=0.002",polybench
+2026-01-24 19:26:04,check,medium,claude,7,output_claude_v7_medium_output.txt,fail,"Float mismatch at row=3, col=1: 2481.01 vs 1157.22, diff=1323.7900000000002 > tol=0.002",polybench
+2026-01-24 19:26:04,check,mini,claude,7,output_claude_v7_mini_output.txt,fail,"Float mismatch at row=3, col=1: 24.43 vs 5.32, diff=19.11 > tol=0.002",polybench
+2026-01-24 19:26:04,check,small,claude,7,output_claude_v7_small_output.txt,fail,"Float mismatch at row=3, col=1: 223.07 vs 203.75, diff=19.319999999999993 > tol=0.002",polybench
+2026-01-24 19:26:04,check,extra-large,claude,8,output_claude_v8_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,large,claude,8,output_claude_v8_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,medium,claude,8,output_claude_v8_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,mini,claude,8,output_claude_v8_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,small,claude,8,output_claude_v8_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,extra-large,claude,9,output_claude_v9_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,large,claude,9,output_claude_v9_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,medium,claude,9,output_claude_v9_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,mini,claude,9,output_claude_v9_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,small,claude,9,output_claude_v9_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,extra-large,claude,10,output_claude_v10_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,large,claude,10,output_claude_v10_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,medium,claude,10,output_claude_v10_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,mini,claude,10,output_claude_v10_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,small,claude,10,output_claude_v10_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,extra-large,gpt5.1,1,output_gpt5.1_v1_extra-large_output.txt,fail,"Float mismatch at row=3, col=1: 70381.88 vs 78.63, diff=70303.25 > tol=0.002",polybench
+2026-01-24 19:26:04,check,large,gpt5.1,1,output_gpt5.1_v1_large_output.txt,fail,"Float mismatch at row=3, col=1: 64871.34 vs 71.23, diff=64800.10999999999 > tol=0.002",polybench
+2026-01-24 19:26:04,check,medium,gpt5.1,1,output_gpt5.1_v1_medium_output.txt,fail,"Float mismatch at row=3, col=1: 2481.01 vs 2.83, diff=2478.1800000000003 > tol=0.002",polybench
+2026-01-24 19:26:04,check,mini,gpt5.1,1,output_gpt5.1_v1_mini_output.txt,fail,"Float mismatch at row=3, col=1: 24.43 vs 0.04, diff=24.39 > tol=0.002",polybench
+2026-01-24 19:26:04,check,small,gpt5.1,1,output_gpt5.1_v1_small_output.txt,fail,"Float mismatch at row=3, col=1: 223.07 vs 0.22, diff=222.85 > tol=0.002",polybench
+2026-01-24 19:26:04,check,extra-large,gpt5.1,2,output_gpt5.1_v2_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,large,gpt5.1,2,output_gpt5.1_v2_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,medium,gpt5.1,2,output_gpt5.1_v2_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,mini,gpt5.1,2,output_gpt5.1_v2_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,small,gpt5.1,2,output_gpt5.1_v2_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,extra-large,gpt5.1,3,output_gpt5.1_v3_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,large,gpt5.1,3,output_gpt5.1_v3_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,medium,gpt5.1,3,output_gpt5.1_v3_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,mini,gpt5.1,3,output_gpt5.1_v3_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,small,gpt5.1,3,output_gpt5.1_v3_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,extra-large,gpt5.1,4,output_gpt5.1_v4_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,large,gpt5.1,4,output_gpt5.1_v4_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,medium,gpt5.1,4,output_gpt5.1_v4_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,mini,gpt5.1,4,output_gpt5.1_v4_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,small,gpt5.1,4,output_gpt5.1_v4_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,extra-large,gpt5.1,5,output_gpt5.1_v5_extra-large_output.txt,fail,"Float mismatch at row=3, col=1: 70381.88 vs 78.63, diff=70303.25 > tol=0.002",polybench
+2026-01-24 19:26:04,check,large,gpt5.1,5,output_gpt5.1_v5_large_output.txt,fail,"Float mismatch at row=3, col=1: 64871.34 vs 71.23, diff=64800.10999999999 > tol=0.002",polybench
+2026-01-24 19:26:04,check,medium,gpt5.1,5,output_gpt5.1_v5_medium_output.txt,fail,"Float mismatch at row=3, col=1: 2481.01 vs 2.83, diff=2478.1800000000003 > tol=0.002",polybench
+2026-01-24 19:26:04,check,mini,gpt5.1,5,output_gpt5.1_v5_mini_output.txt,fail,"Float mismatch at row=3, col=1: 24.43 vs 0.04, diff=24.39 > tol=0.002",polybench
+2026-01-24 19:26:04,check,small,gpt5.1,5,output_gpt5.1_v5_small_output.txt,fail,"Float mismatch at row=3, col=1: 223.07 vs 0.22, diff=222.85 > tol=0.002",polybench
+2026-01-24 19:26:04,check,extra-large,gpt5.1,6,output_gpt5.1_v6_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,large,gpt5.1,6,output_gpt5.1_v6_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,medium,gpt5.1,6,output_gpt5.1_v6_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,mini,gpt5.1,6,output_gpt5.1_v6_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,small,gpt5.1,6,output_gpt5.1_v6_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,extra-large,gpt5.1,7,output_gpt5.1_v7_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,large,gpt5.1,7,output_gpt5.1_v7_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,medium,gpt5.1,7,output_gpt5.1_v7_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,mini,gpt5.1,7,output_gpt5.1_v7_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,small,gpt5.1,7,output_gpt5.1_v7_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,extra-large,gpt5.1,8,output_gpt5.1_v8_extra-large_output.txt,fail,"Float mismatch at row=3, col=1: 70381.88 vs 78.63, diff=70303.25 > tol=0.002",polybench
+2026-01-24 19:26:04,check,large,gpt5.1,8,output_gpt5.1_v8_large_output.txt,fail,"Float mismatch at row=3, col=1: 64871.34 vs 71.23, diff=64800.10999999999 > tol=0.002",polybench
+2026-01-24 19:26:04,check,medium,gpt5.1,8,output_gpt5.1_v8_medium_output.txt,fail,"Float mismatch at row=3, col=1: 2481.01 vs 2.83, diff=2478.1800000000003 > tol=0.002",polybench
+2026-01-24 19:26:04,check,mini,gpt5.1,8,output_gpt5.1_v8_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,small,gpt5.1,8,output_gpt5.1_v8_small_output.txt,fail,"Float mismatch at row=3, col=1: 223.07 vs 0.22, diff=222.85 > tol=0.002",polybench
+2026-01-24 19:26:04,check,extra-large,gpt5.1,9,output_gpt5.1_v9_extra-large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,large,gpt5.1,9,output_gpt5.1_v9_large_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,medium,gpt5.1,9,output_gpt5.1_v9_medium_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,mini,gpt5.1,9,output_gpt5.1_v9_mini_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,small,gpt5.1,9,output_gpt5.1_v9_small_output.txt,pass,All numeric tokens match within tolerance.,polybench
+2026-01-24 19:26:04,check,extra-large,gpt5.1,10,output_gpt5.1_v10_extra-large_output.txt,fail,"Float mismatch at row=3, col=1: 70381.88 vs 78.63, diff=70303.25 > tol=0.002",polybench
+2026-01-24 19:26:04,check,large,gpt5.1,10,output_gpt5.1_v10_large_output.txt,fail,"Float mismatch at row=3, col=1: 64871.34 vs 71.23, diff=64800.10999999999 > tol=0.002",polybench
+2026-01-24 19:26:04,check,medium,gpt5.1,10,output_gpt5.1_v10_medium_output.txt,fail,"Float mismatch at row=3, col=1: 2481.01 vs 2.83, diff=2478.1800000000003 > tol=0.002",polybench
+2026-01-24 19:26:04,check,mini,gpt5.1,10,output_gpt5.1_v10_mini_output.txt,fail,"Float mismatch at row=3, col=1: 24.43 vs 0.04, diff=24.39 > tol=0.002",polybench
+2026-01-24 19:26:04,check,small,gpt5.1,10,output_gpt5.1_v10_small_output.txt,fail,"Float mismatch at row=3, col=1: 223.07 vs 0.22, diff=222.85 > tol=0.002",polybench
+2026-01-24 19:26:04,check,extra-large,qwen,1,output_qwen_v1_extra-large_output.txt,fail,"Float mismatch at row=3, col=1: 70381.88 vs 61801.95, diff=8579.930000000008 > tol=0.002",polybench
+2026-01-24 19:26:04,check,large,qwen,1,output_qwen_v1_large_output.txt,fail,"Float mismatch at row=3, col=1: 64871.34 vs 56919.41, diff=7951.929999999993 > tol=0.002",polybench
+2026-01-24 19:26:04,check,medium,qwen,1,output_qwen_v1_medium_output.txt,fail,"Float mismatch at row=3, col=1: 2481.01 vs 2063.01, diff=418.0 > tol=0.002",polybench
+2026-01-24 19:26:04,check,mini,qwen,1,output_qwen_v1_mini_output.txt,fail,"Float mismatch at row=3, col=1: 24.43 vs 17.8, diff=6.629999999999999 > tol=0.002",polybench
+2026-01-24 19:26:04,check,small,qwen,1,output_qwen_v1_small_output.txt,fail,"Float mismatch at row=3, col=1: 223.07 vs 177.31, diff=45.75999999999999 > tol=0.002",polybench
+2026-01-24 19:26:04,check,extra-large,qwen,2,output_qwen_v2_extra-large_output.txt,fail,"Float mismatch at row=3, col=1: 70381.88 vs 64465.94, diff=5915.940000000002 > tol=0.002",polybench
+2026-01-24 19:26:04,check,large,qwen,2,output_qwen_v2_large_output.txt,fail,"Float mismatch at row=3, col=1: 64871.34 vs 61169.57, diff=3701.769999999997 > tol=0.002",polybench
+2026-01-24 19:26:04,check,medium,qwen,2,output_qwen_v2_medium_output.txt,fail,"Float mismatch at row=3, col=1: 2481.01 vs 1751.27, diff=729.7400000000002 > tol=0.002",polybench
+2026-01-24 19:26:04,check,mini,qwen,2,output_qwen_v2_mini_output.txt,fail,"Float mismatch at row=3, col=1: 24.43 vs 20.78, diff=3.6499999999999986 > tol=0.002",polybench
+2026-01-24 19:26:04,check,small,qwen,2,output_qwen_v2_small_output.txt,fail,"Float mismatch at row=3, col=1: 223.07 vs 138.91, diff=84.16 > tol=0.002",polybench
+2026-01-24 19:26:04,check,extra-large,qwen,3,output_qwen_v3_extra-large_output.txt,fail,"Float mismatch at row=3, col=1: 70381.88 vs 60517.0, diff=9864.880000000005 > tol=0.002",polybench
+2026-01-24 19:26:04,check,large,qwen,3,output_qwen_v3_large_output.txt,fail,"Float mismatch at row=3, col=1: 64871.34 vs 58068.28, diff=6803.059999999998 > tol=0.002",polybench
+2026-01-24 19:26:04,check,medium,qwen,3,output_qwen_v3_medium_output.txt,fail,"Float mismatch at row=3, col=1: 2481.01 vs 1772.93, diff=708.0800000000002 > tol=0.002",polybench
+2026-01-24 19:26:04,check,mini,qwen,3,output_qwen_v3_mini_output.txt,fail,"Float mismatch at row=3, col=1: 24.43 vs 17.62, diff=6.809999999999999 > tol=0.002",polybench
+2026-01-24 19:26:04,check,small,qwen,3,output_qwen_v3_small_output.txt,fail,"Float mismatch at row=3, col=1: 223.07 vs 163.33, diff=59.73999999999998 > tol=0.002",polybench
+2026-01-24 19:26:04,check,extra-large,qwen,4,output_qwen_v4_extra-large_output.txt,fail,"Float mismatch at row=3, col=1: 70381.88 vs 65806.01, diff=4575.87000000001 > tol=0.002",polybench
+2026-01-24 19:26:04,check,large,qwen,4,output_qwen_v4_large_output.txt,fail,"Float mismatch at row=3, col=1: 64871.34 vs 57115.25, diff=7756.0899999999965 > tol=0.002",polybench
+2026-01-24 19:26:04,check,medium,qwen,4,output_qwen_v4_medium_output.txt,fail,"Float mismatch at row=3, col=1: 2481.01 vs 1972.87, diff=508.1400000000003 > tol=0.002",polybench
+2026-01-24 19:26:04,check,mini,qwen,4,output_qwen_v4_mini_output.txt,fail,"Float mismatch at row=3, col=1: 24.43 vs 18.07, diff=6.359999999999999 > tol=0.002",polybench
+2026-01-24 19:26:04,check,small,qwen,4,output_qwen_v4_small_output.txt,fail,"Float mismatch at row=3, col=1: 223.07 vs 174.98, diff=48.09 > tol=0.002",polybench
+2026-01-24 19:26:04,check,extra-large,qwen,5,output_qwen_v5_extra-large_output.txt,fail,"Float mismatch at row=3, col=1: 70381.88 vs 64256.8, diff=6125.080000000002 > tol=0.002",polybench
+2026-01-24 19:26:04,check,large,qwen,5,output_qwen_v5_large_output.txt,fail,"Float mismatch at row=3, col=1: 64871.34 vs 59943.59, diff=4927.75 > tol=0.002",polybench
+2026-01-24 19:26:04,check,medium,qwen,5,output_qwen_v5_medium_output.txt,fail,"Float mismatch at row=3, col=1: 2481.01 vs 2103.47, diff=377.5400000000004 > tol=0.002",polybench
+2026-01-24 19:26:04,check,mini,qwen,5,output_qwen_v5_mini_output.txt,fail,"Float mismatch at row=3, col=1: 24.43 vs 17.24, diff=7.190000000000001 > tol=0.002",polybench
+2026-01-24 19:26:04,check,small,qwen,5,output_qwen_v5_small_output.txt,fail,"Float mismatch at row=3, col=1: 223.07 vs 184.34, diff=38.72999999999999 > tol=0.002",polybench
+2026-01-24 19:26:04,check,extra-large,qwen,6,output_qwen_v6_extra-large_output.txt,fail,"Float mismatch at row=3, col=1: 70381.88 vs 61785.12, diff=8596.760000000002 > tol=0.002",polybench
+2026-01-24 19:26:04,check,large,qwen,6,output_qwen_v6_large_output.txt,fail,"Float mismatch at row=3, col=1: 64871.34 vs 56849.07, diff=8022.269999999997 > tol=0.002",polybench
+2026-01-24 19:26:04,check,medium,qwen,6,output_qwen_v6_medium_output.txt,fail,"Float mismatch at row=3, col=1: 2481.01 vs 1893.52, diff=587.4900000000002 > tol=0.002",polybench
+2026-01-24 19:26:04,check,mini,qwen,6,output_qwen_v6_mini_output.txt,fail,"Float mismatch at row=3, col=1: 24.43 vs 20.76, diff=3.669999999999998 > tol=0.002",polybench
+2026-01-24 19:26:04,check,small,qwen,6,output_qwen_v6_small_output.txt,fail,"Float mismatch at row=3, col=1: 223.07 vs 205.29, diff=17.78 > tol=0.002",polybench
+2026-01-24 19:26:04,check,extra-large,qwen,7,output_qwen_v7_extra-large_output.txt,fail,"Float mismatch at row=3, col=1: 70381.88 vs 63835.89, diff=6545.990000000005 > tol=0.002",polybench
+2026-01-24 19:26:04,check,large,qwen,7,output_qwen_v7_large_output.txt,fail,"Float mismatch at row=3, col=1: 64871.34 vs 59654.94, diff=5216.399999999994 > tol=0.002",polybench
+2026-01-24 19:26:04,check,medium,qwen,7,output_qwen_v7_medium_output.txt,fail,"Float mismatch at row=3, col=1: 2481.01 vs 1736.61, diff=744.4000000000003 > tol=0.002",polybench
+2026-01-24 19:26:04,check,mini,qwen,7,output_qwen_v7_mini_output.txt,fail,"Float mismatch at row=3, col=1: 24.43 vs 21.56, diff=2.870000000000001 > tol=0.002",polybench
+2026-01-24 19:26:04,check,small,qwen,7,output_qwen_v7_small_output.txt,fail,"Float mismatch at row=3, col=1: 223.07 vs 158.55, diff=64.51999999999998 > tol=0.002",polybench
+2026-01-24 19:26:04,check,extra-large,qwen,8,output_qwen_v8_extra-large_output.txt,fail,"Float mismatch at row=3, col=1: 70381.88 vs 27047.11, diff=43334.770000000004 > tol=0.002",polybench
+2026-01-24 19:26:04,check,large,qwen,8,output_qwen_v8_large_output.txt,fail,"Float mismatch at row=3, col=1: 64871.34 vs 22253.37, diff=42617.97 > tol=0.002",polybench
+2026-01-24 19:26:04,check,medium,qwen,8,output_qwen_v8_medium_output.txt,fail,"Float mismatch at row=3, col=1: 2481.01 vs 599.75, diff=1881.2600000000002 > tol=0.002",polybench
+2026-01-24 19:26:04,check,mini,qwen,8,output_qwen_v8_mini_output.txt,fail,"Float mismatch at row=3, col=1: 24.43 vs 18.63, diff=5.800000000000001 > tol=0.002",polybench
+2026-01-24 19:26:04,check,small,qwen,8,output_qwen_v8_small_output.txt,fail,"Float mismatch at row=3, col=1: 223.07 vs 135.9, diff=87.16999999999999 > tol=0.002",polybench
+2026-01-24 19:26:04,check,extra-large,qwen,9,output_qwen_v9_extra-large_output.txt,fail,"Float mismatch at row=3, col=1: 70381.88 vs 64315.56, diff=6066.320000000007 > tol=0.002",polybench
+2026-01-24 19:26:04,check,large,qwen,9,output_qwen_v9_large_output.txt,fail,"Float mismatch at row=3, col=1: 64871.34 vs 58912.7, diff=5958.639999999999 > tol=0.002",polybench
+2026-01-24 19:26:04,check,medium,qwen,9,output_qwen_v9_medium_output.txt,fail,"Float mismatch at row=3, col=1: 2481.01 vs 2037.13, diff=443.8800000000001 > tol=0.002",polybench
+2026-01-24 19:26:04,check,mini,qwen,9,output_qwen_v9_mini_output.txt,fail,"Float mismatch at row=3, col=1: 24.43 vs 21.65, diff=2.780000000000001 > tol=0.002",polybench
+2026-01-24 19:26:04,check,small,qwen,9,output_qwen_v9_small_output.txt,fail,"Float mismatch at row=3, col=1: 223.07 vs 151.5, diff=71.57 > tol=0.002",polybench
+2026-01-24 19:26:04,check,extra-large,qwen,10,output_qwen_v10_extra-large_output.txt,fail,"Float mismatch at row=3, col=1: 70381.88 vs 60724.69, diff=9657.190000000002 > tol=0.002",polybench
+2026-01-24 19:26:04,check,large,qwen,10,output_qwen_v10_large_output.txt,fail,"Float mismatch at row=3, col=1: 64871.34 vs 57583.34, diff=7288.0 > tol=0.002",polybench
+2026-01-24 19:26:04,check,medium,qwen,10,output_qwen_v10_medium_output.txt,fail,"Float mismatch at row=3, col=1: 2481.01 vs 1901.04, diff=579.9700000000003 > tol=0.002",polybench
+2026-01-24 19:26:04,check,mini,qwen,10,output_qwen_v10_mini_output.txt,fail,"Float mismatch at row=3, col=1: 24.43 vs 13.59, diff=10.84 > tol=0.002",polybench
+2026-01-24 19:26:04,check,small,qwen,10,output_qwen_v10_small_output.txt,fail,"Float mismatch at row=3, col=1: 223.07 vs 136.19, diff=86.88 > tol=0.002",polybench

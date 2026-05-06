@@ -1,0 +1,37 @@
+{
+  "benchmark": "sort-radix-mach",
+  "source": "${REPO_ROOT}/configs/runtime_hints.json",
+  "generated_at": "2025-11-28T18:10:10",
+  "strategies": {
+    "mini": {
+      "warmup": 3,
+      "runs": 15,
+      "reason": "Short kernel; appreciable startup overhead.",
+      "runtime": 0.092
+    },
+    "small": {
+      "warmup": 3,
+      "runs": 15,
+      "reason": "Short kernel; appreciable startup overhead.",
+      "runtime": 0.055
+    },
+    "medium": {
+      "warmup": 4,
+      "runs": 20,
+      "reason": "Very short kernel; startup overhead is significant.",
+      "runtime": 0.043
+    },
+    "large": {
+      "warmup": 4,
+      "runs": 20,
+      "reason": "Very short kernel; startup overhead is significant.",
+      "runtime": 0.028
+    },
+    "extra-large": {
+      "warmup": 4,
+      "runs": 20,
+      "reason": "Very short kernel; startup overhead is significant.",
+      "runtime": 0.049
+    }
+  }
+}

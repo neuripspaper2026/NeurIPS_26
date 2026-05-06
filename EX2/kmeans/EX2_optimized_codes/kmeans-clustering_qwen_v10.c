@@ -1,0 +1,131 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <float.h>
+#include <math.h>
+#ifdef _OPENMP
+#include <omp.h>
+#endif
+#include "../kmeans.h"
+
+#define RANDOM_MAX 2147483647
+
+#ifndef FLT_MAX
+#define FLT_MAX 3.40282347e+38
+#endif
+
+int find_nearest_point(float *pt,                  /* [nfeatures] */
+                       int nfeatures, float **pts, /* [npts][nfeatures] */
+                       int npts) {
+    int index = 0, i;
+    float min_dist = FLT_MAX;
+
+    /* find the cluster center id with min distance to pt */
+    for (i = 0; i < npts; i++) {
+        float dist;
+        dist = euclid_dist_2(pt, pts[i], nfeatures); /* no need square root */
+        if (dist < min_dist) {
+            min_dist = dist;
+            index = i;
+        }
+    }
+    return (index);
+}
+
+/*----< euclid_dist_2() >----------------------------------------------------*/
+/* multi-dimensional spatial Euclid distance square */
+__inline float euclid_dist_2(float *pt1, float *pt2, int numdims) {
+    int i;
+    float ans = 0.0;
+
+    for (i = 0; i < numdims; i++)
+        ans += (pt1[i] - pt2[i]) * (pt1[i] - pt2[i]);
+
+    return (ans);
+}
+
+
+/*----< kmeans_clustering() >---------------------------------------------*/
+float **kmeans_clustering(float **feature, /* in: [npoints][nfeatures] */
+                          int nfeatures, int npoints, int nclusters,
+                          float threshold, int *membership) /* out: [npoints] */
+{
+
+    int i, j, n = 0, index, loop = 0;
+    int *new_centers_len; /* [nclusters]: no. of points in each cluster */
+    float **new_centers;  /* [nclusters][nfeatures] */
+    float **clusters;     /* out: [nclusters][nfeatures] */
+    float delta;
+
+    /* allocate space for returning variable clusters[] */
+    clusters = (float **)malloc(nclusters * sizeof(float *));
+    clusters[0] = (float *)malloc(nclusters * nfeatures * sizeof(float));
+    for (i = 1; i < nclusters; i++)
+        clusters[i] = clusters[i - 1] + nfeatures;
+
+    /* randomly pick cluster centers */
+    for (i = 0; i < nclusters; i++) {
+        // n = (int)rand() % npoints;
+        for (j = 0; j < nfeatures; j++)
+            clusters[i][j] = feature[n][j];
+        n++;
+    }
+
+    for (i = 0; i < npoints; i++)
+        membership[i] = -1;
+
+    /* need to initialize new_centers_len and new_centers[0] to all 0 */
+    new_centers_len = (int *)calloc(nclusters, sizeof(int));
+
+    new_centers = (float **)malloc(nclusters * sizeof(float *));
+    new_centers[0] = (float *)calloc(nclusters * nfeatures, sizeof(float));
+    for (i = 1; i < nclusters; i++)
+        new_centers[i] = new_centers[i - 1] + nfeatures;
+
+
+    do {
+        delta = 0.0;
+        
+        #pragma omp parallel for private(index) reduction(+:delta)
+        for (i = 0; i < npoints; i++) {
+            /* find the index of nestest cluster centers */
+            index = find_nearest_point(feature[i], nfeatures, clusters,
+                                       nclusters);
+            /* if membership changes, increase delta by 1 */
+            if (membership[i] != index)
+                delta += 1.0;
+
+            /* assign the membership to object i */
+            membership[i] = index;
+        }
+        
+        #pragma omp parallel for
+        for (i = 0; i < npoints; i++) {
+            /* update new cluster centers : sum of all objects located within */
+            int idx = membership[i];
+            #pragma omp atomic
+            new_centers_len[idx]++;
+            for (j = 0; j < nfeatures; j++) {
+                #pragma omp atomic
+                new_centers[idx][j] += feature[i][j];
+            }
+        }
+
+        /* replace old cluster centers with new_centers */
+        for (i = 0; i < nclusters; i++) {
+            for (j = 0; j < nfeatures; j++) {
+                if (new_centers_len[i] > 0)
+                    clusters[i][j] = new_centers[i][j] / new_centers_len[i];
+                new_centers[i][j] = 0.0; /* set back to 0 */
+            }
+            new_centers_len[i] = 0; /* set back to 0 */
+        }
+
+    } while (delta > threshold && loop++ < 500);
+
+
+    free(new_centers[0]);
+    free(new_centers);
+    free(new_centers_len);
+
+    return clusters;
+}

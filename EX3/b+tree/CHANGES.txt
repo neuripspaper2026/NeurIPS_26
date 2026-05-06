@@ -1,0 +1,32 @@
+B+Tree Build System - Output Directory Change
+================================================
+
+CHANGE: Executables now output to EX3_optimized_codes/ directory
+
+BEFORE:
+  b+tree/
+  ├── b+tree              <- executables here
+  ├── b+tree_gpt4_v1
+  └── EX3_optimized_codes/
+      ├── kernel_gpu_cuda.cu
+      └── kernel_gpu_cuda_2.cu
+
+AFTER:
+  b+tree/
+  └── EX3_optimized_codes/
+      ├── kernel_gpu_cuda.cu
+      ├── kernel_gpu_cuda_2.cu
+      ├── b+tree           <- executables here now
+      └── b+tree_gpt4_v1
+
+USAGE:
+  Build (same):     make
+  Clean (same):     make clean
+  Run (changed):    cd EX3_optimized_codes && ./b+tree ...
+
+BENEFITS:
+  - Kernels and executables in same directory
+  - Cleaner organization
+  - Easy to see what corresponds to what
+
+See BUILD_INSTRUCTIONS.md for details.

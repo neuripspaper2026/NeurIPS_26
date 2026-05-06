@@ -1,0 +1,47 @@
+Backprop Modification Checklist
+================================
+
+TIME MEASUREMENT:
+[✓] Added #include <time.h> to backprop_cuda.cu
+[✓] Added global variable: double total_kernel_time = 0.0
+[✓] Added struct timespec main_start, main_end in main()
+[✓] Added clock_gettime(CLOCK_MONOTONIC, &main_start) at program start
+[✓] Added timing around bpnn_layerforward_CUDA kernel
+[✓] Added timing around bpnn_adjust_weights_cuda kernel
+[✓] Both kernels accumulate time to total_kernel_time
+[✓] Added TIMING_LOG_FILE support at program end
+[✓] Output format: KERNEL_TIME: %.9f\n and TOTAL_TIME: %.9f\n
+
+MAKEFILE:
+[✓] Created new Makefile
+[✓] Set OUTPUT_DIR = EX3_optimized_codes
+[✓] Auto-detect variant kernels (backprop_cuda_kernel_*.cu)
+[✓] Generate temporary main files with modified #include
+[✓] Baseline rule: $(OUTPUT_DIR)/backprop_cuda
+[✓] Variant rule: $(OUTPUT_DIR)/backprop_cuda_%
+[✓] No .o files (direct compilation)
+[✓] Error tolerant (-@ prefix)
+[✓] Build summary target
+[✓] list-variants target
+[✓] clean target
+[✓] help target
+
+DOCUMENTATION:
+[✓] BUILD_NOTES.md - Detailed technical notes
+[✓] CHANGES_SUMMARY.txt - Summary of all changes
+[✓] CHECKLIST.txt - This file
+
+SPECIAL CONSIDERATIONS:
+[✓] Kernel file directly included (not via wrapper)
+[✓] Temporary main files created in .build/
+[✓] Include path modified: "../EX3_optimized_codes/backprop_cuda_kernel.cu"
+[✓] C source files (backprop.c, facetrain.c, imagenet.c) linked with CUDA
+
+READY TO BUILD:
+[ ] Place kernel files in EX3_optimized_codes/
+[ ] Run: make list-variants (verify detection)
+[ ] Run: make (build all)
+[ ] Verify executables in EX3_optimized_codes/
+[ ] Test timing output
+
+All modifications complete! ✓

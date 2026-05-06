@@ -1,0 +1,77 @@
+{
+  "benchmark": "nw",
+  "ex_version": "EX3",
+  "generated_at": "2026-04-20T17:34:57",
+  "missing": [
+    {
+      "dataset": "default",
+      "model": "claude",
+      "version": 1
+    },
+    {
+      "dataset": "default",
+      "model": "claude",
+      "version": 2
+    },
+    {
+      "dataset": "default",
+      "model": "claude",
+      "version": 3
+    },
+    {
+      "dataset": "default",
+      "model": "claude",
+      "version": 4
+    },
+    {
+      "dataset": "default",
+      "model": "claude",
+      "version": 5
+    },
+    {
+      "dataset": "default",
+      "model": "claude",
+      "version": 6
+    },
+    {
+      "dataset": "default",
+      "model": "claude",
+      "version": 7
+    },
+    {
+      "dataset": "default",
+      "model": "claude",
+      "version": 8
+    },
+    {
+      "dataset": "default",
+      "model": "claude",
+      "version": 9
+    },
+    {
+      "dataset": "default",
+      "model": "claude",
+      "version": 10
+    },
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 4
+    },
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 5
+    },
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 6
+    },
+    {
+      "dataset": "default",
+      "model": "gpt5.1",
+      "version": 9
+    }
+  ]
+}

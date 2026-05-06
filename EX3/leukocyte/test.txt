@@ -1,0 +1,2 @@
+Final frame (5) cell centers:
+Cell 0: x=362.50, y=199.12

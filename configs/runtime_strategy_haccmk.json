@@ -1,0 +1,13 @@
+{
+  "benchmark": "haccmk",
+  "source": "${REPO_ROOT}/configs/runtime_hints.json",
+  "generated_at": "2025-11-28T15:07:04",
+  "strategies": {
+    "medium": {
+      "warmup": 0,
+      "runs": 3,
+      "reason": "Extremely long kernel; warm-up not required.",
+      "runtime": 28.782
+    }
+  }
+}

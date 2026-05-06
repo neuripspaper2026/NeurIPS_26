@@ -1,0 +1,81 @@
+EX3 Configuration Files Setup - COMPLETE
+=========================================
+
+Date: 2026-01-27
+Status: Template files created, ready for data entry
+
+CREATED FILES:
+--------------
+
+1. benchmark_args_ex3.json
+   Purpose: Command-line arguments for each benchmark
+   Status: Template with TODO placeholders
+   Format: JSON with benchmark -> dataset_size -> args array
+
+2. benchmark_catalog_ex3.py
+   Purpose: Kernel code locations (start_line, end_line, target_file)
+   Status: Template with TODO placeholders
+   Format: Python dictionary BenchmarkMeta
+   
+3. head_code_ex3.py
+   Purpose: Header file dependencies
+   Status: Template with some known headers
+   Format: Python function returning List[Path]
+
+4. README.md
+   Purpose: Documentation and usage guide
+   Status: Complete with examples and integration guide
+
+5. runtime_hints_ex3.json
+   Status: Already existed and completed
+
+STRUCTURE:
+----------
+configs/
+├── EX3_configs/
+│   ├── benchmark_args_ex3.json       ← NEW: Args config
+│   ├── benchmark_catalog_ex3.py      ← NEW: Code locations
+│   ├── head_code_ex3.py              ← NEW: Headers
+│   ├── README.md                     ← NEW: Documentation
+│   ├── runtime_hints_ex3.json        ← Existing: Runtime hints
+│   └── SETUP_COMPLETE.txt            ← This file
+
+KEY DIFFERENCES FROM EX1/EX2:
+------------------------------
+- EX3 uses CUDA kernel files in EX3_optimized_codes/
+- Target files point to .cu kernel files, not main program
+- Start/end lines mark __global__ kernel functions
+- Headers are CUDA-specific, not shared utilities
+
+KNOWN VALUES (from your recent work):
+--------------------------------------
+bilateral:
+  - Kernel: EX3_optimized_codes/bilateral_kernel.cu line 80-106
+  - Function: d_bilateral_filter
+
+b+tree:
+  - Kernel 1: EX3_optimized_codes/kernel_gpu_cuda.cu (full file)
+  - Kernel 2: EX3_optimized_codes/kernel_gpu_cuda_2.cu (full file)
+
+backprop:
+  - Kernel: EX3_optimized_codes/backprop_cuda_kernel.cu (full file)
+
+bfs:
+  - Kernel 1: EX3_optimized_codes/kernel.cu (full file)
+  - Kernel 2: EX3_optimized_codes/kernel2.cu (full file)
+
+NEXT STEPS:
+-----------
+1. Fill benchmark_args_ex3.json with command-line arguments
+2. Fill benchmark_catalog_ex3.py with start_line/end_line
+3. Complete head_code_ex3.py with header dependencies
+4. Test with a few benchmarks
+5. Integrate into main pipeline
+
+REFERENCE FILES:
+----------------
+- EX1/EX2 args: configs/benchmark_args.json
+- EX1/EX2 catalog: scripts/benchmark_catalog.py
+- EX1/EX2 headers: scripts/head_code.py
+
+All template files are ready for you to fill in!

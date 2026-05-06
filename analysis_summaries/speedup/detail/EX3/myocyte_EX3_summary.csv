@@ -1,0 +1,6 @@
+dataset,trail,model,threads,version,compiler,sequence_id,is_baseline,kernel_mean_s,total_mean_s,kernel_speedup,total_speedup,success_rate,warmup_runs,measure_runs,hint_key,executable
+mini,1,baseline,,,unknown,0,True,1.165090092,1.485461583,1.0,1.0,1.0,0,1,mini,${REPO_ROOT}/EX3/myocyte/EX3_optimized_codes/myocyte
+small,1,baseline,,,unknown,1,True,0.506193046,1.17460685,1.0,1.0,1.0,0,1,small,${REPO_ROOT}/EX3/myocyte/EX3_optimized_codes/myocyte
+medium,1,baseline,,,unknown,2,True,1.01480936,2.141944799,1.0,1.0,1.0,0,1,medium,${REPO_ROOT}/EX3/myocyte/EX3_optimized_codes/myocyte
+large,1,baseline,,,unknown,3,True,1.524091583,3.153393249,1.0,1.0,1.0,0,1,large,${REPO_ROOT}/EX3/myocyte/EX3_optimized_codes/myocyte
+extra-large,1,baseline,,,unknown,4,True,2.019541199,4.116767672,1.0,1.0,1.0,0,1,extra-large,${REPO_ROOT}/EX3/myocyte/EX3_optimized_codes/myocyte

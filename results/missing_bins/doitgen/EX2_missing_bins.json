@@ -1,0 +1,32 @@
+{
+  "benchmark": "doitgen",
+  "ex_version": "EX2",
+  "generated_at": "2026-01-04T19:32:13",
+  "missing": [
+    {
+      "dataset": "mini",
+      "model": "qwen",
+      "version": 5
+    },
+    {
+      "dataset": "small",
+      "model": "qwen",
+      "version": 5
+    },
+    {
+      "dataset": "medium",
+      "model": "qwen",
+      "version": 5
+    },
+    {
+      "dataset": "large",
+      "model": "qwen",
+      "version": 5
+    },
+    {
+      "dataset": "extra-large",
+      "model": "qwen",
+      "version": 5
+    }
+  ]
+}
