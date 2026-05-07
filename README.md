@@ -1,6 +1,6 @@
 # HPC-Bench
 
-A performance-grounded benchmark for evaluating LLMs as optimizers of computational kernels in realistic HPC workloads. HPC-Bench covers **92 workloads spanning 17 computational motifs** (dense / sparse linear algebra, stencils, graph traversals, N-body, dynamic programming, spectral methods, etc.) drawn from seven well-established benchmark suites.
+A performance-grounded benchmark for evaluating LLMs as optimizers of computational kernels in realistic HPC workloads. HPC-Bench covers **114 workloads spanning 16 computational motifs** (Dense Linear Algebra, Sparse Linear Algebra, Stencils / Scientific Computing (SC), Graph Algorithms, Dynamic Programming, N-body Methods, etc.) drawn from seven well-established benchmark suites.
 
 > Anonymous submission for **NeurIPS 2026 Evaluations & Datasets Track** (double-blind).
 
@@ -15,13 +15,13 @@ The pipeline:
 Headline metrics (sampling-aware, correctness-gated):
 
 * **Fast@k** — probability of obtaining a correct speed-up ≥ p<sub>thr</sub> within k samples.
-* **Speedup@k** — expected best speed-up among k samples.
+* **Speedup@k** — expected best speed-up of obtaining a correct speed-up ≥ p<sub>thr</sub> with k samples.
 
 Three optimization scenarios are evaluated:
 
 * **EX1** — Serial CPU (loop restructuring, redundant-computation elimination, locality optimizations; no parallel constructs).
-* **EX2** — OpenMP CPU parallelization (thread counts {1, 2, 4, 8, 16}).
-* **EX3** — CUDA GPU optimization (NVIDIA A100, sm_80 / sm_90).
+* **EX2** — OpenMP CPU parallelization (thread counts {1, 2, 8, 16, 32}).
+* **EX3** — CUDA GPU optimization (NVIDIA A100, sm_80).
 
 ---
 
