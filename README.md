@@ -102,7 +102,7 @@ export TOGETHER_API_KEY="..."
 `input_data/` directories are not committed inline because of their volume (≈ 117 GB raw; ≈ 23 GB zipped). Data are split between two locations:
 
 * **Bundled** — small benchmarks (≈ 80 of 92) ship as `input_data_archives/*.zip` inside this repo.
-* **Hugging Face** — 12 large benchmarks (e.g. `stringsearch-mibench`, `basicmath-mibench`, `hotspot`, `leukocyte`, `bfs`, `patricia-mibench`, `qsort-mibench`, `mri-gridding`, `kmeans`, `pathfinder`, `backprop`, `susan-{c,e,s}-mibench`) are hosted at `huggingface.co/datasets/anonymous/HPC-Bench-input-data` (anonymous mirror; replace `anonymous` with the path printed in `tools/setup_input_data.sh --help` after acceptance).
+* **Hugging Face** — 49 large benchmark archives (covering `stringsearch-mibench`, `basicmath-mibench`, `hotspot`, `leukocyte`, `bfs`, `patricia-mibench`, `qsort-mibench`, `mri-gridding`, `kmeans`, `pathfinder`, `backprop`, `susan-{c,e,s}-mibench`, `b+tree`, `hotspot3D`, `lud`, `sgemm`, `stencil`, `srad_v2`, `histo`, `huffman`) are hosted at https://huggingface.co/datasets/neuripspaper26/NeurIPS_26_Large_Data .
 
 Populate everything with:
 

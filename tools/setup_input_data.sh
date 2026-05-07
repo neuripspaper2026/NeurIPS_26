@@ -57,7 +57,7 @@ fi
 
 # 2) Optional: pull large archives from Hugging Face.
 if [[ "${WITH_LARGE}" -eq 1 ]]; then
-  : "${HPC_BENCH_HF_REPO:=anonymous/HPC-Bench-input-data}"
+  : "${HPC_BENCH_HF_REPO:=neuripspaper26/NeurIPS_26_Large_Data}"
   echo ""
   echo "Fetching large input_data archives from Hugging Face: ${HPC_BENCH_HF_REPO}"
   if ! command -v huggingface-cli >/dev/null 2>&1; then
