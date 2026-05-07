@@ -375,5 +375,5 @@ head -3 input_data/small/input/Datapnts.1
 
 ## License
 
-This generator is part of the ICLR'26 benchmark suite and follows the Parboil benchmark license (University of Illinois).
+This generator is part of the HPC-Bench benchmark suite and follows the Parboil benchmark license (University of Illinois).
 

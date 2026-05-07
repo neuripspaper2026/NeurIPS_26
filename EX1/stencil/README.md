@@ -374,5 +374,5 @@ od -A none -t f4 -N 40 input_data/small/input/128x128x32.bin
 
 ## License
 
-This generator is part of the ICLR'26 benchmark suite and follows the Parboil benchmark license (University of Illinois).
+This generator is part of the HPC-Bench benchmark suite and follows the Parboil benchmark license (University of Illinois).
 

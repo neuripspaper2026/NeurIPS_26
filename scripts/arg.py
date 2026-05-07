@@ -118,7 +118,7 @@ class ScriptManager():
     benchmark_parsec = BENCHMARK_PARSEC
     benchmark_machsuite = BENCHMARK_MACHSUITE
 
-    def __init__(self, absolute_path: str = "D:\\CS_PhD\\research\\NeurIPS\\target_code\\NeurIPS_25", customer_list: list = None):
+    def __init__(self, absolute_path: str = ".", customer_list: list = None):
         self.absolute_path = Path(absolute_path)
         self.log_file_path = (self.absolute_path / "logs" / "script_manager_errors.log").resolve()
         self.log_file_path.parent.mkdir(parents=True, exist_ok=True)
@@ -1161,7 +1161,7 @@ class ScriptManager():
         if suffix == ".cpp" and compiler == 'gcc':
             compiler = 'g++'
 
-        # Example: D:\CS_PhD\...\EX1\2mm\measure_gcc_performance_times.sh
+        # Example: <repo_root>\...\EX1\2mm\measure_gcc_performance_times.sh
         benchmark_subdir = self.absolute_path / ex_version / benchmark_name
         measure_script_name = f"measure_{compiler}_performance_times.sh"
         measure_script_path = benchmark_subdir / measure_script_name
@@ -1877,7 +1877,7 @@ class ScriptManager():
 """
 # Reference Format for class Benchmarks
 if __name__ == "__main__":
-    benchmark_runner = Benchmarks(absolute_path='D:\\CS_PhD\\research\\NeurIPS\\target_code\\NeurIPS_25', llm_model='deepseek-ai/DeepSeek-R1', llm_abbrev='dpR1')
+    benchmark_runner = Benchmarks(absolute_path='.', llm_model='deepseek-ai/DeepSeek-R1', llm_abbrev='dpR1')
     benchmark_runner.run_all_benchmarks()  # Run all benchmarks
     benchmark_runner.write_error_log()  # Log any errors encountered during the runs
     print("[INFO: ScriptManager] All scripts executed successfully.")  # Final message

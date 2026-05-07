@@ -180,7 +180,7 @@ If you use this data, please cite the HPC-Bench paper:
 @inproceedings{hpcbench2026,
   title={HPC-Bench: A Comprehensive Benchmark for High-Performance Computing Optimization},
   author={...},
-  booktitle={ICLR},
+  booktitle={NeurIPS 2026 Evaluations \& Datasets Track},
   year={2026}
 }
 ```
